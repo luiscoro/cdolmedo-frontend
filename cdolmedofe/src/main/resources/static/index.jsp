@@ -1,19 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- estilos -->
+        <%-- estilos --%>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <!--para el login  -->
+        <%--para el login  --%>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Fuente -->
+        <%-- Fuente --%>
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 
 
-        <!-- Botstrap -->
+        <%-- Botstrap --%>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
               crossorigin="anonymous">
@@ -21,7 +23,7 @@
 </head>
 <body>
 
-<div class="cabecera"> <!-- Cabecera -->
+<div class="cabecera"> <%-- Cabecera --%>
             <div class="cabeceraLogo">
                 <a href="index.jsp" ><img src="img/escudo.png" ></a>
                  
@@ -51,9 +53,9 @@
                     <strong>INICIA SESIÓN</strong> 
             </button>
             </div>
-        </div> <!-- Fin Cabecera -->
+        </div> <%-- Fin Cabecera --%>
         
-        <div class="barramenu"> <!-- Barra de menú -->
+        <div class="barramenu"> <%-- Barra de menú --%>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">INICIO</a>
@@ -73,9 +75,9 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>-->
             </ul>  
-        </div> <!-- Fin de barra de menú -->
+        </div> <%-- Fin de barra de menú --%>
 
-        <div> <!-- Banner -->
+        <div> <%-- Banner --%>
 
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -116,10 +118,10 @@
                 </a>
             </div>
 
-        </div><!--Fin del Banner -->
+        </div><%--Fin del Banner --%>
 
 
-        <div><!-- publicacioness -->
+        <div><%-- publicacioness --%>
 
             <div class="card" style="width: 18rem; float: left;">
                 <img src="..." class="card-img-top" alt="...">
@@ -148,10 +150,10 @@
             <div class="piefin">
 
             </div>
-        </div><!-- FIN Publicaciones-->
+        </div><%-- FIN Publicaciones--%>
 
 
-        <footer ><!-- Footer -->
+        <footer ><%-- Footer --%>
             <div class="redesolmedo">   
                 <div class="redes">
                     face
@@ -163,9 +165,9 @@
                 Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
             </div>
 
-        </footer><!-- FIN footer-->
+        </footer><%-- FIN footer--%>
 
-        <div id="login" class="w3-modal w3-animate-opacity"><!--LOGIN -->
+        <div id="login" class="w3-modal w3-animate-opacity"><%--LOGIN --%>
             <div class="w3-modal-content" style="padding:32px">
                 <div class="w3-container w3-white">
                     <i onclick="document.getElementById('login').style.display = 'none'" class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
@@ -182,13 +184,12 @@
 
                 </div>
             </div>
-        </div><!-- FIN LOGIN -->
+        </div><%-- FIN LOGIN --%>
 
-        <!-- Botstrap -->      
+        <%-- Botstrap --%>      
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
-
 
 </body>
 </html>
