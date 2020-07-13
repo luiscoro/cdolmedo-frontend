@@ -107,8 +107,44 @@ body{
        color: #FFFFFF;
        border: 1px solid #FFFFFF;
 }
+.botonGeneraldos{
+       font-family: 'Montserrat', sans-serif;
+       font-size: 14px;
+       background: #F20530;
+       color:#FFFFFF;
+       width: auto;
+       height: 40px;
+       border-radius: 10px;
+       border: 1px solid #F20530;  
+       padding: 3px 10px 3px 10px;
+       position:relative; 
+       margin: -20px -50px; 
+       width:100px; 
+       top:50%; 
+       left:50%;
+}
+.botonGeneraldos:hover{
+       background: #2930A6;
+       color: #FFFFFF;
+       border: 1px solid #FFFFFF;
+}
+/*    fFINin CABECERA   */
+/* LOGIN */
 
-/*    fin cabecera   */
+.w3-modal-content{
+ 	border-radius: 10px;
+ 	height: 300px;
+	background: #FFFFFF;
+}
+
+
+.w3-wide{
+	text-align: center;
+	color:#FFFFFF;
+	font-family: 'Montserrat', sans-serif;
+	
+}
+/* FIN LOGIN */
 
 /* BARRA MENU*/
 
@@ -130,6 +166,7 @@ body{
 }
 
 /* FIN BARRA MENU*/
+
 /* TITULO */
 .titulo{
 	background: #2930A6;
@@ -196,7 +233,6 @@ select{
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
     background-size: .65em auto, 100%;
-
 }
 /*FIN DE CUERPO CENTRAL*/
 
@@ -227,7 +263,7 @@ footer{
     width: auto;
     height: 30px;
    /* border: 1px solid red;*/
-   border-top: 1px solid #F20530;
+   border-top: 2px solid #F20530;
     text-align: center;
     color:#FFFFFF;
 }
