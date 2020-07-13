@@ -130,14 +130,28 @@ body{
 }
 
 /* FIN BARRA MENU*/
-
-
+/* TITULO */
+.titulo{
+	background: #2930A6;
+	width: auto;
+	height: 60px;
+	text-align: center;
+	color:#FFFFFF;
+	padding: 10px;
+}
+.card:hover{
+	background: #2930A6;
+	color:#FFFFFF;
+}
+/* FIN TITULO */
 /* CUERPO CENTRARL*/
 .cuerpo_pagina{
 	padding: 30px;
 	width: auto;
 	text-align: center;
 	min-height: 600px;
+	margin: 0 auto;
+	/*border: 1px solid red;*/
 }
 .cuerporegistro{
 	width: 400px;
