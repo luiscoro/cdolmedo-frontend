@@ -9,17 +9,16 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Fuente -->
-
+	
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 		<!--  JS -->
 	<script src="js/controller.js"></script>
 	<script src="js/validar.js"></script>
-
         <!-- Botstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
               crossorigin="anonymous">
-<title>Registro Usuario - CDOLMEDO</title>
+<title>Inicio - CDOLMEDO</title>
 </head>
 <body>
 
@@ -50,12 +49,12 @@
             
             <div class="cabeceraBoton">
                 <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
-                    <strong>INICIAR SESIÓN</strong> 
+                    <strong>INICIA SESIÓN</strong> 
             </button>
             </div>
         </div> <!-- Fin Cabecera -->
         
-                <div class="barramenu"> <!-- Barra de menú -->
+        <div class="barramenu"> <!-- Barra de menú -->
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">INICIO</a>
@@ -70,6 +69,10 @@
                     <a class="nav-link" href="#">SOCIO</a>
                     
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hacerseSocio.html">Hacerse Socio</a>
+                    
+                </li>
                 <!--
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -77,69 +80,15 @@
             </ul>  
         </div> <!-- Fin de barra de menú -->
         
-  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA  -->      	
-        	
-     <div class="cuerporegistro">
-       <form action="" onsubmit="return valida(this)">
-	        	<h3>Registrar Usuario</h3>
-	        	<hr style="background: #FFFFFF;">
-	        	
-	        	<label>Nombre y Apellido</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre.." autofocus="autofocus" ><br><br>
-	        	<label>Correo Electrónico</label><br>
-	        	<input class="ingresodatos" type="email" placeholder="Correo electrónico.."><br><br>
-	        	<label>Fecha de Nacimiento</label><br>
-	        	
-	        	<select>
-	        	   <option value="">Día..</option>
-	        	   <option class="opcion" value="1">1</option>
-	        	   <option value="2">2</option>  
-	        	</select>
-	        	
-	        	<select>
-	        	<option>Mes..</option>
-	        	   <option value="1">Enero</option>
-	        	   <option value="2">Febrero</option>  
-	        	</select>
-	        	<select>
-	        	<option>Año..</option>
-	        	   <option value="1">2000</option>
-	        	   <option value="2">2001</option>  
-	        	</select>
-	        	<br><br>
-	        	<label>Teléfono</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Teléfono.."><br><br>
-	        	<label>Dirección</label><br>
-	        	<textarea class="ingresodatosdos" rows="3" cols="39	" placeholder="Dirección.."></textarea>
-	        	<br>
-	        	<br>
-	        	<label>Ubicación</label><br>
-	        	<select>
-	        	<option>País..</option>
-	        	   <option value="1">Ecuador</option>
-	        	   <option value="2">Colombia</option>  
-	        	</select>
-	        	<select>
-	        	<option>Provincia..</option>
-	        	   <option value="1">Chimborazo</option>
-	        	   <option value="2">Pichincha</option>  
-	        	</select>
-	        	<br>
-	        	<br>
-	        	<label>Género</label><br>
-	        	
-	        	<input class="genero" type="radio" name="genero" value="Masculino">&nbsp;Masculino&nbsp;&nbsp;
-                <input class="genero" type="radio" name="genero" value="Femenino">&nbsp;Femenino
-	        	<br>
-	        	<br>
-	        	
-	        	<input class="botonGeneralCentrado" type="submit" value="REGISTRAR">
-	     </form>
-      </div>
-  </main><!-- FIN DE CUERPO DE PAGINA  -->
         
-          
-        <footer ><!-- Footer -->
+        
+        
+      <main class="cuerpo_pagina"><!-- publicacioness -->  
+        
+        
+         </main><!-- FIN Publicaciones-->
+         
+         <footer ><!-- Footer -->
             <div class="redesolmedo">   
                 <div class="redes">
                     face
@@ -152,13 +101,16 @@
             </div>
 
         </footer><!-- FIN footer-->
-
+        
+        
  <!-- Botstrap -->      
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
 
 
-
 </body>
-</html>
+</html>        
+        
+        
+        

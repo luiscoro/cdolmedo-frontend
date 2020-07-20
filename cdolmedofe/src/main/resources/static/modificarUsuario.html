@@ -11,9 +11,7 @@
         <!-- Fuente -->
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
-		<!--  JS -->
-	<script src="js/controller.js"></script>
-	<script src="js/validar.js"></script>
+
 
         <!-- Botstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
@@ -77,25 +75,24 @@
             </ul>  
         </div> <!-- Fin de barra de menú -->
         
-  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA  -->      	
+        <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA  -->
         	
-     <div class="cuerporegistro">
-       <form action="" onsubmit="return valida(this)">
-	        	<h3>Registrar Usuario</h3>
+        	<div class="cuerporegistro">
+        	<form action="" method=POST">
+	        	<h3>MODIFICAR Usuario</h3>
 	        	<hr style="background: #FFFFFF;">
 	        	
-	        	<label>Nombre y Apellido</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre.." autofocus="autofocus" ><br><br>
+	        	<label>Nombre</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="Nombre.."><br><br>
 	        	<label>Correo Electrónico</label><br>
-	        	<input class="ingresodatos" type="email" placeholder="Correo electrónico.."><br><br>
+	        	<input class="ingresodatos" type="text" placeholder="Correo electrónico.."><br><br>
 	        	<label>Fecha de Nacimiento</label><br>
 	        	
 	        	<select>
-	        	   <option value="">Día..</option>
+	        	   <option>Dia..</option>
 	        	   <option class="opcion" value="1">1</option>
 	        	   <option value="2">2</option>  
 	        	</select>
-	        	
 	        	<select>
 	        	<option>Mes..</option>
 	        	   <option value="1">Enero</option>
@@ -133,10 +130,15 @@
 	        	<br>
 	        	<br>
 	        	
-	        	<input class="botonGeneralCentrado" type="submit" value="REGISTRAR">
-	     </form>
-      </div>
-  </main><!-- FIN DE CUERPO DE PAGINA  -->
+	        	<input class="botonGeneral" type="button" value="REGISTRAR">
+	        	</form>
+        	</div>
+        	
+        	
+        	
+        
+        
+        </main><!-- FIN DE CUERPO DE PAGINA  -->
         
           
         <footer ><!-- Footer -->

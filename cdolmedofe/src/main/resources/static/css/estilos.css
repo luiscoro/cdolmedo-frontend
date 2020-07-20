@@ -107,6 +107,22 @@ body{
        color: #FFFFFF;
        border: 1px solid #FFFFFF;
 }
+.botonGeneralCentrado{
+       font-family: 'Montserrat', sans-serif;
+       font-size: 14px;
+       background: #F20530;
+       color:#FFFFFF;
+       width: auto;
+       height: 40px;
+       border-radius: 10px;
+       border: 1px solid #F20530;  
+       padding: 3px 10px 3px 10px;
+}
+.botonGeneralCentrado:hover{
+       background: #2930A6;
+       color: #FFFFFF;
+       border: 1px solid #FFFFFF;
+}
 .botonGeneraldos{
        font-family: 'Montserrat', sans-serif;
        font-size: 14px;
@@ -133,9 +149,16 @@ body{
 
 .w3-modal-content{
  	border-radius: 10px;
- 	height: 350px;
+ 	height: 420px;
  	color:#FFFFFF;
  	border: 2px solid red;
+}
+.w3-modal-content img{
+ 	height: 100px; 
+ 	margin-left: 180px;
+ 	margin-right: auto; 
+ 	display: block; 
+ 	padding-top: 10px;
 }
 
 
