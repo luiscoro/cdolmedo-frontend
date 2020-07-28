@@ -89,52 +89,39 @@
         
         
 
-         <div class="cuerporegistro">
+     <div class="cuerporegistro">
        <form action="" onsubmit="return valida(this)">
 	        	<h3>Ingresar Publicación</h3>
 	        	<hr style="background: #FFFFFF;">
 	        	
-	        	<label>Nombre de Publicación</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" ><br><br><br>
-				<label>Detalle Publicación</label><br>
-	        	<textarea class="ingresodatosdos" rows="3" cols="39	" placeholder="Detalle de Publicación.."></textarea>
+	        	<label>Tipo de Publicación</label><br>
+	        	<select>
+	        	<option>Seleccionar</option>
+	        	   <option value="1">Noticia</option>
+	        	   <option value="2">Ultima</option>  
+	        	</select>
 	        	<br>
 	        	<br>	
-	        	<br>        	
+	        	<hr style="background: #FFFFFF;">  
+	        	
+	        	<label>Nombre de Publicación</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" ><br><br>
+				<label>Detalle Publicación</label><br>
+	        	<textarea class="ingresodatosdos" rows="8" cols="39	" placeholder="Detalle de Publicación.."></textarea>
+	        	<br>
+	        	<br>	
+	        	<hr style="background: #FFFFFF;">       	
 	        	
 	        	<label>Autor de la Publicación</label><br>
 	        	
-	        	<select>
-	        	   <option value="">Selecionar..</option>
-	        	   <option class="opcion" value="1">Paul Proaño</option>
-	        	   <option value="2">Luis Coronel</option>  
-	        	</select>
-	        	
-	        	<br><br><br>
-	        	
-	        	<label>Fecha de Publicación</label><br>
-	        	
-	        	<select>
-	        	   <option value="">Día..</option>
-	        	   <option class="opcion" value="1">1</option>
-	        	   <option value="2">2</option>  
-	        	</select>
-	        	
-	        	<select>
-	        	<option>Mes..</option>
-	        	   <option value="1">Enero</option>
-	        	   <option value="2">Febrero</option>  
-	        	</select>
-	        	<select>
-	        	<option>Año..</option>
-	        	   <option value="1">2000</option>
-	        	   <option value="2">2001</option>  
-	        	</select>
-	        	<br><br><br>
-	        	<label>Imagen de Publicación</label><br><br>
+	        	<input class="ingresodatos" type="text" placeholder="Autor Publicación.." >
+
+
+	        	<br><br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Imagen de Publicación</label><br>	
 	        	<input type="file">
 	        	<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
-	        	<br>
 	        	<br>
 	        	<br>
 	        	<input class="botonGeneralCentrado" type="submit" value="PUBLICAR">
