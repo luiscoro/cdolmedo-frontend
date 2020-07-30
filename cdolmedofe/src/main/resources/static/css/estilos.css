@@ -237,6 +237,14 @@ body{
 	resize: none;
 	padding-left: 10px;
 }
+.ingresodatospeq{
+	width: 120px;
+	height: 40px;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+
+
 .genero{
 	padding-left: 120px;
 	
