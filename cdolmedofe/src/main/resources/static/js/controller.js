@@ -1,23 +1,22 @@
 $(document).ready(function(){
-    $('#formIngresoSistema #btnIngresarSistema').click(function(a){
+    $('#btnIngresarSistema').click(function(a){
         event.preventDefault();
         var formdata = $('#formIngresoSistema').serializeArray();
         var dd={};
         $(formdata).each(function(index, obj){
             dd[obj.name]=obj.value;
         });
-        if((dd['txtCorreo']!='')&&(dd['txtContra']!='')){
+        if((dd['username']!='')&&(dd['password']!='')){
             $.ajax({
                 cache:false,
-                url:'http://localhost:8000/login/set',	
+                url:'http://localhost:8080/login',	
                 type:'POST',
                 data: JSON.stringify(dd),
                 contentType:'application/json; charset=utf-8',
                 success: function(data){
                     console.log(data);
-                    $('.txtCorreo').text(data.nombreU);
-                    $('.txtContra').text(data.correoU);
-					$('.msg_busqueda').text(data.msgB);
+                   /* $('.nombre').text(data.username);
+                    $('.contrasenia').text(data.password);*/
                 },
                 error: function(xhr, resp, text){
                     console.log(xhr, resp, text)
