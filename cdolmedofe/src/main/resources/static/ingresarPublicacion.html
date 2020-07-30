@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
         <!-- estilos -->
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
         <!--para el login  -->
@@ -91,12 +92,12 @@
         
 
      <div class="cuerporegistro">
-       <form action="" onsubmit="return valida(this)">
+       <form action="#" method="POST" onsubmit="return valida(this)" enctype="multipart/form-data">
 	        	<h3>Ingresar Publicación</h3>
 	        	<hr style="background: #FFFFFF;">
 	        	
 	        	<label>Tipo de Publicación</label><br>
-	        	<select>
+	        	<select id="detallet">
 	        	<option>Seleccionar</option>
 	        	   <option value="1">Noticia</option>
 	        	   <option value="2">Ultima</option>  
@@ -105,51 +106,74 @@
 	        	<hr style="background: #FFFFFF;">  
 	        	
 	        	<label>Nombre de Publicación</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" ><br><br>
+	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" id="nombre" ><br><br>
 				<label>Detalle Publicación</label><br>
-	        	<textarea class="ingresodatosdos" rows="8" cols="39	" placeholder="Detalle de Publicación.."></textarea>
+	        	<textarea class="ingresodatosdos" id="detallep" rows="8" cols="39	" placeholder="Detalle de Publicación.."></textarea>
 	        	<br>
 	        	<br>	
 	        	<hr style="background: #FFFFFF;">       	
 	        	
 	        	<label>Autor de la Publicación</label><br>
 	        	
-	        	<input class="ingresodatos" type="text" placeholder="Autor Publicación.." >
+	        	<input class="ingresodatos" id="autor" type="text" placeholder="Autor Publicación.." >
 
 
 	        	<br><br>
 	        	<hr style="background: #FFFFFF;">
 	        	<label>Imagen de Publicación</label><br>	
 	        	<input type="file">
-	        	<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
+	        	<input type="hidden" name="file" accept="image/*" />
 	        	<br>
 	        	<br>
-	        	<input class="botonGeneralCentrado" type="submit" value="PUBLICAR">
+	        	<input class="botonGeneralCentrado" type="submit" value="PUBLICAR" id="nuevo">
 	        	<br>
 	     </form>
       </div>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
         </main><!--  FIN CUERPO DE PAGINA -->
 
+<script>
+$(document).ready(function() {
+	$(document).delegate('#nuevo', 'click', function(event) {
+				event.preventDefault();
+				var detallet = $('#detallet').val();
+				var nombre = $('#nombre').val();
+				var detallep = $('#detallep').val();
+				var autor = $('#autor').val();
+								
+				console.log(detallet);
+				console.log(nombre);
+				console.log(detallep);
+				console.log(autor);
+				
+				var img = $('input[name="file"]').get(0).files[0];
+				console.log(img)				
+				
+				var formData = new FormData();
+				formData.append('img', img);
+				var objArr = [];
 
-
-
-
-
-
-
-
-
-
+				objArr.push({"detalle": detallet});
+				console.log(objArr);
+				
+				formData.append('tipopublicacion', JSON.stringify( objArr ));
+				console.log(formData);
+				
+				$.ajax({
+					type: "POST",
+					contentType: 'application/json; charset=utf-8',
+					url: 'http://localhost:8080/api/tipopublicacion',
+					data: formData,
+					cache: false,
+					processData:false,
+					//contentType:false,
+					success: function(result) {
+						window.location.href = "index.html";
+					}
+				});
+	});
+});
+</script>  
 
 		<footer ><!-- Footer -->
             <div class="redesolmedo">   
@@ -162,7 +186,6 @@
                 Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
             </div>
         </footer><!-- FIN footer-->
-
  <!-- Botstrap -->      
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  ></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
