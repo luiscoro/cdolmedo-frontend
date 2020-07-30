@@ -17,7 +17,7 @@
 
         <!-- Botstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<title>Modificar - CDOLMEDO</title>
+<title>Integrante - CDOLMEDO</title>
 </head>
 <body>
 
@@ -81,9 +81,9 @@
 				          <a class="dropdown-item" href="#">Something else here</a>
 				        </div>
 				      </li>
-				       <li class="nav-item dropdown">
+				        <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          JUGADOR
+				          INTEGRANTE
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
@@ -99,17 +99,15 @@
 
 
  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA -->
-        
-        
-
-     <div class="cuerporegistro">
+ 
+  <div class="cuerporegistro">
      
      
 		     <form action=""><!-- Inicio Form de Busqueda -->
 		     
 		    
 			        	<br>
-			        	<h3>Buscar Publicación</h3>
+			        	<h3>Buscar Integrante Eliminar</h3>
 			        	<input class="ingresodatos"  type="text" placeholder="ID Publicación..">
 			        	<br>
 			        	<br>
@@ -119,69 +117,81 @@
 		     
 		     </form><!--FIN Form de Busqueda -->
       </div>
-     	 <div class="cuerporegistro">
-    
-     
+        
+       
+
+     <div class="cuerporegistro">
        <form action="" onsubmit="return valida(this)">
- <h2>Modificar Publicación</h2>
-			        	<hr style="background: #FFFFFF;">
-	        	<label>Tipo de Publicación</label><br>
+	        	<h3>Eliminar Integrante del Club</h3>
+	        	<hr style="background: #FFFFFF;">
+	        	
+	        	<label>Nombre de Integrante</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="Nombre de Integrante.." autofocus="autofocus">
+	        	<br>
+	        	<br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Perfil de Integrante</label><br>
+	        	<textarea class="ingresodatosdos" rows="8" cols="39	" placeholder="Perfil de Integrante.."></textarea>
+	        	<br>
+	        	<br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Fecha de Nacimiento</label><br>
+
 	        	<select>
-	        	<option>Seleccionar</option>
-	        	   <option value="1">Noticia</option>
-	        	   <option value="2">Ultima</option>  
+	        	<option>Dia</option>
+	        	   <option value="1">1</option>
+	        	   <option value="2">2</option>  
+	        	</select>
+	        
+	        	<select>
+	        	<option>Mes</option>
+	        	   <option value="1">Enero</option>
+	        	   <option value="2">Febrero</option>  
+	        	</select>
+	        	
+	        	<select>
+	        	<option>Año</option>
+	        	   <option value="1">2000</option>
+	        	   <option value="2">2001</option>  
 	        	</select>
 	        	<br>
-	        	<br>	
 	        	<hr style="background: #FFFFFF;">  
 	        	
-	        	<label>Nombre de Publicación</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" ><br><br>
-				<label>Detalle Publicación</label><br>
-	        	<textarea class="ingresodatosdos" rows="8" cols="39	" placeholder="Detalle de Publicación.."></textarea>
-	        	<br>
-	        	<br>	
-	        	<hr style="background: #FFFFFF;">       	
-	        	
-	        	<label>Autor de la Publicación</label><br>
-	        	
-	        	<input class="ingresodatos" type="text" placeholder="Autor Publicación.." >
-
-
-	        	<br><br>
+	        	<label>Equipo de Procedencia</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="Equipo de Procedencia.." ><br><br>
+	        	<hr style="background: #FFFFFF;"> 
+	        	<label>País de Procedencia</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="País de Procedencia.." ><br><br>
 	        	<hr style="background: #FFFFFF;">
-	        	<label>Imagen de Publicación</label><br>	
+	        	<label>Estatura Peso</label><br>
+	        	<input class="ingresodatospeq"  type="text" placeholder="Estatura..">
+	        	
+	        	<input class="ingresodatospeq" type="text" placeholder="Peso.."><br><br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Función</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="Función.."><br><br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Fotografía</label><br>	
 	        	<input type="file">
 	        	<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
+	        	
 	        	<br>
 	        	<br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Nº Goles</label><br>	
+	        	<input class="ingresodatospeq" type="text" placeholder="Nº Goles..">
+	        	<br>
+	        	<br>
+	        	<hr style="background: #FFFFFF;">
+
 	        	<input class="botonGeneralCentrado" type="submit" value="MODIFICAR">
+	        	<br>
 	     </form>
-      </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      </div> 
+                
         </main><!--  FIN CUERPO DE PAGINA -->
 
-
-
-
-
-
-
-
-
-
-
-
-		<footer ><!-- Footer -->
+		<footer ><!--Inicio Footer -->
             <div class="redesolmedo">   
                 <div class="redes">
                     face
