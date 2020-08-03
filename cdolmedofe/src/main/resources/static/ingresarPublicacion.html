@@ -165,20 +165,19 @@ $(document).ready(function() {
 				formData.append('img', img);
 				var objArr = [];
 
-				objArr.push({"detalle": detallet});
+				objArr.push({"detalle": detallet, "publicaciones":[{"nombre":nombre,"detallep":detallep,"autor":autor}]});
 				console.log(objArr);
 				
-				formData.append('tipopublicacion', JSON.stringify( objArr ));
+				formData.append('tipoPublicacion', JSON.stringify( objArr ));
 				console.log(formData);
 				
 				$.ajax({
 					type: "POST",
-					contentType: 'application/json; charset=utf-8',
-					url: 'http://localhost:8080/api/tipopublicacion',
+					url: "http://localhost:8080/api/tipoPublicacion",
 					data: formData,
 					cache: false,
 					processData:false,
-					//contentType:false,
+					contentType:false,
 					success: function(result) {
 						window.location.href = "index.html";
 					}

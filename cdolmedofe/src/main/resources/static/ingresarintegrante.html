@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
         <!-- estilos -->
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
         <!--para el login  -->
@@ -103,23 +103,23 @@
         
 
      <div class="cuerporegistro">
-       <form action="" onsubmit="return valida(this)">
+       <form action="#" method="post" enctype="multipart/form-data">
 	        	<h3>Ingresar Integrante del Club</h3>
 	        	<hr style="background: #FFFFFF;">
 	        	
-	        	<label>Nombre de Integrante</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre de Integrante.." autofocus="autofocus">
+	        	<label>Nombre</label><br>
+	        	<input class="ingresodatos" type="text" id="nombre" placeholder="Nombre de Integrante.." autofocus="autofocus">
 	        	<br>
 	        	<br>
 	        	<hr style="background: #FFFFFF;">
-	        	<label>Perfil de Integrante</label><br>
-	        	<textarea class="ingresodatosdos" rows="8" cols="39	" placeholder="Perfil de Integrante.."></textarea>
+	        	<label>Perfil</label><br>
+	        	<input class="ingresodatos" type="text" id="perfil" placeholder="Perfil de integrante.." autofocus="autofocus">
 	        	<br>
 	        	<br>
 	        	<hr style="background: #FFFFFF;">
 	        	<label>Fecha de Nacimiento</label><br>
 
-	        	<select>
+	        	<!--<select>
 	        	<option>Dia</option>
 	        	   <option value="1">1</option>
 	        	   <option value="2">2</option>  
@@ -135,38 +135,40 @@
 	        	<option>Año</option>
 	        	   <option value="1">2000</option>
 	        	   <option value="2">2001</option>  
-	        	</select>
+				</select>-->
+				<input type="date" id="fechaNacimiento" name="fechaNacimiento"
+       				value=""
+       				min="1960-01-01" max="2012-12-31">
 	        	<br>
 	        	<hr style="background: #FFFFFF;">  
 	        	
 	        	<label>Equipo de Procedencia</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Equipo de Procedencia.." ><br><br>
+	        	<input class="ingresodatos" type="text" id="equipoProcedencia" placeholder="Equipo de Procedencia.." ><br><br>
 	        	<hr style="background: #FFFFFF;"> 
 	        	<label>País de Procedencia</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="País de Procedencia.." ><br><br>
+	        	<input class="ingresodatos" type="text" id="paisProcedencia" placeholder="País de Procedencia.." ><br><br>
 	        	<hr style="background: #FFFFFF;">
 	        	<label>Estatura Peso</label><br>
-	        	<input class="ingresodatospeq"  type="text" placeholder="Estatura..">
+	        	<input class="ingresodatospeq"  type="text" id="estatura" placeholder="Estatura..">
 	        	
-	        	<input class="ingresodatospeq" type="text" placeholder="Peso.."><br><br>
+	        	<input class="ingresodatospeq" type="text" id="peso" placeholder="Peso.."><br><br>
 	        	<hr style="background: #FFFFFF;">
 	        	<label>Función</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Función.."><br><br>
+	        	<input class="ingresodatos" type="text" id="funcion" placeholder="Función.."><br><br>
 	        	<hr style="background: #FFFFFF;">
 	        	<label>Fotografía</label><br>	
-	        	<input type="file">
-	        	<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
+	        	<input type="file" name="file"  accept="image/*" />
 	        	
-	        	<br>
+	        	<!--<br>
 	        	<br>
 	        	<hr style="background: #FFFFFF;">
 	        	<label>Nº Goles</label><br>	
 	        	<input class="ingresodatospeq" type="text" placeholder="Nº Goles..">
 	        	<br>
-	        	<br>
+	        	<br>-->
 	        	<hr style="background: #FFFFFF;">
 
-	        	<input class="botonGeneralCentrado" type="submit" value="PUBLICAR">
+	        	<input class="botonGeneralCentrado" type="submit" value="PUBLICAR" id="addNuevo">
 	        	<br>
 	     </form>
       </div>
@@ -184,7 +186,57 @@
                 Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
             </div>
         </footer><!-- FIN footer-->
+<script>
+$(document).ready(function() {
+	$(document).delegate('#addNuevo', 'click', function(event) {
+				event.preventDefault();
+				var nombre = $('#nombre').val();
+				var perfil = $('#perfil').val();
+        		var fechaNacimiento = $('#fechaNacimiento').val();
+				var equipoProcedencia = $('#equipoProcedencia').val();
+				var paisProcedencia = $('#paisProcedencia').val();
+				var estatura = $('#estatura').val();
+				var peso = $('#peso').val();
+				var funcion = $('#funcion').val();
+								
+				console.log(nombre);
+				console.log(perfil);
+        		console.log(fechaNacimiento);
+				console.log(equipoProcedencia);
+				console.log(paisProcedencia);
+				console.log(estatura);
+				console.log(peso);
+				console.log(funcion);
+				
+				var img = $('input[name="file"]').get(0).files[0];
+				console.log(img)				
+				
+				var formData = new FormData();
+				formData.append('img', img);
+				var objArr = [];
 
+				objArr.push({"nombre": nombre, "perfil": perfil, "fechaNacimiento": fechaNacimiento, "paisProcedencia": paisProcedencia, "estatura": estatura, "peso": peso, "funcion": funcion});
+				console.log(objArr);
+				
+				formData.append('integranteclub', JSON.stringify( objArr ));
+				console.log(formData);
+				
+				$.ajax({
+					type: "POST",
+					//contentType: "application/json; charset=utf-8",
+					url: "http://localhost:8080/api/integranteclub",
+					//data: JSON.stringify({'nombre': nombre, 'preparacion': preparacion, 'dificultad': dificultad}),
+					data: formData,
+					cache: false,
+					processData:false,
+					contentType:false,				
+					success: function(result) {
+						window.location.href = "index.html";
+					}
+				});
+	});
+});
+</script>  
  <!-- Botstrap -->      
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  ></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
