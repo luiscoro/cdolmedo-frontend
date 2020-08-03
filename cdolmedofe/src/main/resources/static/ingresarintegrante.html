@@ -12,8 +12,13 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 		<!--  JS -->
-	<script src="js/controller.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	 <!-- Botstrap -->      
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script> 
+	<!--<script src="js/controller.js"></script>-->
 	<script src="js/validar.js"></script>
+	<script src="js/ingresar.js"></script>
 
         <!-- Botstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -100,10 +105,8 @@
 
  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA -->
         
-        
-
      <div class="cuerporegistro">
-       <form action="#" method="post" enctype="multipart/form-data">
+       <form action="#" method="post" enctype="multipart/form-data" onsubmit="return ingresar(this)">
 	        	<h3>Ingresar Integrante del Club</h3>
 	        	<hr style="background: #FFFFFF;">
 	        	
@@ -186,60 +189,6 @@
                 Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
             </div>
         </footer><!-- FIN footer-->
-<script>
-$(document).ready(function() {
-	$(document).delegate('#addNuevo', 'click', function(event) {
-				event.preventDefault();
-				var nombre = $('#nombre').val();
-				var perfil = $('#perfil').val();
-        		var fechaNacimiento = $('#fechaNacimiento').val();
-				var equipoProcedencia = $('#equipoProcedencia').val();
-				var paisProcedencia = $('#paisProcedencia').val();
-				var estatura = $('#estatura').val();
-				var peso = $('#peso').val();
-				var funcion = $('#funcion').val();
-								
-				console.log(nombre);
-				console.log(perfil);
-        		console.log(fechaNacimiento);
-				console.log(equipoProcedencia);
-				console.log(paisProcedencia);
-				console.log(estatura);
-				console.log(peso);
-				console.log(funcion);
-				
-				var img = $('input[name="file"]').get(0).files[0];
-				console.log(img)				
-				
-				var formData = new FormData();
-				formData.append('img', img);
-				var objArr = [];
-
-				objArr.push({"nombre": nombre, "perfil": perfil, "fechaNacimiento": fechaNacimiento, "paisProcedencia": paisProcedencia, "estatura": estatura, "peso": peso, "funcion": funcion});
-				console.log(objArr);
-				
-				formData.append('integranteclub', JSON.stringify( objArr ));
-				console.log(formData);
-				
-				$.ajax({
-					type: "POST",
-					//contentType: "application/json; charset=utf-8",
-					url: "http://localhost:8080/api/integranteclub",
-					//data: JSON.stringify({'nombre': nombre, 'preparacion': preparacion, 'dificultad': dificultad}),
-					data: formData,
-					cache: false,
-					processData:false,
-					contentType:false,				
-					success: function(result) {
-						window.location.href = "index.html";
-					}
-				});
-	});
-});
-</script>  
- <!-- Botstrap -->      
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  ></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>  
+ 
 </body>
 </html>
