@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- estilos -->
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <!--para el login  -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Fuente -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+		<!--  JS -->
+	<script src="js/controller.js"></script>
+	<script src="js/validar.js"></script>
+
+        <!-- Botstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Publicaciones - CDOLMEDO</title>
+</head>
+<body>
+
+<div class="cabecera"> <!-- Cabecera -->
+            <div class="cabeceraLogo">
+                <a href="index.html" ><img src="img/escudo.png" ></a>
+                 
+            </div>
+            <div class="cabeceraNombre">
+                <a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
+               
+                
+            </div>
+            <div class="cabeceraEsponsor">
+                <div class="esponsor">
+            
+                    <a href="index.html" target="_blank" ><img src="img/esponsor1.png" ></a>
+                </div>
+                <div class="esponsor">
+                   <a href="index.html" target="_blank" ><img src="img/esponsor4.png" ></a>
+                    
+                </div>
+                <div class="esponsor">
+                   <a href="index.html" target="_blank" ><img src="img/esponsor5.jpg" ></a>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="cabeceraBoton">
+                <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
+                    <strong>CERRAR SESIÓN</strong> 
+            </button>
+            </div>
+        </div> <!-- Fin Cabecera -->
+
+	 <div class="barramenu"> <!-- Barra de menú -->
+	            <ul class="nav justify-content-center">
+	                <li class="nav-item">
+	                    <a class="nav-link active" href="#">INICIO</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">NOTICIAS</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">SERVICIOS</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">SOCIO</a>
+	                </li>
+	                
+	                 <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          PUBLICACIÓN
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
+				          <a class="dropdown-item" href="modificarPublicacion.html">MODIFICAR</a>
+				          <a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a>
+				        </div>
+				      </li>
+				       <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          INTEGRANTE
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
+				          <a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a>
+				        </div>
+				      </li>  
+
+	            </ul>  
+	        </div> <!-- Fin de barra de menú -->
+
+
+ <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA -->
+        
+        
+
+     <div class="cuerporegistro">
+       <form action="#" method="POST" onsubmit="return valida(this)" enctype="multipart/form-data">
+	        	<h3>Ingresar Publicación</h3>
+	        	<hr style="background: #FFFFFF;">
+	        	
+	        	<label>Tipo de Publicación</label><br>
+	        	<select id="detallet">
+	        	<option>Seleccionar</option>
+	        	   <option value="1">Noticia</option>
+	        	   <option value="2">Ultima</option>  
+	        	</select>
+	        	<br>
+	        	<hr style="background: #FFFFFF;">  
+	        	
+	        	<label>Nombre de Publicación</label><br>
+	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" id="nombre" ><br><br>
+				<label>Detalle Publicación</label><br>
+	        	<textarea class="ingresodatosdos" id="detallep" rows="8" cols="39	" placeholder="Detalle de Publicación.."></textarea>
+	        	<br>
+	        	<br>	
+	        	<hr style="background: #FFFFFF;">       	
+	        	
+	        	<label>Autor de la Publicación</label><br>
+	        	
+	        	<input class="ingresodatos" id="autor" type="text" placeholder="Autor Publicación.." >
+
+
+	        	<br><br>
+	        	<hr style="background: #FFFFFF;">
+	        	<label>Imagen de Publicación</label><br>	
+	        	<input type="file">
+	        	<input type="hidden" name="file" accept="image/*" />
+	        	<br>
+	        	<br>
+	        	<input class="botonGeneralCentrado" type="submit" value="PUBLICAR" id="nuevo">
+	        	<br>
+	     </form>
+      </div>
+        
+        </main><!--  FIN CUERPO DE PAGINA -->
+
+<script>
+$(document).ready(function() {
+	$(document).delegate('#nuevo', 'click', function(event) {
+				event.preventDefault();
+				var detallet = $('#detallet').val();
+				var nombre = $('#nombre').val();
+				var detallep = $('#detallep').val();
+				var autor = $('#autor').val();
+								
+				console.log(detallet);
+				console.log(nombre);
+				console.log(detallep);
+				console.log(autor);
+				
+				var img = $('input[name="file"]').get(0).files[0];
+				console.log(img)				
+				
+				var formData = new FormData();
+				formData.append('img', img);
+				var objArr = [];
+
+				objArr.push({"detalle": detallet, "publicaciones":[{"nombre":nombre,"detallep":detallep,"autor":autor}]});
+				console.log(objArr);
+				
+				formData.append('tipoPublicacion', JSON.stringify( objArr ));
+				console.log(formData);
+				
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:8080/api/tipoPublicacion",
+					data: formData,
+					cache: false,
+					processData:false,
+					contentType:false,
+					success: function(result) {
+						window.location.href = "index.html";
+					}
+				});
+	});
+});
+</script>  
+
+		<footer ><!-- Footer -->
+            <div class="redesolmedo">   
+                <div class="redes">
+                    face
+                </div>            
+            </div>
+            
+            <div class="copyright">
+                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
+            </div>
+        </footer><!-- FIN footer-->
+ <!-- Botstrap -->      
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  ></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>  
+</body>
+</html>
