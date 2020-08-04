@@ -146,11 +146,11 @@
 			$.ajax({
 		        type: 'GET',
 		        url: 'http://localhost:8080/api/publicacion',
-		       //beforeSend: function(xhr) {
-		          //if (localStorage.token) {
-		           // xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
-		          //}
-		        //},
+		       beforeSend: function(xhr) {
+		          if (localStorage.token) {
+		            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
+		          }
+		        },
 		        success: function(data) {		        	
 					var tr=[];
 					for (var i = 0; i < data.length; i++) {
