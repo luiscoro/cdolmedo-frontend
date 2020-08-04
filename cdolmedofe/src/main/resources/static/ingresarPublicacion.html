@@ -118,7 +118,7 @@
 	            </ul>
 	        </div> <!-- Fin de barra de menú -->
 
-
+<header class="page-header header container-fluid">
  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA -->
 
 			     <div class="cuerporegistro">
@@ -169,6 +169,7 @@
 
 
         </main><!--  FIN CUERPO DE PAGINA -->
+</head>
 	<script>
 	$(document).ready(function() {
 		$(document).delegate('#addNew', 'click', function(event) {
@@ -208,11 +209,8 @@
 					processData:false,
 					contentType:false,
 					success: function(result) {
-<<<<<<< HEAD
+
 						window.location.href = "listarPublicacion.html"; 
-=======
-							window.location.href = "listarPublicacion.html"; 
->>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
 					}
 				});
 		});
