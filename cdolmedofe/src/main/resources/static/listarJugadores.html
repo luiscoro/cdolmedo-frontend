@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- estilos -->
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <!--para el login  -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Fuente -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+
+
+        <!-- Botstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+              crossorigin="anonymous">
+<title>Administrador - CDOLMEDO</title>
+
+</head>
+<body>
+<div class="cabecera"> <!-- Cabecera 1-->
+            <div class="cabeceraLogo">
+                <a href="index.html" ><img src="img/escudo.png" ></a>
+                 
+            </div>
+            <div class="cabeceraNombre">
+                <a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
+               
+                
+            </div>
+            <div class="cabeceraEsponsor">
+                <div class="esponsor">
+            
+                    <a href="index.html" target="_blank" ><img src="img/esponsor1.png" ></a>
+                </div>
+                <div class="esponsor">
+                   <a href="index.html" target="_blank" ><img src="img/esponsor4.png" ></a>
+                    
+                </div>
+                <div class="esponsor">
+                   <a href="index.html" target="_blank" ><img src="img/esponsor5.jpg" ></a>
+                    
+                </div>
+            </div>
+            
+            <div class="cabeceraBoton">
+                <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
+                    <strong>CERRAR SESIÓN</strong> 
+            </button>
+            </div>
+        </div> <!-- Fin Cabecera -->
+        
+                <div class="barramenu"> <!-- Barra de menú -->
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">INICIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">NOTICIAS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SERVICIOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SOCIO</a>
+                    
+                </li>
+                 <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          PUBLICACIÓN
+                        </a>
+                        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
+                  <!--        <a class="dropdown-item" href="modificarPublicacion.html">MODIFICAR</a>
+                          <a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a>
+                          <div class="dropdown-divider"></div> -->
+                          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </li>
+                  <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          JUGADOR
+                        </a>
+                        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
+                <!--      <a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
+                          <a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a> -->
+                          <a class="dropdown-item" href="listarPublicacion.html">LISTAR JUGADORES</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </li>    
+            </ul>  
+        </div> <!-- Fin de barra de menú -->
+        
+        <main class="cuerpo_pagina">
+        
+        
+            <h2>LISTA DE LOS JUGADORES</h2>
+            
+            <div class="overlay">
+
+    <div class="container my-2">
+        <div class="card-transparent">
+            <div class="card-body rounded" style="background-color: rgba(0, 0, 0, 0.4); ">
+                    <table class="table" id="tabla">
+						<tr>
+							<th>Tipo</th>							
+							<th>Nombre</th>
+							<th>Detalle</th>
+							<th>Autor</th>
+							<th>Imagen</th>
+							<th>Modificar</th>
+							<th>Borrar</th>
+						</tr>
+					</table>                   
+            </div>
+        </div>
+    </div>
+</div>
+              
+        </main>
+        
+          
+        <footer ><!-- Footer -->
+    <div class="container second">
+        <div class="row">
+            <div class="col">
+                <span class="titulo text-center d-md-none d-block">SEGUINOS</span>
+                <ul class="d-flex flex-row align-items-center social justify-center">
+                    <li class="titulo d-none d-md-block">SEGUINOS</li>
+                    <li>
+                        <a href="http://www.youtube.com/bocaentretenimientos" rel="noreferrer" title="Youtube">Youtube</span></a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.instagram.com/bocajrsoficial/" rel="noreferrer" title="Instagram">Instagram</span></a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.facebook.com/BocaJuniors/" rel="noreferrer" title="Facebook">Facebook</span></a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/BocaJrsOficial" rel="noreferrer" title="Twitter">Twitter</span></a>
+                    </li>
+                                      
+                    <li class="d-none d-md-block">
+                        <a class="titulo" href="/contacto" title="Contactanos">Contactanos</a>
+                    </li>
+
+                </ul>
+                <span class="d-md-none d-block">
+                    <a class="titulo text-center" href="/contacto" title="Contactanos">Contactanos</a>
+                </span>
+            </div>
+            <div class="col text-right"> </div>
+        </div>
+    </div>
+
+    <div class="container copy">
+        <div class="d-flex justify-content-center">
+            <p>
+                © Copyright 2020 CDOLMEDO             </p>
+            <p class="ml-auto">Desarrollado por © EQUIPO 6</p>
+        </div>
+            </div>
+
+        </footer><!-- FIN footer-->
+
+ <!-- Botstrap -->      
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
+
+</body>
+</html>
