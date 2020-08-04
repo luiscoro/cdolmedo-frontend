@@ -16,6 +16,10 @@
 		 <!-- Fuente -->
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        
+        <!--  Jquery -->
+        <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+        
 		<!--  JS 
 	<script src="js/controller.js"></script>
 	<script src="js/validar.js"></script>  d-->
@@ -35,7 +39,7 @@
 	if (typeof localStorage.token === "undefined"){
 		window.location.href = "index.html";	
 	}
-	</script>-->
+	</script> -->
 	
 	
 	<div class="cabecera"> <!-- Cabecera -->
@@ -204,8 +208,7 @@
 					processData:false,
 					contentType:false,
 					success: function(result) {
-							window.location.href = "listarPublicacion.html";
-
+							window.location.href = "listarPublicacion.html"; 
 					}
 				});
 		});
