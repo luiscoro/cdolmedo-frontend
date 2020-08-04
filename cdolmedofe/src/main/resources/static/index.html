@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -216,7 +218,7 @@
          <div class="w3-modal-content" style="width: 500px;background:  #2930A6;">
                 <div class="w3-container">
                 
-   <form th: action = '@{/login}' id="formIngresoSistema" onsubmit="return validacion()">              
+      <form th:action="@{/login}" method="post">              
                 
                     <i onclick="document.getElementById('login').style.display = 'none'" class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
                    
