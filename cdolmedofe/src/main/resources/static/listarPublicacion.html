@@ -11,15 +11,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
+		<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
 		<!-- Fuente -->
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 
 
         <!-- Botstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
               crossorigin="anonymous">
 	<title>Administrador - CDOLMEDO</title>
 
@@ -28,48 +28,47 @@
 <body>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script src="/js/main.js"></script>
 	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
-	<script>
+	<!--<script>
 	if (typeof localStorage.token === "undefined"){
-		window.location.href = "index.html";	
+		window.location.href = "index.html";
 	}
-	</script>
-	
+	</script>-->
+
 	<div class="cabecera"> <!-- Cabecera 1-->
             <div class="cabeceraLogo">
                 <a href="index.html" ><img src="img/escudo.png" ></a>
-                 
+
             </div>
             <div class="cabeceraNombre">
                 <a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
-               
-                
+
+
             </div>
             <div class="cabeceraEsponsor">
                 <div class="esponsor">
-            
+
                     <a href="index.html" target="_blank" ><img src="img/esponsor1.png" ></a>
                 </div>
                 <div class="esponsor">
                    <a href="index.html" target="_blank" ><img src="img/esponsor4.png" ></a>
-                    
+
                 </div>
                 <div class="esponsor">
                    <a href="index.html" target="_blank" ><img src="img/esponsor5.jpg" ></a>
-                    
+
                 </div>
             </div>
-            
+
             <div class="cabeceraBoton">
                 <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
-                    <strong>CERRAR SESIÓN</strong> 
+                    <strong>CERRAR SESIÓN</strong>
             </button>
             </div>
         </div> <!-- Fin Cabecera -->
-        
+
                 <div class="barramenu"> <!-- Barra de menú -->
             <ul class="nav justify-content-center">
                 <li class="nav-item">
@@ -83,7 +82,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SOCIO</a>
-                    
+
                 </li>
                  <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,37 +108,35 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                      </li>    
-            </ul>  
+                      </li>
+            </ul>
         </div> <!-- Fin de barra de menú -->
 
 <header class="page-header header container-fluid">
-        <main class="cuerpo_pagina">
-            <h2>LISTA DE LAS PUBLICACIONES</h2>
-            
-            <div class="overlay">
+        <!-- <main class="cuerpo_pagina"> -->
+      <div class="overlay">
 
 		    <div class="container my-2">
 		        <div class="card-transparent">
 		            <div class="card-body rounded" style="background-color: rgba(0, 0, 0, 0.4); ">
 		                    <table class="table" id="tabla">
-								<tr>
-									<!--<th>Tipo</th>-->						
-									<th>Nombre</th>
-									<th>Detalle</th>
-									<th>Autor</th>
-									<th>Fecha</th>
-									<th>Imagen</th>
-									<th>Modificar</th>
-									<th>Borrar</th>
-								</tr>
-							</table>                   
+            								<tr>
+            									<!--<th>Tipo</th>-->
+            									<th>Nombre</th>
+            									<th>Autor</th>
+            									<th>Fecha</th>
+            									<th>Imagen</th>
+            									<th>Visualizar</th>
+            									<th>Modificar</th>
+            									<th>Borrar</th>
+            								</tr>
+							          </table>
 		            	</div>
 		        	</div>
 		    	</div>
-			</div>    
-        </main>  
-</header>      
+			</div>
+        <!--</main>  -->
+</header>
 <!-- seccion listar en ajax -->
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -151,14 +148,13 @@
 		            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
 		          }
 		        },
-		        success: function(data) {		        	
+		        success: function(data) {
 					var tr=[];
 					for (var i = 0; i < data.length; i++) {
 						tr.push('<tr>');
 						tr.push('<td>' + data[i].nombre + '</td>');
-						tr.push('<td>' + data[i].detalle + '</td>');
 						tr.push('<td>' + data[i].autor + '</td>');
-						tr.push('<td>' + data[i].fecha + '</td>');					
+						tr.push('<td>' + data[i].fecha + '</td>');
 						tr.push('<td><img src="http://localhost:8080/api/pic/'+data[i].foto+'" width="80" class="rounded"></td>');
 						tr.push('<td>');
 						tr.push('<a data-toggle="modal" data-target="#modalLong'+data[i].id+'" class="btn btn-primary"><i class="fas fa-glasses ml-2"></i></a>');
@@ -173,11 +169,10 @@
 						tr.push('		</div>');
 						tr.push('		<div class="modal-body">');
 						tr.push('			<h4 class="text-dark">'+'<b>Nombre: </b>'+data[i].nombre+'</h4>');
-						tr.push('			<h4 class="text-dark">'+'<b>Detalle: </b>'+data[i].detalle+'</h4>');		
-						tr.push('			<h4 class="text-dark">'+'<b>Autor: </b>'+data[i].autor+'</h4>');	
-						tr.push('			<h4 class="text-dark">'+'<b>Fecha: </b>'+data[i].fecha+'</h4>');										
+						tr.push('			<h4 class="text-dark">'+'<b>Autor: </b>'+data[i].autor+'</h4>');
+						tr.push('			<h4 class="text-dark">'+'<b>Fecha: </b>'+data[i].fecha+'</h4>');
 						tr.push('           <p><img src="http://localhost:8080/api/pic/'+data[i].foto+'" width="240" class="rounded"></p>');
-						//tr.push('			<p class="text-dark">'+'<b>Preparacion: </b>'+data[i].preparacion.replace(/(?:\r\n|\r|\n)/g, '<br>')+'</p>');
+						tr.push('			<p class="text-dark">'+'<b>Detalle: </b>'+data[i].detalle.replace(/(?:\r\n|\r|\n)/g, '<br>')+'</p>');
 						tr.push('		</div>');
 						tr.push('		<div class="modal-footer">');
 						tr.push('		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
@@ -186,9 +181,9 @@
 						tr.push('	</div>');
 						tr.push(' </div>');
 					 	tr.push('</td>');
-						
-						tr.push('<td> <a href=modificarPublicacion.html?id=' + data[i].id + ' class="btn btn-primary"><i class="fas fa-edit ml-2"></i></a></td>');		
-						
+
+						tr.push('<td> <a href=modificarPublicacion.html?id=' + data[i].id + ' class="btn btn-primary"><i class="fas fa-edit ml-2"></i></a></td>');
+
 						tr.push('<td>');
 						tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"> <i class="fas fa-trash-alt ml-2"></i></a>');
 						tr.push('<div class="modal modal-warning fade in" id="modalwarning'+data[i].id+'">');
@@ -204,13 +199,13 @@
 						tr.push('		</div>');
 						tr.push('		<div class="modal-footer">');
 						tr.push('			<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>');
-						tr.push('			<a type="button" class="btn btn-outline borrar" href="#" id='+data[i].id+'><i class="fa fa-check"></i>&nbsp;Yes</a>');
+						tr.push('			<a type="button" class="btn btn-outline borrar" href="#" id='+data[i].id+'><i class="fa fa-check"></i>&nbsp;Si</a>');
 						tr.push('		</div>');
 						tr.push('	</div>');
 						tr.push(' </div>');
-						tr.push('</div>	');				
+						tr.push('</div>	');
 						tr.push('</td>');
-						
+
 						tr.push('</tr>');
 					}
 					$('#tabla').append($(tr.join('')));
@@ -222,20 +217,19 @@
 //			$.getJSON('http://localhost:8080/api/v1/receta', function(json) {
 
 //			});
-			
 
-			$(document).delegate('.borrar', 'click', function() { 
+		$(document).delegate('.borrar', 'click', function() {
 						var id = $(this).attr('id');
 						var parent = $(this).parent().parent();
 						$.ajax({
 							type: "DELETE",
-							url: "http://localhost:8080/api/receta/" + id,
+							url: "http://localhost:8080/api/publicacion/" + id,
 							cache: false,
 					        beforeSend: function(xhr) {
-					            if (localStorage.token) {
+					           if (localStorage.token) {
 					              xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
 					            }
-					        },
+					       },
 							success: function() {
 								parent.fadeOut('slow', function() {
 									$(this).remove();
@@ -244,15 +238,15 @@
 							}
 						});
 			});
-			
-			$('#logout').click(function() {	
+
+			$('#logout').click(function() {
 			      localStorage.clear();
 			      window.location.href = "index.html";
 			});
-			
+
 		});
 	</script>
-	
+
 <footer ><!-- Footer -->
     <div class="container second">
         <div class="row">
@@ -263,19 +257,19 @@
                     <li>
                         <a href="http://www.youtube.com/bocaentretenimientos" rel="noreferrer" title="Youtube">Youtube</span></a>
                     </li>
-                    
+
                     <li>
                         <a href="https://www.instagram.com/bocajrsoficial/" rel="noreferrer" title="Instagram">Instagram</span></a>
                     </li>
-                    
+
                     <li>
                         <a href="https://www.facebook.com/BocaJuniors/" rel="noreferrer" title="Facebook">Facebook</span></a>
                     </li>
-                    
+
                     <li>
                         <a href="https://twitter.com/BocaJrsOficial" rel="noreferrer" title="Twitter">Twitter</span></a>
                     </li>
-                                      
+
                     <li class="d-none d-md-block">
                         <a class="titulo" href="/contacto" title="Contactanos">Contactanos</a>
                     </li>
@@ -299,7 +293,7 @@
 
         </footer><!-- FIN footer-->
 
- <!-- Botstrap -->      
-        
+ <!-- Botstrap -->
+
 </body>
 </html>
