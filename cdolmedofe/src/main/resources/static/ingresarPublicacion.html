@@ -26,19 +26,19 @@
 </head>
 
 <body>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="/js/main.js"></script>
-<script>
-if (typeof localStorage.token === "undefined"){
-	window.location.href = "index.html";	
-}
-</script>
-
-
-<div class="cabecera"> <!-- Cabecera -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script>
+	if (typeof localStorage.token === "undefined"){
+		window.location.href = "index.html";	
+	}
+	</script>
+	
+	
+	<div class="cabecera"> <!-- Cabecera -->
             <div class="cabeceraLogo">
                 <a href="index.html" ><img src="img/escudo.png" ></a>
 
@@ -125,7 +125,7 @@ if (typeof localStorage.token === "undefined"){
 						 </div>
 						 <div class="form-group col-md-12">
 						        	<label>Tipo de Publicación</label><br>
-							        	<select id="idTipoPublicacion">
+							        	<select name="idTipoPublicacion" id="idTipoPublicacion">
 								        	<option value="1">Informativo</option>
 								        	<option value="2">Administrativo</option>  
 											<option value="3">Noticias</option>
@@ -139,8 +139,9 @@ if (typeof localStorage.token === "undefined"){
                                 <input type="text"  class="form-control" id="nombre" placeholder="Nombre">
                             </div>
 							<div class="form-group col-md-12">
-                                <label for="nombre" class="col-form-label">Detalle</label>
-                                <input type="text"  class="form-control" id="detalle" placeholder="Detalle">
+								<label for="detalle" class="col-form-label">Detalle</label>
+								<br></br>
+                                <textarea class="form-control" id="detalle" rows="3" cols="10	" placeholder="Detalle de Publicación.."></textarea>
                             </div>
 							<div class="form-group col-md-12">
                                 <label for="nombre" class="col-form-label">Autor</label>
@@ -203,7 +204,7 @@ if (typeof localStorage.token === "undefined"){
 					processData:false,
 					contentType:false,
 					success: function(result) {
-							window.location.href = "index.html";
+							window.location.href = "listarPublicacion.html";
 
 					}
 				});
