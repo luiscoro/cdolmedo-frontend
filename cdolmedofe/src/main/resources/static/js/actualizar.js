@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$(document).delegate('#ingIntegrante', 'click', function (event) {
+	$(document).delegate('#guardarIntegrante', 'click', function (event) {
 		event.preventDefault();
 		var nombre = $('#nombre').val();
 		var perfil = $('#perfil').val();
@@ -26,14 +26,14 @@ $(document).ready(function () {
 		formData.append('img', img);
 		var objArr = [];
 
-		objArr.push({ "nombre": nombre, "perfil": perfil, "fechaNacimiento": fechaNacimiento, "equipoProcedencia": equipoProcedencia, "paisProcedencia": paisProcedencia, "estatura": estatura, "peso": peso, "funcion": funcion });
+		objArr.push({"id": id, "nombre": nombre, "perfil": perfil, "fechaNacimiento": fechaNacimiento, "equipoProcedencia": equipoProcedencia, "paisProcedencia": paisProcedencia, "estatura": estatura, "peso": peso, "funcion": funcion, "foto": uuid});
 		console.log(objArr);
 
 		formData.append('integranteClub', JSON.stringify(objArr));
 		console.log(formData);
 
 		$.ajax({
-			type: "POST",
+			type: "PUT",
 			url: "http://localhost:8080/api/integranteClub",
 			data: formData,
 			cache: false,
@@ -43,7 +43,7 @@ $(document).ready(function () {
 				console.log(result);
 				$.alert({
 						title: 'OK',
-						content: 'El integrante ha sido publicado!',
+						content: 'El integrante ha sido actualizado!',
 					});
 				setTimeout(
 					function () {
