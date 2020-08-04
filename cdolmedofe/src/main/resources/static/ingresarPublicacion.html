@@ -198,13 +198,13 @@
 					type: "POST",
 					//contentType: "application/json; charset=utf-8",
 					url: "http://localhost:8080/api/publicacion",
-					//data: JSON.stringify({'nombre': nombre, 'preparacion': preparacion, 'dificultad': dificultad}),
+					data: JSON.stringify({'nombre': nombre, 'detalle': detalle, 'autor': autor, 'idTipoPublicacion': idTipoPublicacion,}),
 					data: formData,
 					cache: false,
 					processData:false,
 					contentType:false,
 					success: function(result) {
-						window.location.href = "www.youtube.com"; 
+						window.location.href = "listarPublicacion.html"; 
 					}
 				});
 		});
