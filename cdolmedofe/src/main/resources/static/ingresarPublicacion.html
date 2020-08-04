@@ -201,9 +201,9 @@
 
 				$.ajax({
 					type: "POST",
-					contentType: "application/json; charset=utf-8",
+					//contentType: "application/json; charset=utf-8",
 					url: "http://localhost:8080/api/publicacion",
-					data: JSON.stringify({'nombre': nombre, 'detalle': detalle, 'autor': autor, 'idTipoPublicacion': idTipoPublicacion,}),
+					//data: JSON.stringify({'nombre': nombre, 'detalle': detalle, 'autor': autor, 'idTipoPublicacion': idTipoPublicacion}),
 					data: formData,
 					cache: false,
 					processData:false,
