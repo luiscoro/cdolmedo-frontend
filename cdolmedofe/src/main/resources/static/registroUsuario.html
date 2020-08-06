@@ -147,6 +147,9 @@
 				var telefono = $('#telefono').val();
 				var direccion = $('#direccion').val();
 				var idLocalidad = $('#idLocalidad').val();
+				//var habilitado = 1;
+				var puntajeBeneficio = 0;
+				var idRol = 1; 
 				
 				console.log(nombre);
 				console.log(contrasenia);
@@ -160,7 +163,9 @@
 				var formData = new FormData();
 				var objArr = [];
 
-				objArr.push({"nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, "fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion, "idLocalidad": idLocalidad});
+				objArr.push({"nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, 
+				"fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion,
+				"idLocalidad": idLocalidad, "puntajeBeneficio": puntajeBeneficio, "idRol": idRol});
 				console.log(objArr);
 
 				formData.append('usuario', JSON.stringify( objArr ));
@@ -177,7 +182,7 @@
 					contentType:false,
 					success: function(result) {
 
-						window.location.href = "modificarUsuario.html"; 
+						window.location.href = "perfilUsuario.html"; 
 					}
 				});
 		});

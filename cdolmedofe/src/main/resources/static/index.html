@@ -229,26 +229,50 @@
                    <strong> <h2 class="w3-wide" style="text-align: center;">INICIAR SESIÓN</h2></strong>
                    
                     <br>
-                    <input class="ingresodatos"type="email" placeholder="Usuario..." name="username">
+                    <input class="ingresodatos"type="email" id="correo" placeholder="Usuario..." name="username">
                     <br>
                     <br>
-                    <input class="ingresodatos"type="password" placeholder="Contraseña..." name="password">
+                    <input class="ingresodatos"type="password" id="contrasenia" placeholder="Contraseña..." name="password">
                     <br><br>
                     
                     
                     <br><strong> <input id="btnIngresarSistema" class="botonGeneraldos" type="submit" value="INGRESAR"></strong><br><br>
                     
 					Registrate <a style="text-decoration: none;" href="registroUsuario.html">Aqui</a> &nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none;">Olvidaste tu contraseña</a>  
-									
+	
+		 </form>				
 					
-					
-					
-	 </form>				
-					
-                </div>
-            </div>
-        </div><!-- FIN LOGIN -->
-
+      </div>
+   </div>
+</div><!-- FIN LOGIN -->
+<script>
+$(document).ready(function() {
+	$(document).delegate('#btnIngresarSistema', 'click', function(event) {
+				event.preventDefault();
+				var correo = $('#correo').val();
+				var contrasenia = $('#contrasenia').val();								
+				
+				$.ajax({
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					url: "http://localhost:8080/api/usuario",
+					data: JSON.stringify({'correo': correo, 'contrasenia': contrasenia}),
+					cache: false,
+					processData:false,
+					success: function(result) {
+						localStorage.token = result.token;
+						//alert('Got a token from the server! Token: ' + result.token);
+						console.log(result);
+						window.location.href = "list_recipes_private.html";
+					},
+					error: function() {
+				          //alert("Login Failed");
+				          window.location.href = "index.html";
+				    }
+				});
+	});
+});
+</script>
         <!-- Botstrap -->     
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
