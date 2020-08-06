@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!-- estilos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+	<!--para el login  -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Fuente -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        
+        <!--  Jquery -->
+        <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+        
+		<!--  JS -->
+
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+	
+	<!--<script src="js/controller.js"></script>-->
+	<!--<script src="js/validar.js"></script>-->
+	<script src="js/ingresar.js"></script>
+	
+	<!-- Botstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<title>Servicio - CDOLMEDO</title>
+</head>
+
+<body>
+
+	<div class="cabecera">
+		<!-- Cabecera -->
+		<div class="cabeceraLogo">
+			<a href="index.html"><img src="img/escudo.png"></a>
+
+		</div>
+		<div class="cabeceraNombre">
+			<a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
+
+
+		</div>
+		<div class="cabeceraEsponsor">
+			<div class="esponsor">
+
+				<a href="index.html" target="_blank"><img src="img/esponsor1.png"></a>
+			</div>
+			<div class="esponsor">
+				<a href="index.html" target="_blank"><img src="img/esponsor4.png"></a>
+
+			</div>
+			<div class="esponsor">
+				<a href="index.html" target="_blank"><img src="img/esponsor5.jpg"></a>
+
+			</div>
+
+		</div>
+
+		<div class="cabeceraBoton">
+			<button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
+				<strong>CERRAR SESI�N</strong>
+			</button>
+		</div>
+	</div> <!-- Fin Cabecera -->
+
+	<div class="barramenu">
+		<!-- Barra de men� -->
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link active" href="#">INICIO</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">NOTICIAS</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">SERVICIOS</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">SOCIO</a>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					PUBLICACI�N
+				</a>
+				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
+					<a class="dropdown-item" href="modificarPublicacion.html">MODIFICAR</a>
+					<a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					INTEGRANTE
+				</a>
+				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
+					<a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
+					<a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			</li>
+
+		</ul>
+	</div> <!-- Fin de barra de men� -->
+
+
+	<header class="page-header header container-fluid">
+		<main class="cuerpo_pagina">
+			<!-- CUERPO DE PAGINA -->
+
+			<div class="cuerporegistro">
+				<form action="#" method="post" enctype="multipart/form-data" onsubmit="return ingresar(this)">
+					<div class="form-group col-md-12">
+						<h3>Ingresar Servicio</h3>
+						<hr style="background: #FFFFFF;">
+					</div>
+					<div class="form-group col-md-12">
+						<label>Tipo de Servicio</label><br>
+						<select name="tiposervicio" id="tiposervicio">
+							<option value="1">Pagado</option>
+							<option value="2">Gratuito</option>
+						</select>
+						<br>
+
+					</div>
+					<div class="form-group col-md-12">
+						<label for="nombre" class="col-form-label">Nombre</label>
+						<input type="text" class="form-control" id="nombreservicio" placeholder="Nombre">
+					</div>
+					<div class="form-group col-md-12">
+						<label for="detalle" class="col-form-label">Detalle</label>
+						<br>
+						<textarea class="form-control" id="detalle" rows="3" cols="10"
+							placeholder="Detalle de Servicio.."></textarea>
+					</div>
+
+					<div class="form-group col-md-12">
+						<label for="foto" class="col-form-label">Subir foto</label>
+						<input type="file" name="file" accept="image/*" class="form-control" />
+					</div>
+
+					<div class="form-group col-md-12">
+						<label for="valor" class="col-form-label">Valor</label>
+						<input type="number" class="form-control" id="valor" placeholder="Valor">
+					</div>
+
+					<div class="form-group col-md-12">
+						<label for="descuento" class="col-form-label">Descuento</label>
+						<input type="number" class="form-control" id="descuento" placeholder="Descuento">
+					</div>
+
+					<div class="form-group col-md-6">
+						<input type="submit" class="btn btn-primary" value="Registrar servicio" id="ingServicio">
+					</div>
+
+				</form>
+			</div>
+
+
+		</main><!--  FIN CUERPO DE PAGINA -->
+
+	</header>
+
+	<footer>
+		<!--Inicio Footer -->
+		<div class="redesolmedo">
+			<div class="redes">
+				face
+			</div>
+		</div>
+
+		<div class="copyright">
+			Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
+		</div>
+	</footer><!-- FIN footer-->
+</body>
+
+</html>
