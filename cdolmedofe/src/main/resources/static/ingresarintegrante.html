@@ -26,7 +26,8 @@
 	
 	<!--<script src="js/controller.js"></script>-->
 	<!--<script src="js/validar.js"></script>-->
-	<script src="js/ingresar.js"></script>
+	<!--<script<script src="js/ingresar.js"></script>--->
+	<script src="js/validacion.js">
 	
 	<!-- Botstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -120,13 +121,13 @@
 		<!-- CUERPO DE PAGINA -->
 
 		<div class="cuerporegistro">
-			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return ingresar(this)">
+			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return validacion();">
 				<h3>Ingresar Integrante del Club</h3>
 				<hr style="background: #FFFFFF;">
 
 				<label>Nombre</label><br>
 				<input class="ingresodatos" type="text" id="nombre" placeholder="Nombre de Integrante.."
-					autofocus="autofocus">
+					autofocus="autofocus" required>
 				<br>
 				<br>
 				<hr style="background: #FFFFFF;">
