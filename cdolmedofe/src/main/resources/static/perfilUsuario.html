@@ -116,33 +116,11 @@
 			    <div class="container my-2">
 			        <div class="card-transparent">
 			            <div class="card-body rounded"  style="background-color: rgba(0, 0, 0, 0.4); ">
-			                    <td><table class="table" id="tabla" >
-	            								<tr>
-	            									<!--<th>Tipo</th>-->
-	            									<th  width="200" ><b>Nombre: </b></th>
-													
-												</tr><tr>
-	            									<th><b>Correo: </b></th>
-													
-												</tr><tr>
-	            									<th><b>Sexo: </b></th>
-													
-												</tr><tr>
-	            									<th>Fecha de nacimiento </b></th>
-													
-												</tr><tr>
-	            									<th>Telefono </b></b></th>
-													
-												</tr><tr>
-	            									<th>Dirrecion </b></th>
-													
-												</tr><tr>
-	            									<th>Puntaje de actividad </b></th>
-													
-	            								</tr><tr>
-													<th>Localidad </b></th>
-													
-												</tr>
+			                    <table class="table" id="tabla" >
+	            					<tr>
+										<th>Datos</th>							
+										<th>Valores</th>
+									</tr>
 								</table>
 								
 			            	</div>
@@ -154,58 +132,39 @@
 		$(document).ready(function() {
 			$.getJSON('http://localhost:8080/api/usuario', function(data) {
 				var tr=[];
-				//for (var i = 0; i < data.length; i++) {
 					tr.push('<tr>');
+					tr.push('<td><a>Nombre: </a></td>');
 					tr.push('<td>' + data[1].nombreCompleto + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
+					tr.push('<td><a>Email: </a></td>');
 					tr.push('<td>' + data[1].correo + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
+					tr.push('<td><a>Sexo: </a></td>');
 					tr.push('<td>' + data[1].sexo + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
+					tr.push('<td><a>Fecha de nacimiento: </a></td>');
 					tr.push('<td>' + data[1].fechaNacimiento + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
+					tr.push('<td><a>N°.: </a></td>');
 					tr.push('<td>' + data[1].telefono + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
+					tr.push('<td><a>Dirrecion: </a></td>');
 					tr.push('<td>' + data[1].dirrecion + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
+					tr.push('<td><a>Bonificacion: </a></td>');
 					tr.push('<td>' + data[1].puntajeBeneficio + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td>' + data[1].idLocalidad + '</td>');
-					/*tr.push('<td><img src="http://localhost:8080/api/v1/pic/'+data[i].foto+'" width="80" class="rounded"></td>');
-					tr.push('<td>');
-					tr.push('<a data-toggle="modal" data-target="#modalLong'+data[i].id+'" class="btn btn-primary"><i class="fas fa-glasses ml-2"></i></a>');
-					tr.push('<div class="modal fade" tabindex="-1" id="modalLong'+data[i].id+'" role="dialog">');
-					tr.push(' <div class="modal-dialog">');
-					tr.push('	<div class="modal-content">');
-					tr.push('		<div class="modal-header">');
-					tr.push('		  <h5 class="modal-title text-dark">Detalle de receta</h5>');
-					tr.push('		  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
-					tr.push('		  	<span aria-hidden="true">&times;</span>');
-					tr.push('		  </button>');
-					tr.push('		</div>');
-					tr.push('		<div class="modal-body">');
-					tr.push('			<h4 class="text-dark">'+data[i].nombre+'</h4>');													
-					tr.push('           <p><img src="http://localhost:8080/api/v1/pic/'+data[i].foto+'" width="240" class="rounded"></p>');
-					tr.push('			<p class="text-dark">'+data[i].preparacion.replace(/(?:\r\n|\r|\n)/g, '<br>')+'</p>');
-					tr.push('		</div>');
-					tr.push('		<div class="modal-footer">');
-					tr.push('		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
-					tr.push('    	</div>');
-					tr.push('	 </div>');
-					tr.push('	</div>');
-					tr.push(' </div>');
-				 	tr.push('</td>');	*/	
-				 	
+					tr.push('<td><a>Localidad: </a></td>');	
+					tr.push('	<h4 class="text-dark" src="http://localhost:8080/api/localidad/'+data[i].idLocalidad+'">'+data[i].nombre+'</h4>');									
 					tr.push('</tr>');
-				//}
-				$('#tabla1').append($(tr.join('')));
+				$('#tabla').append($(tr.join('')));
 			});						
 		});
 	</script>
