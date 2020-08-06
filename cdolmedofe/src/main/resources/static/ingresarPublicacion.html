@@ -57,6 +57,7 @@
 			<a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
 
 
+<<<<<<< HEAD
 		</div>
 		<div class="cabeceraEsponsor">
 			<div class="esponsor">
@@ -170,6 +171,14 @@
 						<input type="file" name="file" accept="image/*" class="form-control" />
 					</div>
 
+                            <div class="form-group col-md-6">
+                                <input type="submit" class="botonGeneral" value="Registrar publicacion" id="addNew">
+                            </div>
+                        </div>
+                    </form>
+      </div>
+
+
 
 					<div class="form-group col-md-6">
 						<input type="submit" class="btn btn-primary" value="Registrar publicacion" id="addNew">
@@ -212,9 +221,8 @@
 
 				$.ajax({
 					type: "POST",
-					contentType: "application/json; charset=utf-8",
+					//contentType: "application/json; charset=utf-8",
 					url: "http://localhost:8080/api/publicacion",
-					data: JSON.stringify({ 'nombre': nombre, 'detalle': detalle, 'autor': autor, 'idTipoPublicacion': idTipoPublicacion, }),
 					data: formData,
 					cache: false,
 					processData: false,

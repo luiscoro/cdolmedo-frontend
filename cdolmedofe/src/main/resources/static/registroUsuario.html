@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+
 <head>
-<meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
         <!-- estilos -->
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
         <!--para el login  -->
@@ -14,6 +14,7 @@
         
         <!--  Jquery -->
         <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         
 		<!--  JS -->
 	<script src="js/controller.js"></script>
@@ -26,7 +27,18 @@
 <title>Registro Usuario - CDOLMEDO</title>
 </head>
 <body>
-
+<!-- paquetes interfaz -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<!--<script>
+	if (typeof localStorage.token === "undefined"){
+		window.location.href = "index.html";	
+	}
+	</script> -->
+	
 <div class="cabecera"> <!-- Cabecera -->
             <div class="cabeceraLogo">
                 <a href="index.html" ><img src="img/escudo.png" ></a>
@@ -57,7 +69,7 @@
                     <strong>INICIAR SESIÓN</strong> 
             </button>
             </div>
-        </div> <!-- Fin Cabecera -->
+        </div> <!-- Fin Cabecera1 -->
         
                 <div class="barramenu"> <!-- Barra de menú -->
             <ul class="nav justify-content-center">
@@ -77,69 +89,102 @@
             </ul>  
         </div> <!-- Fin de barra de menú -->
         
-  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA  -->      	
-        	
+  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA  -->      	   	
      <div class="cuerporegistro">
        <form action="" onsubmit="return valida(this)">
 	        	<h3>Registrar Usuario</h3>
 	        	<hr style="background: #FFFFFF;">
 	        	
 	        	<label>Nombre y Apellido</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre.." autofocus="autofocus" ><br><br>
+	        	<input class="ingresodatos" id="nombre" type="text" placeholder="Nombre.." autofocus="autofocus" ><br><br>
 	        	<label>Correo Electrónico</label><br>
-	        	<input class="ingresodatos" type="email" placeholder="Correo electrónico.."><br><br>
-	        	<label>Fecha de Nacimiento</label><br>
+	        	<input class="ingresodatos" type="email" id="correo" minlength="8" placeholder="Correo electrónico.."><br><br>
+	        	<label>Contraseña</label><br>
+	        	<input class="ingresodatos" type="password" min="6" max="16" id="contrasenia" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]" title="Debe empezar con una letra y contener un dijito" placeholder="contraseña.."><br><br>
+				<label>Fecha de Nacimiento</label><br>
+	        	<input type="date" id="fechaNacimiento" name="fechaNacimiento"
+       				value="2010-07-22"
+       				min="1920-01-01" max="2004-12-31">        	
 	        	
-	        	<select>
-	        	   <option value="">Día..</option>
-	        	   <option class="opcion" value="1">1</option>
-	        	   <option value="2">2</option>  
-	        	</select>
-	        	
-	        	<select>
-	        	<option>Mes..</option>
-	        	   <option value="1">Enero</option>
-	        	   <option value="2">Febrero</option>  
-	        	</select>
-	        	<select>
-	        	<option>Año..</option>
-	        	   <option value="1">2000</option>
-	        	   <option value="2">2001</option>  
-	        	</select>
 	        	<br><br>
 	        	<label>Teléfono</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Teléfono.."><br><br>
+	        	<input class="ingresodatos" id="telefono" type="text" pattern="[0-9]" title="Ingresar solo numeros" placeholder="Teléfono.."><br><br>
 	        	<label>Dirección</label><br>
-	        	<textarea class="ingresodatosdos" rows="3" cols="39	" placeholder="Dirección.."></textarea>
+	        	<textarea class="ingresodatosdos" id="direccion"  rows="3" cols="39	" placeholder="Dirección.."></textarea>
 	        	<br>
 	        	<br>
 	        	<label>Ubicación</label><br>
-	        	<select>
+	        	<select id="idLocalidad">
 	        	<option>País..</option>
-	        	   <option value="1">Ecuador</option>
-	        	   <option value="2">Colombia</option>  
-	        	</select>
-	        	<select>
-	        	<option>Provincia..</option>
-	        	   <option value="1">Chimborazo</option>
-	        	   <option value="2">Pichincha</option>  
+	        	   	<option value="1">Ecuador, Riobamba</option>
+	        	   	<option value="2">Ecuador, Quito</option>
+					<option value="3">Ecuador, Guayaquil</option>
+	        	   	<option value="4">Ecuador, Ibarra</option>   
 	        	</select>
 	        	<br>
 	        	<br>
 	        	<label>Género</label><br>
 	        	
-	        	<input class="genero" type="radio" name="genero" value="Masculino">&nbsp;Masculino&nbsp;&nbsp;
-                <input class="genero" type="radio" name="genero" value="Femenino">&nbsp;Femenino
+	        	<input class="genero" id="sexo" type="radio" name="genero" value="Masculino">&nbsp;Masculino&nbsp;&nbsp;
+                <input class="genero" id="sexo" type="radio" name="genero" value="Femenino">&nbsp;Femenino
 	        	<br>
 	        	<br>
 	        	
-	        	<input class="botonGeneralCentrado" type="submit" value="REGISTRAR">
+	        	<input class="botonGeneralCentrado" type="submit" id="addNew" value="REGISTRAR">
 	     </form>
       </div>
   </main><!-- FIN DE CUERPO DE PAGINA  -->
-        
+
+ <script>
+	$(document).ready(function() {
+		$(document).delegate('#addNew', 'click', function(event) {
+				event.preventDefault();
+				var nombre = $('#nombre').val();
+				var contrasenia = $('#contrasenia').val();
+				var correo = $('#correo').val();
+				var sexo = $('#sexo').val();
+				var fechaNacimiento = $('#fechaNacimiento').val();
+				var telefono = $('#telefono').val();
+				var direccion = $('#direccion').val();
+				var idLocalidad = $('#idLocalidad').val();
+				
+				console.log(nombre);
+				console.log(contrasenia);
+				console.log(correo);
+				console.log(sexo);
+				console.log(fechaNacimiento);
+				console.log(telefono);
+				console.log(direccion);
+				console.log(idLocalidad);
+				
+				var formData = new FormData();
+				var objArr = [];
+
+				objArr.push({"nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, "fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion, "idLocalidad": idLocalidad});
+				console.log(objArr);
+
+				formData.append('usuario', JSON.stringify( objArr ));
+				console.log(formData);
+
+				$.ajax({
+					type: "POST",
+					//contentType: "application/json; charset=utf-8",
+					url: "http://localhost:8080/api/usuario",
+					//data: JSON.stringify({"nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, "fechaNacimiento": fechaNacimiento, "telefono": telefono, "dirrecion": dirrecion, "idLocalidad": idLocalidad}),
+					data: formData,
+					cache: false,
+					processData:false,
+					contentType:false,
+					success: function(result) {
+
+						window.location.href = "modificarUsuario.html"; 
+					}
+				});
+		});
+	});
+	</script>       
           
-        <footer ><!-- Footer -->
+    <footer ><!-- Footer -->
             <div class="redesolmedo">   
                 <div class="redes">
                     face
@@ -154,7 +199,6 @@
         </footer><!-- FIN footer-->
 
  <!-- Botstrap -->      
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
 
