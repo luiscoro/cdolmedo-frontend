@@ -41,16 +41,14 @@ var loadFile = function(event) {
 <script src="/js/main.js"></script>
 <script>
 $(document).ready(function() {
-	$.getJSON('http://localhost:8080/api/integranteClub/'+id, function(json) {
+	$.getJSON('http://localhost:8080/api/servicio/'+id, function(json) {
 		console.log(json.nombre)
 		document.getElementById("nombre").value = json.nombre;
-		document.getElementById("perfil").value = json.perfil;
-		document.getElementById("fechaNacimiento").value = json.fechaNacimiento;
-		document.getElementById("equipoProcedencia").value = json.equipoProcedencia;
-		document.getElementById("paisProcedencia").value = json.paisProcedencia;
-		document.getElementById("estatura").value = json.estatura;
-		document.getElementById("peso").value = json.peso;
-		document.getElementById("funcion").value = json.funcion;
+		document.getElementById("detalle").value = json.detalle;
+		document.getElementById("estado").value = json.estado;
+		document.getElementById("valor").value = json.valor;
+		document.getElementById("descuento").value = json.descuento;
+		document.getElementById("idTipoServicio").value = json.idTipoServicio;
 		document.getElementById("output").src = 'http://localhost:8080/api/pic/'+json.foto;
 		uuid=json.foto;
 	});
@@ -137,103 +135,80 @@ $(document).ready(function() {
 	</div> <!-- Fin de barra de menú -->
 
 
-	<main class="cuerpo_pagina">
-		<!-- CUERPO DE PAGINA -->
+	<header class="page-header header container-fluid">
+		<main class="cuerpo_pagina">
+			<!-- CUERPO DE PAGINA -->
 
-		<div class="cuerporegistro">
-			<form action="#" method="put" enctype="multipart/form-data">
-				<h3>Modificar Integrante del Club</h3>
-				<hr style="background: #FFFFFF;">
+			<div class="cuerporegistro">
+				<form action="#" method="put" enctype="multipart/form-data">
+					<div class="form-group col-md-12">
+						<h3>Modificar Servicio</h3>
+						<hr style="background: #FFFFFF;">
+					</div>
+					<div class="form-group col-md-12">
+						<label>Tipo de Servicio</label><br>
+						<select name="idTipoServicio" id="idTipoServicio">
+							<option value="1">Pagado</option>
+							<option value="2">Gratuito</option>
+						</select>
+						<br>
 
-				<label>Nombre</label><br>
-				<input class="ingresodatos" type="text" id="nombre" placeholder="Nombre de Integrante.."
-					autofocus="autofocus">
-				<br>
-				<br>
-				<hr style="background: #FFFFFF;">
-				<label>Perfil</label><br>
-				<input class="ingresodatos" type="text" id="perfil" placeholder="Perfil de integrante.."
-					autofocus="autofocus">
-				<br>
-				<br>
-				<hr style="background: #FFFFFF;">
-				<label>Fecha de Nacimiento</label><br>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="nombre" class="col-form-label">Nombre</label>
+						<input type="text" class="form-control" id="nombre" placeholder="Nombre">
+					</div>
+					<div class="form-group col-md-12">
+						<label for="detalle" class="col-form-label">Detalle</label>
+						<br>
+						<textarea class="form-control" id="detalle" rows="3" cols="10"
+							placeholder="Detalle de Servicio.."></textarea>
+					</div>
 
-				<input type="date" id="fechaNacimiento" name="fechaNacimiento" disabled value="fechaNacimiento">
-				<br>
-				<hr style="background: #FFFFFF;">
+					<div class="form-group col-md-12">
+						<label for="foto" class="col-form-label">Actualizar foto</label>
+						<p><img id="output" src="" width="80" class="rounded"></p>
+						<input type="file" name="file" accept="image/*" class="form-control" />
+					</div>
 
-				<label>Equipo de Procedencia</label><br>
-				<input class="ingresodatos" type="text" id="equipoProcedencia"
-					placeholder="Equipo de Procedencia.." disabled><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>País de Procedencia</label><br>
-				<input class="ingresodatos" type="text" id="paisProcedencia"
-					placeholder="País de Procedencia.." disabled><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>Estatura Peso</label><br>
-				<input class="ingresodatospeq" type="text" id="estatura" placeholder="Estatura..">
+					<div class="form-group col-md-12">
+						<label for="nombre" class="col-form-label">Estado</label>
+						<input type="text" class="form-control" id="estado" placeholder="Nombre">
+					</div>
 
-				<input class="ingresodatospeq" type="text" id="peso" placeholder="Peso.."><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>Función</label><br>
-				<input class="ingresodatos" type="text" id="funcion" placeholder="Función.."><br><br>
-				<hr style="background: #FFFFFF;">
 
-				<label>Actualizar fotografía</label><br>
-				<p><img id="output" src="" width="80" class="rounded"></p>
-				<input type="file" name="file" accept="image/*"  />
+					<div class="form-group col-md-12">
+						<label for="valor" class="col-form-label">Valor</label>
+						<input type="number" class="form-control" id="valor" placeholder="Valor">
+					</div>
 
-				<hr style="background: #FFFFFF;">
+					<div class="form-group col-md-12">
+						<label for="descuento" class="col-form-label">Descuento</label>
+						<input type="number" class="form-control" id="descuento" placeholder="Descuento">
+					</div>
 
-				<input class="botonGeneralCentrado" type="submit" value="ACTUALIZAR" id="save">
-				<br>
-			</form>
-		</div>
-	</main><!--  FIN CUERPO DE PAGINA -->
+					<div class="form-group col-md-6">
+						<input type="submit" class="btn btn-primary" value="Modificar" id="save">
+					</div>
+
+				</form>
+			</div>
+
+
+		</main><!--  FIN CUERPO DE PAGINA -->
+
+	</header>
+
 <script>
 $(document).ready(function () {
 	$(document).delegate('#save', 'click', function (event) {
 		event.preventDefault();
 		var nombre = $('#nombre').val();
-		var perfil = $('#perfil').val();
-		var fechaNacimiento = $('#fechaNacimiento').val();
-		var equipoProcedencia = $('#equipoProcedencia').val();
-		var paisProcedencia = $('#paisProcedencia').val();
-		var estatura = $('#estatura').val();
-		var peso = $('#peso').val();
-		var funcion = $('#funcion').val();
-
-<<<<<<< HEAD
-	<footer ><!-- Footer -->
-            <div class="redesolmedo">
-                <div class="redes">
-                     <div class="contenedor-redes">
-                   	 <img src="img/facebook.png">
-                    </div>
-                    <div class="contenedor-redes">
-                   	 <img src="img/instagram.png">
-                    </div>
-                    <div class="contenedor-redes">
-                   	 <img src="img/youtube.png">
-                    </div>
-                	<div class="contenedor-redes">
-                    	<img src="img/twitter.png">
-                    </div>
-                    <div class="contenedor-redes">
-                    	<img src="img/whatsapp.png">
-                    </div>
-                </div>
-            </div>
-=======
-		console.log(nombre);
-		console.log(perfil);
-		console.log(fechaNacimiento);
-		console.log(equipoProcedencia);
-		console.log(paisProcedencia);
-		console.log(estatura);
-		console.log(peso);
-		console.log(funcion);
+		var detalle = $('#detalle').val();
+		var estado = $('#estado').val();
+		var valor = $('#valor').val();
+		var descuento = $('#descuento').val();
+		var idTipoServicio = $('#idTipoServicio').val();
 
 		var img = $('input[name="file"]').get(0).files[0];
 		console.log(img)
@@ -242,15 +217,15 @@ $(document).ready(function () {
 		formData.append('img', img);
 		var objArr = [];
 
-		objArr.push({"id": id, "nombre": nombre, "perfil": perfil, "fechaNacimiento": fechaNacimiento, "equipoProcedencia": equipoProcedencia, "paisProcedencia": paisProcedencia, "estatura": estatura, "peso": peso, "funcion": funcion, "foto": uuid});
+		objArr.push({"id": id, "nombre": nombre, "detalle": detalle, "foto": uuid, "estado": estado, "valor": valor, "descuento": descuento, "idTipoServicio": idTipoServicio});
 		console.log(objArr);
 
-		formData.append('integranteClub', JSON.stringify(objArr));
+		formData.append('servicio', JSON.stringify(objArr));
 		console.log(formData);
 
 		$.ajax({
 			type: "PUT",
-			url: "http://localhost:8080/api/integranteClub",
+			url: "http://localhost:8080/api/servicio",
 			data: formData,
 			cache: false,
 			processData: false,
@@ -259,11 +234,11 @@ $(document).ready(function () {
 				console.log(result);
 				$.alert({
 						title: 'OK',
-						content: 'El integrante ha sido actualizado!',
+						content: 'El servicio ha sido actualizado!',
 					});
 				setTimeout(
 					function () {
-						window.location.href = "listarJugadores.html";
+						window.location.href = "listarServicios.html";
 					},2000);
 			},
 			error: function (xhr, exception) {
@@ -297,12 +272,11 @@ $(document).ready(function () {
 				face
 			</div>
 		</div>
->>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
 
-            <div class="copyright">
-                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
-            </div>
-        </footer><!-- FIN footer-->
+		<div class="copyright">
+			Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
+		</div>
+	</footer><!-- FIN footer-->
 </body>
 
 </html>

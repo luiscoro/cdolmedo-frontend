@@ -1,5 +1,3 @@
-
-
 function valida(f) {
 
  	var ok = true;

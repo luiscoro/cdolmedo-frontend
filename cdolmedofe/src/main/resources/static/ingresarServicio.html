@@ -26,12 +26,11 @@
 	
 	<!--<script src="js/controller.js"></script>-->
 	<!--<script src="js/validar.js"></script>-->
-	<!--<script<script src="js/ingresar.js"></script>--->
-	<script src="js/validacion.js"></script>
+	<script src="js/ingresar.js"></script>
 	
 	<!-- Botstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	<title>Integrante - CDOLMEDO</title>
+	<title>Servicio - CDOLMEDO</title>
 </head>
 
 <body>
@@ -65,13 +64,13 @@
 
 		<div class="cabeceraBoton">
 			<button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
-				<strong>CERRAR SESIÓN</strong>
+				<strong>CERRAR SESI�N</strong>
 			</button>
 		</div>
 	</div> <!-- Fin Cabecera -->
 
 	<div class="barramenu">
-		<!-- Barra de menú -->
+		<!-- Barra de men� -->
 		<ul class="nav justify-content-center">
 			<li class="nav-item">
 				<a class="nav-link active" href="#">INICIO</a>
@@ -89,7 +88,7 @@
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
-					PUBLICACIÓN
+					PUBLICACI�N
 				</a>
 				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
@@ -114,94 +113,78 @@
 			</li>
 
 		</ul>
-	</div> <!-- Fin de barra de menú -->
+	</div> <!-- Fin de barra de men� -->
 
 
-	<main class="cuerpo_pagina">
-		<!-- CUERPO DE PAGINA -->
+	<header class="page-header header container-fluid">
+		<main class="cuerpo_pagina">
+			<!-- CUERPO DE PAGINA -->
 
-		<div class="cuerporegistro">
-			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return validacion();">
-				<h3>Ingresar Integrante del Club</h3>
-				<hr style="background: #FFFFFF;">
+			<div class="cuerporegistro">
+				<form action="#" method="post" enctype="multipart/form-data" onsubmit="return ingresar(this)">
+					<div class="form-group col-md-12">
+						<h3>Ingresar Servicio</h3>
+						<hr style="background: #FFFFFF;">
+					</div>
+					<div class="form-group col-md-12">
+						<label>Tipo de Servicio</label><br>
+						<select name="tiposervicio" id="tiposervicio">
+							<option value="1">Pagado</option>
+							<option value="2">Gratuito</option>
+						</select>
+						<br>
 
-				<label>Nombre</label><br>
-				<input class="ingresodatos" type="text" id="nombre" placeholder="Nombre de Integrante.."
-					autofocus="autofocus" required>
-				<br>
-				<br>
-				<hr style="background: #FFFFFF;">
-				<label>Perfil</label><br>
-				<input class="ingresodatos" type="text" id="perfil" placeholder="Perfil de integrante.."
-					autofocus="autofocus">
-				<br>
-				<br>
-				<hr style="background: #FFFFFF;">
-				<label>Fecha de Nacimiento</label><br>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="nombre" class="col-form-label">Nombre</label>
+						<input type="text" class="form-control" id="nombreservicio" placeholder="Nombre">
+					</div>
+					<div class="form-group col-md-12">
+						<label for="detalle" class="col-form-label">Detalle</label>
+						<br>
+						<textarea class="form-control" id="detalle" rows="3" cols="10"
+							placeholder="Detalle de Servicio.."></textarea>
+					</div>
 
-				<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="" min="1960-01-01"
-					max="2012-12-31">
-				<br>
-				<hr style="background: #FFFFFF;">
+					<div class="form-group col-md-12">
+						<label for="foto" class="col-form-label">Subir foto</label>
+						<input type="file" name="file" accept="image/*" class="form-control" />
+					</div>
 
-				<label>Equipo de Procedencia</label><br>
-				<input class="ingresodatos" type="text" id="equipoProcedencia"
-					placeholder="Equipo de Procedencia.."><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>País de Procedencia</label><br>
-				<input class="ingresodatos" type="text" id="paisProcedencia"
-					placeholder="País de Procedencia.."><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>Estatura Peso</label><br>
-				<input class="ingresodatospeq" type="text" id="estatura" placeholder="Estatura..">
+					<div class="form-group col-md-12">
+						<label for="valor" class="col-form-label">Valor</label>
+						<input type="number" class="form-control" id="valor" placeholder="Valor">
+					</div>
 
-				<input class="ingresodatospeq" type="text" id="peso" placeholder="Peso.."><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>Función</label><br>
-				<input class="ingresodatos" type="text" id="funcion" placeholder="Función.."><br><br>
-				<hr style="background: #FFFFFF;">
-				<label>Fotografía</label><br>
-				<input type="file" name="file" accept="image/*" />
+					<div class="form-group col-md-12">
+						<label for="descuento" class="col-form-label">Descuento</label>
+						<input type="number" class="form-control" id="descuento" placeholder="Descuento">
+					</div>
 
-				<hr style="background: #FFFFFF;">
+					<div class="form-group col-md-6">
+						<input type="submit" class="btn btn-primary" value="Registrar servicio" id="ingServicio">
+					</div>
 
-				<input class="botonGeneralCentrado" type="submit" value="PUBLICAR" id="ingIntegrante">
-				<br>
-			</form>
-		</div>
+				</form>
+			</div>
 
-	</main><!--  FIN CUERPO DE PAGINA -->
+
+		</main><!--  FIN CUERPO DE PAGINA -->
+
+	</header>
 
 	<footer>
 		<!--Inicio Footer -->
 		<div class="redesolmedo">
 			<div class="redes">
-				 <div class="contenedor-redes">
-                   	 <img src="img/facebook.png">
-                    </div>
-                    <div class="contenedor-redes">
-                   	 <img src="img/instagram.png">
-                    </div>
-                    <div class="contenedor-redes">
-                   	 <img src="img/youtube.png">
-                    </div>
-                	<div class="contenedor-redes">
-                    	<img src="img/twitter.png">
-                    </div>
-                    <div class="contenedor-redes">
-                    	<img src="img/whatsapp.png">
-                    </div>
+				face
 			</div>
 		</div>
 
 		<div class="copyright">
-			Desarrollado por CODETEAM para CDOLMEDO &copy; Riobamba 2020
+			Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
 		</div>
 	</footer><!-- FIN footer-->
-
-	<!-- Botstrap -->
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

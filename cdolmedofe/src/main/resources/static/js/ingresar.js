@@ -72,4 +72,74 @@ $(document).ready(function () {
 			}
 		});
 	});
+
+	$(document).delegate('#ingServicio', 'click', function (event) {
+		event.preventDefault();
+		var tiposervicio = $('#tiposervicio').val();
+		var nombreservicio = $('#nombreservicio').val();
+		var detalle = $('#detalle').val();
+		var valor = $('#valor').val();
+		var descuento = $('#descuento').val();
+
+		console.log(tiposervicio);
+		console.log(nombreservicio);
+		console.log(detalle);
+		console.log(valor);
+		console.log(descuento);
+		console.log(estado);
+
+		var img = $('input[name="file"]').get(0).files[0];
+		console.log(img)
+
+		var formData = new FormData();
+		
+		formData.append('img', img);
+		var objArr = [];
+
+		objArr.push({ "nombre": nombreservicio, "detalle": detalle, "valor": valor, "descuento": descuento, "idTipoServicio": tiposervicio});
+		console.log(objArr);
+
+		formData.append('servicio', JSON.stringify(objArr));
+		console.log(formData);
+
+		$.ajax({
+			type: "POST",
+			url: "http://localhost:8080/api/servicio",
+			data: formData,
+			cache: false,
+			processData: false,
+			contentType: false,
+			success: function (result) {
+				console.log(result);
+				$.alert({
+						title: 'OK',
+						content: 'El servicio ha sido publicado!',
+					});
+				setTimeout(
+					function () {
+						window.location.href = "listarServicios.html";
+					},2000);
+			},
+			error: function (xhr, exception) {
+				if (xhr.status === 0)
+					alert('Error : ' + xhr.status + 'You are not connected.');
+				else if (xhr.status == "409"){
+					$.alert({
+						title: 'Error',
+						content: 'Este nombre de servicio ya existe!',
+					});
+				}
+				else if (xhr.status == "404")
+					alert('Error : ' + xhr.status + '\nPage note found');
+				else if (xhr.status == "500")
+					alert('Internal Server Error [500].');
+				else if (exception === 'parsererror')
+					alert('Error : ' + xhr.status + '\nImpossible to parse result.');
+				else if (exception === 'timeout')
+					alert('Error : ' + xhr.status + '\nRequest timeout.');
+				else
+					alert('Error .\n' + xhr.responseText);
+			}
+		});
+	});
 });
