@@ -204,47 +204,49 @@
         <footer ><!-- Footer -->
             <div class="redesolmedo">   
                 <div class="redes">
-                    face
+                    
+                    <div class="contenedor-redes">
+                   	 <img src="img/facebook.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/instagram.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/youtube.png">
+                    </div>
+                	<div class="contenedor-redes">
+                    	<img src="img/twitter.png">
+                    </div>
+                    <div class="contenedor-redes">
+                    	<img src="img/whatsapp.png">
+                    </div>
                 </div>            
             </div>
             
             <div class="copyright">
                
-                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
+                Desarrollado por CODETEAM para CDOLMEDO &copy; Riobamba 2020        
             </div>
 
         </footer><!-- FIN footer-->
 
-        <div id="login" class="w3-modal w3-animate-opacity"><!--LOGIN -->
+      <div id="login" class="w3-modal w3-animate-opacity"><!--LOGIN -->
          <div class="w3-modal-content" style="width: 500px;background:  #2930A6;">
-                <div class="w3-container">
-                
-      <form th:action="@{/login}" method="post">              
-                
-                    <i onclick="document.getElementById('login').style.display = 'none'" class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
-                   
-                    <img  alt="Logo_CDOLMEDO" src="img/escudo.png">
-                    
-                   <br>
-                   <strong> <h2 class="w3-wide" style="text-align: center;">INICIAR SESIÓN</h2></strong>
-                   
-                    <br>
-                    <input class="ingresodatos"type="email" placeholder="Usuario..." name="username">
-                    <br>
-                    <br>
-                    <input class="ingresodatos"type="password" placeholder="Contraseña..." name="password">
-                    <br><br>
-                    
-                    
-                    <br><strong> <input id="btnIngresarSistema" class="botonGeneraldos" type="submit" value="INGRESAR"></strong><br><br>
-                    
-					Registrate <a style="text-decoration: none;" href="registroUsuario.html">Aqui</a> &nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none;">Olvidaste tu contraseña</a>  
-									
-					
-					
-					
-	 </form>				
-					
+                <div class="w3-container"> 
+        <form th:action="@{/login}" method="post">              
+                 <i onclick="document.getElementById('login').style.display = 'none'" class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>        
+                 <img  alt="Logo_CDOLMEDO" src="img/escudo.png">
+                <br>
+                <strong> <h2 class="w3-wide" style="text-align: center;">INICIAR SESIÓN</h2></strong>
+                 <br>
+                 <input class="ingresodatos"type="email" placeholder="Usuario..." name="username">
+                 <br>
+                 <br>
+                 <input class="ingresodatos"type="password" placeholder="Contraseña..." name="password">
+                 <br><br>
+                 <br><strong> <input id="btnIngresarSistema" class="botonGeneraldos" type="submit" value="INGRESAR"></strong><br><br>
+		         Registrate <a style="text-decoration: none;" href="registroUsuario.html">Aqui</a> &nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none;">Olvidaste tu contraseña</a>  
+	    </form>				
                 </div>
             </div>
         </div><!-- FIN LOGIN -->

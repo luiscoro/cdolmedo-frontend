@@ -1,55 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- estilos -->
-        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <!--para el login  -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Fuente -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+			<!-- dependencias omar -->
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
-		<!--  JS -->
-	<script src="js/controller.js"></script>
-	<script src="js/validar.js"></script>
+	        <!-- estilos -->
+	        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+	        <!--para el login  -->
+	        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	        <!-- Fuente -->
+	        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+			
+			<!-- Botstrap -->
+			<script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+	        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
+	        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>
 
-        <!-- Botstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<title>Modificar - CDOLMEDO</title>
+			
+			<!--  JS -->
+		<script src="js/controller.js"></script>
+		<script src="js/validar.js"></script>
+
+	        <!-- Botstrap -->
+	        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<title>Modificar - CDOLMEDO</title>
 </head>
 <body>
+	<!-- get del id enviado por el listar -->
+	<!--<script>
+	if (typeof localStorage.token === "undefined"){
+		window.location.href = "index.html";
+	}
+	</script>-->
+	<script>
+	var loadFile = function(event) {
+	    var output = document.getElementById('output');
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	  };
+	</script>
+	<script>
+		const queryString = window.location.search;
+		console.log(queryString);
+		const urlParams = new URLSearchParams(queryString);
+		const id = urlParams.get('id')
+		var uuid;
+		//console.log(id);
+	</script>
 
-<div class="cabecera"> <!-- Cabecera -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script>
+	$(document).ready(function() {
+		$.getJSON('http://localhost:8080/api/publicacion/'+id, function(json) {
+			console.log(json.nombre)
+			document.getElementById("nombre").value = json.nombre;
+			document.getElementById("detalle").value = json.detalle;
+			document.getElementById("autor").value = json.autor;
+			document.getElementById("idTipoPublicacion").value = json.idTipoPublicacion;
+			document.getElementById("output").src = 'http://localhost:8080/api/pic/'+json.foto;
+			uuid=json.foto;
+		});
+	});
+	</script>
+
+	<div class="cabecera"> <!-- Cabecera -->
             <div class="cabeceraLogo">
                 <a href="index.html" ><img src="img/escudo.png" ></a>
-                 
+
             </div>
             <div class="cabeceraNombre">
                 <a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
-               
-                
+
+
             </div>
             <div class="cabeceraEsponsor">
                 <div class="esponsor">
-            
+
                     <a href="index.html" target="_blank" ><img src="img/esponsor1.png" ></a>
                 </div>
                 <div class="esponsor">
                    <a href="index.html" target="_blank" ><img src="img/esponsor4.png" ></a>
-                    
+
                 </div>
                 <div class="esponsor">
                    <a href="index.html" target="_blank" ><img src="img/esponsor5.jpg" ></a>
-                    
+
                 </div>
-                
+
             </div>
-            
+
             <div class="cabeceraBoton">
                 <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
-                    <strong>CERRAR SESIÓN</strong> 
+                    <strong>CERRAR SESIÓN</strong>
             </button>
             </div>
         </div> <!-- Fin Cabecera -->
@@ -68,7 +116,7 @@
 	                <li class="nav-item">
 	                    <a class="nav-link" href="#">SOCIO</a>
 	                </li>
-	                
+
 	                 <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          PUBLICACIÓN
@@ -92,110 +140,125 @@
 				          <div class="dropdown-divider"></div>
 				          <a class="dropdown-item" href="#">Something else here</a>
 				        </div>
-				      </li>  
+				      </li>
 
-	            </ul>  
+	            </ul>
 	        </div> <!-- Fin de barra de menú -->
 
-
+<header class="page-header header container-fluid">
  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA -->
-        
-        
 
-     <div class="cuerporegistro">
-     
-     
-		     <form action=""><!-- Inicio Form de Busqueda -->
-		     
-		    
-			        	<br>
-			        	<h3>Buscar Publicación</h3>
-			        	<input class="ingresodatos"  type="text" placeholder="ID Publicación..">
-			        	<br>
-			        	<br>
-			        	<input class="botonGeneralCentrado" type="submit" value="BUSCAR">
-			        	<br>
-			        	<br>
-		     
-		     </form><!--FIN Form de Busqueda -->
+     	<div class="cuerporegistro">
+			       <form action="#" method="post" enctype="multipart/form-data">
+			             <div class="form-group col-md-12">
+							<h3 >Modificar Publicación</h3>
+					        	<hr style="background: #FFFFFF;">
+						 </div>
+						 <div class="form-group col-md-12">
+						        	<label>Tipo de Publicación</label><br>
+							        	<select name="idTipoPublicacion" id="idTipoPublicacion">
+								        	<option value="1">Informativo</option>
+								        	<option value="2">Administrativo</option>  
+											<option value="3">Noticias</option>
+								        	<option value="4">Social</option> 
+						        		</select>
+					        	<br>
+				        		
+							</div> 
+                            <div class="form-group col-md-12">
+                                <label for="nombre" class="col-form-label">Nombre</label>
+                                <input type="text"  class="form-control" id="nombre" placeholder="Nombre">
+                            </div>
+							<div class="form-group col-md-12">
+								<label for="detalle" class="col-form-label">Detalle</label>
+								<br></br>
+                                <textarea class="form-control" id="detalle" rows="3" cols="10	" placeholder="Detalle de Publicación.."></textarea>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="nombre" class="col-form-label">Autor</label>
+                                <input type="text"  class="form-control" id="autor" placeholder="Autor">
+                            </div>
+                            <div class="form-group col-md-12">
+                                
+							</div>
+ 							<div class="form-group col-md-12">
+                            	<label for="name" class="col-form-label">Subir foto</label>
+                            	<input type="file" name="file"  accept="image/*" class="form-control"/>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <input type="submit" class="btn btn-primary" value="Modificar" id="save">
+                            </div>
+                        </div>
+                    </form>
       </div>
-     	 <div class="cuerporegistro">
-    
-     
-       <form action="" onsubmit="return valida(this)">
- <h2>Modificar Publicación</h2>
-			        	<hr style="background: #FFFFFF;">
-	        	<label>Tipo de Publicación</label><br>
-	        	<select>
-	        	<option>Seleccionar</option>
-	        	   <option value="1">Noticia</option>
-	        	   <option value="2">Ultima</option>  
-	        	</select>
-	        	<br>
-	        	<br>	
-	        	<hr style="background: #FFFFFF;">  
-	        	
-	        	<label>Nombre de Publicación</label><br>
-	        	<input class="ingresodatos" type="text" placeholder="Nombre Publicación.." autofocus="autofocus" ><br><br>
-				<label>Detalle Publicación</label><br>
-	        	<textarea class="ingresodatosdos" rows="8" cols="39	" placeholder="Detalle de Publicación.."></textarea>
-	        	<br>
-	        	<br>	
-	        	<hr style="background: #FFFFFF;">       	
-	        	
-	        	<label>Autor de la Publicación</label><br>
-	        	
-	        	<input class="ingresodatos" type="text" placeholder="Autor Publicación.." >
 
 
-	        	<br><br>
-	        	<hr style="background: #FFFFFF;">
-	        	<label>Imagen de Publicación</label><br>	
-	        	<input type="file">
-	        	<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
-	        	<br>
-	        	<br>
-	        	<input class="botonGeneralCentrado" type="submit" value="MODIFICAR">
-	     </form>
-      </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </main><!--  FIN CUERPO DE PAGINA -->
+  	</main><!--  FIN CUERPO DE PAGINA -->
+</header>
+	<script>
+	$(document).ready(function() {
+		$(document).delegate('#save', 'click', function() {
+					event.preventDefault();
 
+					var nombre = $('#nombre').val();
+					var detalle = $('#detalle').val();
+					var autor = $('#autor').val();
+					var idTipoPublicacion = $('#idTipoPublicacion').val();
+					var fecha = new Date()
+					
+					var img = $('input[name="file"]').get(0).files[0];
+					console.log(img)
 
+					var formData = new FormData();
+					formData.append('img', img);
+					var objArr = [];
 
+					objArr.push({"id": id, "nombre": nombre, "detalle": detalle, "autor": autor, "fecha": fecha, "foto": uuid, "idTipoPublicacion": idTipoPublicacion});
+					console.log(objArr);
 
+					formData.append('publicacion', JSON.stringify( objArr ));
+					console.log(formData);
 
+					$.ajax({
+						type: "PUT",
+						//contentType: "application/json; charset=utf-8",
+						url: "http://localhost:8080/api/publicacion",
+						//data: JSON.stringify({'id': id, 'nombre': document.getElementById("nombre").value, 'preparacion': document.getElementById("preparacion").value, 'dificultad': document.getElementById("dificultad").value}),
+						data: formData,
+						cache: false,
+						processData:false,
+						contentType:false,
+				        beforeSend: function(xhr) {
+				            if (localStorage.token) {
+				              xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
+				            }
+				        },
+						success: function() {
+							window.location.href = "listarPublicacion.html";
+						}
+					});
+		});
 
-
-
-
-
-
+		$('#logout').click(function() {
+		      localStorage.clear();
+		      window.location.href = "index.html";
+		});
+	});
+	</script>
 
 		<footer ><!-- Footer -->
-            <div class="redesolmedo">   
+            <div class="redesolmedo">
                 <div class="redes">
                     face
-                </div>            
+                </div>
             </div>
-            
+
             <div class="copyright">
-                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
+                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
             </div>
         </footer><!-- FIN footer-->
 
- <!-- Botstrap -->      
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  ></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  ></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"  ></script>  
-</body>
+ </body>
 </html>

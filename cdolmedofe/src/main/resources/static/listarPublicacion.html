@@ -10,28 +10,24 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    	
 		<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
 		<!-- Fuente -->
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 		<!--  Jquery -->
         <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
-
         <!-- Botstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+        <!-- JS -->
+        <script src="/js/main.js"></script>
 	<title>Administrador - CDOLMEDO</title>
 
 </head>
 
 <body>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="/js/main.js"></script>
+	
 	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
 	<!--<script>
 	if (typeof localStorage.token === "undefined"){
@@ -118,8 +114,8 @@
             </ul>
         </div> <!-- Fin de barra de menú -->
 
-<header class="page-header header container-fluid">
-        <!-- <main class="cuerpo_pagina"> -->
+<header class="page-headero headero container-fluido">
+   <main class="cuerpo_pagina">
       <div class="overlay">
 
 		    <div class="container my-2">
@@ -141,7 +137,7 @@
 		        	</div>
 		    	</div>
 			</div>
-        <!--</main>  -->
+        </main>
 </header>
 <!-- seccion listar en ajax -->
 	<script type="text/javascript">
@@ -163,7 +159,7 @@
 						tr.push('<td>' + data[i].fecha + '</td>');
 						tr.push('<td><img src="http://localhost:8080/api/pic/'+data[i].foto+'" width="80" class="rounded"></td>');
 						tr.push('<td>');
-						tr.push('<a data-toggle="modal" data-target="#modalLong'+data[i].id+'" class="btn btn-primary"><i class="fas fa-glasses ml-2"></i></a>');
+						tr.push('<a data-toggle="modal" data-target="#modalLong'+data[i].id+'" class="btn btn-primary"><img src="img/visualizar.png"></a>');
 						tr.push('<div class="modal fade" tabindex="-1" id="modalLong'+data[i].id+'" role="dialog">');
 						tr.push(' <div class="modal-dialog">');
 						tr.push('	<div class="modal-content">');
@@ -188,10 +184,10 @@
 						tr.push(' </div>');
 					 	tr.push('</td>');
 
-						tr.push('<td> <a href=modificarPublicacion.html?id=' + data[i].id + ' class="btn btn-primary"><i class="fas fa-edit ml-2"></i></a></td>');
+						tr.push('<td> <a href=modificarPublicacion.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/editar.png"></a></td>');
 
 						tr.push('<td>');
-						tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"> <i class="fas fa-trash-alt ml-2"></i></a>');
+						tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"> <img src="img/eliminar.png"></a>');
 						tr.push('<div class="modal modal-warning fade in" id="modalwarning'+data[i].id+'">');
 						tr.push(' <div class="modal-dialog">');
 						tr.push('	<div class="modal-content">');
@@ -253,53 +249,38 @@
 		});
 	</script>
 
-<footer ><!-- Footer -->
-    <div class="container second">
-        <div class="row">
-            <div class="col">
-                <span class="titulo text-center d-md-none d-block">SEGUINOS</span>
-                <ul class="d-flex flex-row align-items-center social justify-center">
-                    <li class="titulo d-none d-md-block">SEGUINOS</li>
-                    <li>
-                        <a href="http://www.youtube.com/bocaentretenimientos" rel="noreferrer" title="Youtube">Youtube</span></a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.instagram.com/bocajrsoficial/" rel="noreferrer" title="Instagram">Instagram</span></a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.facebook.com/BocaJuniors/" rel="noreferrer" title="Facebook">Facebook</span></a>
-                    </li>
-
-                    <li>
-                        <a href="https://twitter.com/BocaJrsOficial" rel="noreferrer" title="Twitter">Twitter</span></a>
-                    </li>
-
-                    <li class="d-none d-md-block">
-                        <a class="titulo" href="/contacto" title="Contactanos">Contactanos</a>
-                    </li>
-
-                </ul>
-                <span class="d-md-none d-block">
-                    <a class="titulo text-center" href="/contacto" title="Contactanos">Contactanos</a>
-                </span>
+        <footer ><!-- Footer -->
+            <div class="redesolmedo">   
+                <div class="redes">
+                     <div class="contenedor-redes">
+                   	 <img src="img/facebook.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/instagram.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/youtube.png">
+                    </div>
+                	<div class="contenedor-redes">
+                    	<img src="img/twitter.png">
+                    </div>
+                    <div class="contenedor-redes">
+                    	<img src="img/whatsapp.png">
+                    </div>
+                </div>            
             </div>
-            <div class="col text-right"> </div>
-        </div>
-    </div>
-
-    <div class="container copy">
-        <div class="d-flex justify-content-center">
-            <p>
-                © Copyright 2020 CDOLMEDO             </p>
-            <p class="ml-auto">Desarrollado por © EQUIPO 6</p>
-        </div>
+            
+            
+            <div class="copyright">
+           
+               
+                Desarrollado por CODETEAM para CDOLMEDO &copy; Riobamba 2020        
             </div>
 
         </footer><!-- FIN footer-->
 
  <!-- Botstrap -->
-
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
 </body>
 </html>

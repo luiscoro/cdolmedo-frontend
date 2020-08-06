@@ -16,14 +16,7 @@ function valida(f) {
   }
 
 
-	if(f.elements[5].value > 11
-	  ) 
-	{
-		
-	  msg += "- El campo teléfono no puede vacio.\n";
-	    ok = false;
-	}
-
+  
 
 
   if(ok == false)
