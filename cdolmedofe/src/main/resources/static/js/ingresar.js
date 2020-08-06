@@ -86,6 +86,7 @@ $(document).ready(function () {
 		console.log(detalle);
 		console.log(valor);
 		console.log(descuento);
+		console.log(estado);
 
 		var img = $('input[name="file"]').get(0).files[0];
 		console.log(img)
@@ -116,7 +117,7 @@ $(document).ready(function () {
 					});
 				setTimeout(
 					function () {
-						window.location.href = "index.html";
+						window.location.href = "listarServicios.html";
 					},2000);
 			},
 			error: function (xhr, exception) {
