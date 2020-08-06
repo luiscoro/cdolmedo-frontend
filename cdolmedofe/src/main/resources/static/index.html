@@ -30,7 +30,9 @@
 <title>Inicio - CDOLMEDO</title>
 </head>
 <body>
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
 <div class="cabecera"> <!-- Cabecera -->
             <div class="cabeceraLogo">
                 <a href="index.html" ><img src="img/escudo.png" ></a>
@@ -252,24 +254,40 @@ $(document).ready(function() {
 				var correo = $('#correo').val();
 				var contrasenia = $('#contrasenia').val();								
 				
-				$.ajax({
-					type: "POST",
+				$.getJSON('http://localhost:8080/api/v1/receta', function(data) {
+					//success: function(){
+						//localStorage.correo = result.correo;
+						///localStorage.id = result.id;
+						//localStorage.idRol = result.idRol;
+						console.log(data);
+						window.location.href = "perfilUsuario.html";
+					//},
+					//error: funtion(){
+						//window.location.href = "index.html";
+					//}
+						
+				};
+				/*$.ajax({
+					type: "GET",
 					contentType: "application/json; charset=utf-8",
-					url: "http://localhost:8080/api/usuario",
-					data: JSON.stringify({'correo': correo, 'contrasenia': contrasenia}),
+					url: "http://localhost:8080/api/usuario/findByEmail/",
+					data: JSON.stringify({'correo': correo}),
 					cache: false,
 					processData:false,
 					success: function(result) {
-						localStorage.token = result.token;
+						//localStorage.token = result.token;
+						localStorage.correo = result.correo;
+						localStorage.id = result.id;
+						localStorage.idRol = result.idRol;
 						//alert('Got a token from the server! Token: ' + result.token);
 						console.log(result);
-						window.location.href = "list_recipes_private.html";
+						window.location.href = "perfilUsuario.html";
 					},
 					error: function() {
 				          //alert("Login Failed");
 				          window.location.href = "index.html";
 				    }
-				});
+				}); */
 	});
 });
 </script>
