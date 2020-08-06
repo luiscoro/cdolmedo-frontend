@@ -75,9 +75,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">NOTICIAS</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SERVICIOS</a>
-                </li>
+                <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
+				        </div>
+				      </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SOCIO</a>
 
@@ -89,7 +97,6 @@
                         <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
                           <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
-                         <!--  <a class="dropdown-item" href="#">Something else here</a> -->
                         </div>
                       </li>
                   <li class="nav-item dropdown">
@@ -98,11 +105,8 @@
                         </a>
                         <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-                          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
-           			  <!-- <a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
-                          <a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>-->
+                          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
                         </div>
                       </li>
             </ul>
@@ -181,7 +185,7 @@
 						tr.push('<td> <a href=modificarPublicacion.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/editar.png"></a></td>');
 
 						tr.push('<td>');
-						tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"> <img src="img/eliminar.png"></a>');
+						tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"><img src="img/eliminar.png"></a>');
 						tr.push('<div class="modal modal-warning fade in" id="modalwarning'+data[i].id+'">');
 						tr.push(' <div class="modal-dialog">');
 						tr.push('	<div class="modal-content">');

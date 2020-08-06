@@ -23,14 +23,8 @@
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-	
-<<<<<<< HEAD
 
-=======
-	<!--<script src="js/controller.js"></script>-->
-	<!--<script src="js/validar.js"></script>-->
-	script<script src="js/ingresar.js"></script>
->>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
+
 	<script src="js/validacion.js"></script>
 	<script src="js/ingresar.js"></script>
 	
@@ -84,9 +78,15 @@
 			<li class="nav-item">
 				<a class="nav-link" href="#">NOTICIAS</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">SERVICIOS</a>
-			</li>
+			<li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
+				        </div>
+				</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">SOCIO</a>
 			</li>
@@ -99,24 +99,18 @@
 				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
 					<a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
-					<!-- <div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a> -->
 				</div>
 			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
-					INTEGRANTE
-				</a>
-				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-					<a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
-					<!-- <a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
-					<a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a> -->
-				</div>
-			</li>
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          JUGADOR
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
+				        </div>
+				      </li> 
 
 		</ul>
 	</div> <!-- Fin de barra de menú -->
@@ -126,11 +120,9 @@
 		<!-- CUERPO DE PAGINA -->
 
 		<div class="cuerporegistro">
-<<<<<<< HEAD
-			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return validar(this);" >
-=======
+
 			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return ingresar">
->>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
+
 				<h3>Ingresar Integrante del Club</h3>
 				<hr style="background: #FFFFFF;">
 

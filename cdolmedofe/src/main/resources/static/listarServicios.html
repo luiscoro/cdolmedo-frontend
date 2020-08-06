@@ -165,7 +165,7 @@
                             tr.push('<td>' + data[i].descuento + '</td>');
                             tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="80" class="rounded"></td>');
                             tr.push('<td>');
-                            tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><i class="fas fa-glasses ml-2"></i></a>');
+                            tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');
                             tr.push('<div class="modal fade" tabindex="-1" id="modalLong' + data[i].id + '" role="dialog">');
                             tr.push(' <div class="modal-dialog">');
                             tr.push('	<div class="modal-content">');
@@ -188,10 +188,10 @@
                             tr.push(' </div>');
                             tr.push('</td>');
 
-                            tr.push('<td> <a href=modificarServicio.html?id=' + data[i].id + ' class="btn btn-primary"><i class="fas fa-edit ml-2"></i></a></td>');
+                            tr.push('<td> <a href=modificarServicio.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/editar.png"></a></td>');
 
                             tr.push('<td>');
-                            tr.push('<a data-toggle="modal" data-target="#modalwarning' + data[i].id + '" class="btn btn-primary"> <i class="fas fa-trash-alt ml-2"></i></a>');
+                            tr.push('<a data-toggle="modal" data-target="#modalwarning' + data[i].id + '" class="btn btn-primary"><img src="img/eliminar.png"></a>');
                             tr.push('<div class="modal modal-warning fade in" id="modalwarning' + data[i].id + '">');
                             tr.push(' <div class="modal-dialog">');
                             tr.push('	<div class="modal-content">');

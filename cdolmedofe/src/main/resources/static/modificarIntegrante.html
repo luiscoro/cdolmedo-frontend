@@ -12,9 +12,19 @@
 	<!-- Fuente -->
 
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+		<!--  Jquery -->
+        <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
 
-	<!-- Botstrap -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <!-- Botstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+              crossorigin="anonymous">
+
+	<!-- JS -->
+	<script src="/js/main.js"></script>
+	<!--  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
 	
 	<title>Integrante - CDOLMEDO</title>
 </head>
@@ -34,11 +44,7 @@ var loadFile = function(event) {
 	var uuid;
 	//console.log(id);
 </script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="/js/main.js"></script>
+
 <script>
 $(document).ready(function() {
 	$.getJSON('http://localhost:8080/api/integranteClub/'+id, function(json) {
@@ -99,9 +105,15 @@ $(document).ready(function() {
 			<li class="nav-item">
 				<a class="nav-link" href="#">NOTICIAS</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">SERVICIOS</a>
-			</li>
+			<li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
+				        </div>
+				</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">SOCIO</a>
 			</li>
@@ -114,24 +126,18 @@ $(document).ready(function() {
 				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
 					<a class="dropdown-item" href="modificarPublicacion.html">MODIFICAR</a>
-					<a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a>
 				</div>
 			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
-					INTEGRANTE
-				</a>
-				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-					<a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
-					<a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			</li>
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          JUGADOR
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
+				        </div>
+				      </li> 
 
 		</ul>
 	</div> <!-- Fin de barra de menú -->
@@ -189,8 +195,9 @@ $(document).ready(function() {
 				<input class="botonGeneralCentrado" type="submit" value="ACTUALIZAR" id="save">
 				<br>
 			</form>
-		</div>
-	</main><!--  FIN CUERPO DE PAGINA -->
+	</div>
+	</main><!--  FIN CUERPO DE PAGINA -->	
+
 <script>
 $(document).ready(function () {
 	$(document).delegate('#save', 'click', function (event) {
@@ -204,28 +211,6 @@ $(document).ready(function () {
 		var peso = $('#peso').val();
 		var funcion = $('#funcion').val();
 
-<<<<<<< HEAD
-	<footer ><!-- Footer -->
-            <div class="redesolmedo">
-                <div class="redes">
-                     <div class="contenedor-redes">
-                   	 <img src="img/facebook.png">
-                    </div>
-                    <div class="contenedor-redes">
-                   	 <img src="img/instagram.png">
-                    </div>
-                    <div class="contenedor-redes">
-                   	 <img src="img/youtube.png">
-                    </div>
-                	<div class="contenedor-redes">
-                    	<img src="img/twitter.png">
-                    </div>
-                    <div class="contenedor-redes">
-                    	<img src="img/whatsapp.png">
-                    </div>
-                </div>
-            </div>
-=======
 		console.log(nombre);
 		console.log(perfil);
 		console.log(fechaNacimiento);
@@ -255,8 +240,9 @@ $(document).ready(function () {
 			cache: false,
 			processData: false,
 			contentType: false,
+			
 			success: function (result) {
-				console.log(result);
+			console.log(result);
 				$.alert({
 						title: 'OK',
 						content: 'El integrante ha sido actualizado!',
@@ -287,22 +273,42 @@ $(document).ready(function () {
 					alert('Error .\n' + xhr.responseText);
 			}
 		});
+		
 	});
 });
+
+
 </script>
-	<footer>
-		<!--Inicio Footer -->
-		<div class="redesolmedo">
-			<div class="redes">
-				face
-			</div>
-		</div>
->>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
+
+	<footer ><!-- Footer -->
+            <div class="redesolmedo">
+                <div class="redes">
+                     <div class="contenedor-redes">
+                   	 <img src="img/facebook.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/instagram.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/youtube.png">
+                    </div>
+                	<div class="contenedor-redes">
+                    	<img src="img/twitter.png">
+                    </div>
+                    <div class="contenedor-redes">
+                    	<img src="img/whatsapp.png">
+                    </div>
+                </div>
+            </div>
 
             <div class="copyright">
                 Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
             </div>
         </footer><!-- FIN footer-->
+        
+         <!-- Botstrap -->      
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 </body>
 
 </html>
