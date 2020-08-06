@@ -86,7 +86,7 @@ $(document).ready(function () {
 		console.log(detalle);
 		console.log(valor);
 		console.log(descuento);
-		console.log(estado);
+
 
 		var img = $('input[name="file"]').get(0).files[0];
 		console.log(img)

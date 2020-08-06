@@ -24,10 +24,9 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 	
-	<!--<script src="js/controller.js"></script>-->
-	<!--<script src="js/validar.js"></script>-->
-	<!--<script<script src="js/ingresar.js"></script>--->
+
 	<script src="js/validacion.js"></script>
+	<script src="js/ingresar.js"></script>
 	
 	<!-- Botstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -121,7 +120,7 @@
 		<!-- CUERPO DE PAGINA -->
 
 		<div class="cuerporegistro">
-			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return validacion();">
+			<form action="#" method="post" enctype="multipart/form-data" onsubmit="return validar(this);" >
 				<h3>Ingresar Integrante del Club</h3>
 				<hr style="background: #FFFFFF;">
 

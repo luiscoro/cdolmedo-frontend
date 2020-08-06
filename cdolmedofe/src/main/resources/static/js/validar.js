@@ -7,11 +7,6 @@ function valida(f) {
     msg += "- El campo nombre no puede quedar vacio.\n";
     ok = false;
   }
-  if(f.elements[1].value == "")
-  {
-    msg += "- El campo correo no puede queda vacio.\n";
-    ok = false;
-  }
 
 
   
