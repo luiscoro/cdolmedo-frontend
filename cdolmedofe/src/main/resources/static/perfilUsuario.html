@@ -27,11 +27,12 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script src="/js/main.js"></script>
 	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
-	<!--<script>
-	if (typeof localStorage.token === "undefined"){
+	<script>
+	if (typeof localStorage.id === "undefined"){
+		alert("Acceso no permitido");
 		window.location.href = "index.html";	
 	}
-	</script>-->
+	</script>
 	
 	<div class="cabecera"> <!-- Cabecera -->
             <div class="cabeceraLogo">
@@ -59,7 +60,7 @@
             </div>
             
             <div class="cabeceraBoton">
-                <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
+                <button class="botonGeneral"  id="logout">
                     <strong>CERRAR SESIÓN</strong> 
             </button>
             </div>
@@ -131,41 +132,47 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$.getJSON('http://localhost:8080/api/usuario', function(data) {
+				var id = localStorage.id;
 				var tr=[];
 					tr.push('<tr>');
-					tr.push('<td><a>Nombre: </a></td>');
-					tr.push('<td>' + data[1].nombreCompleto + '</td>');
+					tr.push('<td><a><b>Nombre: </b></a></td>');
+					tr.push('<td>' + data[id].nombre + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td><a>Email: </a></td>');
-					tr.push('<td>' + data[1].correo + '</td>');
+					tr.push('<td><a><b>Email: </b></a></td>');
+					tr.push('<td>' + data[id].correo + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td><a>Sexo: </a></td>');
-					tr.push('<td>' + data[1].sexo + '</td>');
+					tr.push('<td><a><b>Sexo: </b></a></td>');
+					tr.push('<td>' + data[id].sexo + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td><a>Fecha de nacimiento: </a></td>');
-					tr.push('<td>' + data[1].fechaNacimiento + '</td>');
+					tr.push('<td><a><b>Fecha de nacimiento: </b></a></td>');
+					tr.push('<td>' + data[id].fechaNacimiento + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td><a>N°.: </a></td>');
-					tr.push('<td>' + data[1].telefono + '</td>');
+					tr.push('<td><a><b>N° Telefonico.: </b></a></td>');
+					tr.push('<td>' + data[id].telefono + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td><a>Dirrecion: </a></td>');
-					tr.push('<td>' + data[1].dirrecion + '</td>');
+					tr.push('<td><a><b>Dirrecion: </b></a></td>');
+					tr.push('<td>' + data[id].direccion + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					tr.push('<td><a>Bonificacion: </a></td>');
-					tr.push('<td>' + data[1].puntajeBeneficio + '</td>');
+					tr.push('<td><a><b>Bonificacion: </b></a></td>');
+					tr.push('<td>' + data[id].puntajeBeneficio + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					//tr.push('<td><a>Localidad: </a></td>');	s 
 					//tr.push('	<h4 class="text-dark" src="http://localhost:8080/api/localidad/'+data[i].idLocalidad+'">'+data[i].nombre+'</h4>');									
 					tr.push('</tr>');
 				$('#tabla').append($(tr.join('')));
-			});						
+			});	
+			// borrado de localStorage los valores
+			$('#logout').click(function() {	
+			      localStorage.clear();
+			      window.location.href = "index.html";
+			});					
 		});
 	</script>
           
@@ -182,7 +189,7 @@
             </div>
 
         </footer><!-- FIN footer-->
-
+		
  <!-- Botstrap -->      
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   

@@ -16,7 +16,7 @@
         <!--  Jquery -->
         <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
 		<!--  JS -->
-		<script src="js/controller.js"></script>
+		<!--<script src="js/controller.js"></script>-->
 		<script src="js/validar.js"></script>
         <!-- Botstrap -->
         <!-- 
@@ -199,7 +199,39 @@
 
             </div>
         </main><!-- FIN Publicaciones-->
+<script type="text/javascript">
+	$(document).delegate('#btnIngresarSistema', 'click', function (event) {
+		event.preventDefault();
+		var correo = $('#correo').val();
+		var contrasenia = $('#contrasenia').val();
 
+		//console.log(correo);
+		//console.log(contrasenia);
+		$.ajax({
+		        type: 'GET',
+		        url: "http://localhost:8080/api/usuario/login/" + correo +"/"+contrasenia,
+				success: function(result) {
+					//localStorage.token = result.token;
+						if (result.length != 0) {
+							if(result[0].correo === correo || result[0].contrasenia === contrasenia){
+								window.location.href = "perfilUsuario.html";	
+								localStorage.mail = result[0].correo;
+								localStorage.id = result[0].id;
+								localStorage.idRol = result[0].idRol;
+							}				   		
+						} else {
+							alert("Ingresar correo y contraseña valido");
+						   	window.location.href = "index.html";
+						}
+					},
+					error: function() {
+				          alert("Ingresar valores");		
+				          window.location.href = "index.html";
+				    }
+			
+		});
+	});
+</script>
 
 <footer ><!-- Footer -->
             <div class="redesolmedo">
@@ -236,10 +268,10 @@
                 <br>
                 <strong> <h2 class="w3-wide" style="text-align: center;">INICIAR SESIÓN</h2></strong>
                  <br>
-                 <input class="ingresodatos"type="email" placeholder="Usuario..." name="username">
+                 <input class="ingresodatos"type="email" id="correo" placeholder="Usuario..." name="username">
                  <br>
                  <br>
-                 <input class="ingresodatos"type="password" placeholder="Contraseña..." name="password">
+                 <input class="ingresodatos"type="password" id="contrasenia" placeholder="Contraseña..." name="password">
                  <br><br>
                  <br><strong> <input id="btnIngresarSistema" class="botonGeneraldos" type="submit" value="INGRESAR"></strong><br><br>
 		         Registrate <a style="text-decoration: none;" href="registroUsuario.html">Aqui</a> &nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration: none;">Olvidaste tu contraseña</a>  
