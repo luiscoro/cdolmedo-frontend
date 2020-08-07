@@ -15,7 +15,9 @@
 
 	<!-- Botstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="/js/main.js"></script>
 	<title>Integrante - CDOLMEDO</title>
 </head>
 
@@ -34,11 +36,7 @@ var loadFile = function(event) {
 	var uuid;
 	//console.log(id);
 </script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="/js/main.js"></script>
+
 <script>
 $(document).ready(function() {
 	$.getJSON('http://localhost:8080/api/servicio/'+id, function(json) {
@@ -104,44 +102,41 @@ $(document).ready(function() {
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
 				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
 				        </div>
-		   </li>
+				      </li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">SOCIO</a>
 			</li>
 
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
-					PUBLICACIÓN
-				</a>
-				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
-					<a class="dropdown-item" href="modificarPublicacion.html">MODIFICAR</a>
-					<a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
-					INTEGRANTE
-				</a>
-				<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-					<a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
-					<a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			</li>
+			 <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          PUBLICACIÓN
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
+				          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
+				        </div>
+				      </li>
+			 <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          JUGADOR
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
+				        </div>
+				      </li> 
 
 		</ul>
 	</div> <!-- Fin de barra de menú -->
 
 
-	<header class="page-header header container-fluid">
+	<header class="page-header0 header0 container-fluid0">
 		<main class="cuerpo_pagina">
 			<!-- CUERPO DE PAGINA -->
 
@@ -160,16 +155,17 @@ $(document).ready(function() {
 						<br>
 
 					</div>
-					<div class="form-group col-md-12">
+				
 						<label for="nombre" class="col-form-label">Nombre</label>
-						<input type="text" class="form-control" id="nombre" placeholder="Nombre">
-					</div>
-					<div class="form-group col-md-12">
+						<input type="text" class="ingresodatos" id="nombre" placeholder="Nombre">
+				
+					
+					
 						<label for="detalle" class="col-form-label">Detalle</label>
-						<br>
-						<textarea class="form-control" id="detalle" rows="3" cols="10"
+						
+						<textarea class="ingresodatosdos" id="detalle" rows="3" cols="39"
 							placeholder="Detalle de Servicio.."></textarea>
-					</div>
+					
 
 					<div class="form-group col-md-12">
 						<label for="foto" class="col-form-label">Actualizar foto</label>
@@ -177,25 +173,27 @@ $(document).ready(function() {
 						<input type="file" name="file" accept="image/*" class="form-control" />
 					</div>
 
-					<div class="form-group col-md-12">
+				
 						<label for="nombre" class="col-form-label">Estado</label>
-						<input type="text" class="form-control" id="estado" placeholder="Nombre">
-					</div>
+						<input type="text" class="ingresodatos" id="estado" placeholder="Nombre">
+			
 
 
-					<div class="form-group col-md-12">
+					
 						<label for="valor" class="col-form-label">Valor</label>
-						<input type="number" class="form-control" id="valor" placeholder="Valor">
-					</div>
+						<input type="number" class="ingresodatos" id="valor" placeholder="Valor..">
+					
 
-					<div class="form-group col-md-12">
+				
 						<label for="descuento" class="col-form-label">Descuento</label>
-						<input type="number" class="form-control" id="descuento" placeholder="Descuento">
-					</div>
-
-					<div class="form-group col-md-6">
-						<input type="submit" class="btn btn-primary" value="Modificar" id="save">
-					</div>
+						<input type="number" class="ingresodatos" id="descuento" placeholder="Descuento..">
+					
+						<br>
+						<br>
+						<hr style="background: #FFFFFF;">
+					
+						<input type="submit" class="botonGeneralCentrado" value="Modificar" id="save">
+					
 
 				</form>
 			</div>
@@ -271,18 +269,35 @@ $(document).ready(function () {
 	});
 });
 </script>
-	<footer>
-		<!--Inicio Footer -->
-		<div class="redesolmedo">
-			<div class="redes">
-				face
-			</div>
-		</div>
+	<footer ><!-- Footer -->
+            <div class="redesolmedo">
+                <div class="redes">
+                     <div class="contenedor-redes">
+                   	 <img src="img/facebook.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/instagram.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/youtube.png">
+                    </div>
+                	<div class="contenedor-redes">
+                    	<img src="img/twitter.png">
+                    </div>
+                    <div class="contenedor-redes">
+                    	<img src="img/whatsapp.png">
+                    </div>
+                </div>
+            </div>
 
-		<div class="copyright">
-			Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
-		</div>
-	</footer><!-- FIN footer-->
+            <div class="copyright">
+                Desarrollado por CODETEAM para CDOLMEDO &copy; Riobamba 2020
+            </div>
+        </footer><!-- FIN footer-->
+
+ <!-- Botstrap -->      
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
+
 </body>
-
 </html>

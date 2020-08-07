@@ -109,9 +109,17 @@
 	                <li class="nav-item">
 	                    <a class="nav-link" href="#">NOTICIAS</a>
 	                </li>
-	                <li class="nav-item">
-	                    <a class="nav-link" href="#">SERVICIOS</a>
-	                </li>
+	               <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
+				        </div>
+				      </li>
 	                <li class="nav-item">
 	                    <a class="nav-link" href="#">SOCIO</a>
 	                </li>
@@ -122,36 +130,35 @@
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
-				           <!--   <a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a>
-				       <div class="dropdown-divider"></div>
-				          <a class="dropdown-item" href="#">Something else here</a> -->
+				          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
 				        </div>
 				      </li>
-				       <li class="nav-item dropdown">
+				  <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          JUGADOR
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-				          <a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
-				          <a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>
-				          <div class="dropdown-divider"></div>
-				          <a class="dropdown-item" href="#">Something else here</a>
+				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
 				        </div>
-				      </li>
+				      </li> 
 
 	            </ul>
 	        </div> <!-- Fin de barra de menú -->
 
-<header class="page-header header container-fluid">
+<header>
  <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA -->
 
      	<div class="cuerporegistro">
 			       <form action="#" method="post" enctype="multipart/form-data">
+			       
 			             <div class="form-group col-md-12">
 							<h3 >Modificar Publicación</h3>
 					        	<hr style="background: #FFFFFF;">
 						 </div>
+						 
+						 
 						 <div class="form-group col-md-12">
 						        	<label>Tipo de Publicación</label><br>
 							        	<select name="idTipoPublicacion" id="idTipoPublicacion">
@@ -163,36 +170,35 @@
 					        	<br>
 				        		
 							</div> 
-                            <div class="form-group col-md-12">
+                       
                                 <label for="nombre" class="col-form-label">Nombre</label>
-                                <input type="text"  class="form-control" id="nombre" placeholder="Nombre">
-                            </div>
-							<div class="form-group col-md-12">
+                                <input type="text"  class="ingresodatos" id="nombre" placeholder="Nombre..">
+                          
+							
 								<label for="detalle" class="col-form-label">Detalle</label>
 								<br></br>
-                                <textarea class="form-control" id="detalle" rows="3" cols="10	" placeholder="Detalle de Publicación.."></textarea>
-                            </div>
-							<div class="form-group col-md-12">
+                                <textarea class="ingresodatosdos" id="detalle" rows="3" cols="39	" placeholder="Detalle de Publicación.."></textarea>
+                       
+                            
+							
                                 <label for="nombre" class="col-form-label">Autor</label>
-                                <input type="text"  class="form-control" id="autor" placeholder="Autor">
-                            </div>
-                            <div class="form-group col-md-12">
-                                
-							</div>
- 							<div class="form-group col-md-12">
+                                <input type="text"  class="ingresodatos" id="autor" placeholder="Autor..">
+                           
+
+
+ 						
                             	<label for="name" class="col-form-label">Subir foto</label>
+                            	<p><img id="output" src="" width="80" class="rounded"></p>
                             	<input type="file" name="file"  accept="image/*" class="form-control"/>
-                            </div>
+                       			<br>
+                       			<br>
 
 
-                            <div class="form-group col-md-6">
-                                <input type="submit" class="btn btn-primary" value="Modificar" id="save">
-                            </div>
-                        </div>
-                    </form>
+                            
+                                <input type="submit" class="botonGeneralCentrado" value="Modificar" id="save">
+                       
+             </form>
       </div>
-
-
   	</main><!--  FIN CUERPO DE PAGINA -->
   	
 </header>
@@ -269,7 +275,7 @@
             </div>
 
             <div class="copyright">
-                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
+                Desarrollado por CODETEAM para CDOLMEDO &copy; Riobamba 2020
             </div>
         </footer><!-- FIN footer-->
         
