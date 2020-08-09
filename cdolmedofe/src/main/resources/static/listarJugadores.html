@@ -28,6 +28,16 @@
 </head>
 
 <body>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
+	<script>
+		if (typeof localStorage.id === "undefined" || typeof localStorage.id != 3){
+			alert("Acceso no permitido");
+			window.location.href = "index.html";	
+		}
+	</script>
     <div class="cabecera">
         <!-- Cabecera 1-->
         <div class="cabeceraLogo">

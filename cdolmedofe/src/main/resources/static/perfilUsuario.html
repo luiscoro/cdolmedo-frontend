@@ -131,42 +131,45 @@
       </main>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$.getJSON('http://localhost:8080/api/usuario', function(data) {
-				var id = localStorage.id;
+			$.ajax({
+		        type: 'GET',
+		        url: "http://localhost:8080/api/usuario/" + localStorage.id,
+				success: function(data) {
 				var tr=[];
 					tr.push('<tr>');
 					tr.push('<td><a><b>Nombre: </b></a></td>');
-					tr.push('<td>' + data[id].nombre + '</td>');
+					tr.push('<td>' + data.nombre + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					tr.push('<td><a><b>Email: </b></a></td>');
-					tr.push('<td>' + data[id].correo + '</td>');
+					tr.push('<td>' + data.correo + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					tr.push('<td><a><b>Sexo: </b></a></td>');
-					tr.push('<td>' + data[id].sexo + '</td>');
+					tr.push('<td>' + data.sexo + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					tr.push('<td><a><b>Fecha de nacimiento: </b></a></td>');
-					tr.push('<td>' + data[id].fechaNacimiento + '</td>');
+					tr.push('<td>' + data.fechaNacimiento + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					tr.push('<td><a><b>N° Telefonico.: </b></a></td>');
-					tr.push('<td>' + data[id].telefono + '</td>');
+					tr.push('<td>' + data.telefono + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					tr.push('<td><a><b>Dirrecion: </b></a></td>');
-					tr.push('<td>' + data[id].direccion + '</td>');
+					tr.push('<td>' + data.direccion + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					tr.push('<td><a><b>Bonificacion: </b></a></td>');
-					tr.push('<td>' + data[id].puntajeBeneficio + '</td>');
+					tr.push('<td>' + data.puntajeBeneficio + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
 					//tr.push('<td><a>Localidad: </a></td>');	s 
 					//tr.push('	<h4 class="text-dark" src="http://localhost:8080/api/localidad/'+data[i].idLocalidad+'">'+data[i].nombre+'</h4>');									
 					tr.push('</tr>');
 				$('#tabla').append($(tr.join('')));
+				}
 			});	
 			// borrado de localStorage los valores
 			$('#logout').click(function() {	

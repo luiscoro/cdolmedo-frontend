@@ -34,6 +34,14 @@
 </head>
 
 <body>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script>
+	if (typeof localStorage.id === "undefined"){
+		alert("Acceso no permitido");
+		window.location.href = "index.html";	
+	}
+	</script>
 
 	<div class="cabecera">
 		<!-- Cabecera -->
@@ -63,9 +71,9 @@
 		</div>
 
 		<div class="cabeceraBoton">
-			<button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
-				<strong>CERRAR SESIÓN</strong>
-			</button>
+			<button class="botonGeneral"  id="logout">
+                    <strong>CERRAR SESIÓN</strong> 
+            </button>
 		</div>
 	</div> <!-- Fin Cabecera -->
 
@@ -172,6 +180,14 @@
 		</div>
 
 	</main><!--  FIN CUERPO DE PAGINA -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#logout').click(function() {	
+			      localStorage.clear();
+			      window.location.href = "index.html";
+			});
+		});				
+	</script>
 
 	<footer>
 		<!--Inicio Footer -->

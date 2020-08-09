@@ -71,6 +71,7 @@ $(document).ready(function () {
 					alert('Error .\n' + xhr.responseText);
 			}
 		});
+	
 	});
 
 	$(document).delegate('#ingServicio', 'click', function (event) {
@@ -112,10 +113,10 @@ $(document).ready(function () {
 			contentType: false,
 			success: function (result) {
 				console.log(result);
-				$.alert({
+				/*$.alert({
 						title: 'OK',
 						content: 'El servicio ha sido publicado!',
-					});
+					}); alerta no funcionando*/
 				setTimeout(
 					function () {
 						window.location.href = "listarServicios.html";
@@ -125,10 +126,10 @@ $(document).ready(function () {
 				if (xhr.status === 0)
 					alert('Error : ' + xhr.status + 'You are not connected.');
 				else if (xhr.status == "409"){
-					$.alert({
+					/*$.alert({
 						title: 'Error',
 						content: 'Este nombre de servicio ya existe!',
-					});
+					});*/ //corregir no funciona la alerta
 				}
 				else if (xhr.status == "404")
 					alert('Error : ' + xhr.status + '\nPage note found');
