@@ -28,18 +28,18 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="/js/main.js"></script>
 	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 		var rol = parseInt(localStorage.getItem("idRol"));
 		if ((typeof localStorage.id === "undefined") ){
 			alert("Acceso no permitido");
 			window.location.href = "index.html";	
 		}else{ 
-			if(rol !== 3){
+			if(rol !== 1 && rol !== 2){
 				alert("Usuario no permitido");
-				window.location.href = "perfilUsuarioHincha.html";	
+				window.location.href = "perfilUsuario.html";	
 			}
 		}
-	</script>
+	</script>-->
 
 	<div class="cabecera"> <!-- Cabecera 1-->
             <div class="cabeceraLogo">
@@ -67,23 +67,10 @@
             </div>
 
             <div class="cabeceraBoton">
-			<button class="botonGeneral" id="logout">
-				<strong>CERRAR SESIóN</strong>
-			</button>
-			<br>
-             <br>
-             <div style="margin:0 auto;"><strong><input class="botonPerfil" type="button" value="Mi Perfil" id="bott"></strong>
-             	<script type="text/javascript">
-						$(document).ready(function() {
-							// borrado de localStorage los valores
-							$('#bott').click(function() {	  
-								      window.location.href = "perfilUsuario.html";
-							});
-						});	
-			   </script>
-             </div>
-             
-		</div>
+                <button class="botonGeneral" id="logout">
+                    <strong>CERRAR SESIÓN</strong>
+            </button>
+            </div>
         </div> <!-- Fin Cabecera -->
 
                 <div class="barramenu"> <!-- Barra de menú -->
@@ -99,8 +86,7 @@
 				          SERVICIO
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
-				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
+				          <a class="dropdown-item" href="listarServiciosHincha.html">LISTAR SERVICIOS</a>
 				         <!--  <div class="dropdown-divider"></div>
 				          <a class="dropdown-item" href="#">Something else here</a> -->
 				        </div>
@@ -114,8 +100,7 @@
                           PUBLICACIÓN
                         </a>
                         <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
-                          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
+                          <a class="dropdown-item" href="listarPublicacionHincha.html">LISTAR PUBLICACIONES</a>
                         </div>
                       </li>
                   <li class="nav-item dropdown">
@@ -123,8 +108,7 @@
                           JUGADOR
                         </a>
                         <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-                          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+                          <a class="dropdown-item" href="listarJugadoresHincha.html">LISTAR JUGADORES</a>
 
                         </div>
                       </li>
@@ -149,8 +133,6 @@
             									<th>Fecha</th>
             									<th>Imagen</th>
             									<th>Visualizar</th>
-            									<th>Modificar</th>
-            									<th>Borrar</th>
             								</tr>
 							          </table>
 		            	</div>
@@ -203,31 +185,6 @@
 						tr.push('	</div>');
 						tr.push(' </div>');
 					 	tr.push('</td>');
-
-						tr.push('<td> <a href=modificarPublicacion.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/editar.png"></a></td>');
-
-						tr.push('<td>');
-						tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"><img src="img/eliminar.png"></a>');
-						tr.push('<div class="modal modal-warning fade in" id="modalwarning'+data[i].id+'">');
-						tr.push(' <div class="modal-dialog">');
-						tr.push('	<div class="modal-content">');
-						tr.push('		<div class="modal-header">');
-						tr.push('			<h5 class="modal-title text-dark">¿Borrar esta publicacion?</h5>');
-						tr.push('			<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
-						tr.push('			<span aria-hidden="true">&times;</span></button>');
-						tr.push('		</div>');
-						tr.push('		<div class="modal-body">');
-						tr.push('			<h3 class="text-dark">'+data[i].nombre+'</h3>');
-						tr.push('		</div>');
-						tr.push('		<div class="modal-footer">');
-						tr.push('			<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>');
-						tr.push('			<a type="button" class="btn btn-outline borrar" href="#" id='+data[i].id+'><i class="fa fa-check"></i>&nbsp;Si</a>');
-						tr.push('		</div>');
-						tr.push('	</div>');
-						tr.push(' </div>');
-						tr.push('</div>	');
-						tr.push('</td>');
-
 						tr.push('</tr>');
 					}
 					$('#tabla').append($(tr.join('')));
