@@ -87,7 +87,7 @@ body{
     height: 100%;
     float: left;
     text-align: center;
-    padding: 50px 10px 0px 0px;
+    padding: 20px 10px 0px 0px;
 
 }
 .botonGeneral{
@@ -144,6 +144,27 @@ body{
        color: #FFFFFF;
        border: 1px solid #FFFFFF;
 }
+.botonPerfil{
+	   
+       font-family: 'Montserrat', sans-serif;
+       font-size: 10px;
+       background: #F20530;
+       color:#FFFFFF;
+       width: auto;
+       height: 30px;
+       border-radius: 10px;
+       border: 1px solid #F20530;  
+       padding: 3px 10px 3px 10px;
+       margin-left: 100px;
+	
+}
+.botonPerfil:hover{
+	 background: #2930A6;
+       color: #FFFFFF;
+       border: 1px solid #FFFFFF;
+	
+}
+
 /*    fFINin CABECERA   */
 /* LOGIN */
 

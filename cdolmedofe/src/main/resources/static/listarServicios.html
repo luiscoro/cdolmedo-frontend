@@ -69,10 +69,23 @@
         </div>
 
         <div class="cabeceraBoton">
-            <button class="botonGeneral" id="logout">
-                <strong>CERRAR SESI�N</strong>
-            </button>
-        </div>
+			<button class="botonGeneral" id="logout">
+				<strong>CERRAR SESIóN</strong>
+			</button>
+			<br>
+             <br>
+             <div style="margin:0 auto;"><strong><input class="botonPerfil" type="button" value="Mi Perfil" id="bott"></strong>
+             	<script type="text/javascript">
+						$(document).ready(function() {
+							// borrado de localStorage los valores
+							$('#bott').click(function() {	  
+								      window.location.href = "perfilUsuario.html";
+							});
+						});	
+			   </script>
+             </div>
+             
+		</div>
     </div> <!-- Fin Cabecera -->
 
     <div class="barramenu">
