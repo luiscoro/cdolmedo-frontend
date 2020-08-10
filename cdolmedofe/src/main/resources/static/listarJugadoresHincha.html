@@ -71,6 +71,15 @@
             <button class="botonGeneral" id="logout">
                 <strong>CERRAR SESIÓN</strong>
             </button>
+			<div style="margin:0 auto;">
+				<a class="nav-link" id="email" href="perfilUsuarioHincha.html" style="color: #FFFFFF;"></a>
+				<script>			
+					$(document).ready(function() {		
+						var email= localStorage.getItem("mail");
+						document.getElementById('email').innerHTML= email;
+					});				
+				</script> 
+			</div>
         </div>
     </div> <!-- Fin Cabecera -->
 
