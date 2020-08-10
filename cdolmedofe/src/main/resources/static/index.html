@@ -231,14 +231,14 @@
 								localStorage.id = result[0].id;
 								localStorage.idRol = result[0].idRol;
 								localStorage.point = result[0].puntajeBeneficio;
-								if(result[0].id === 1){
+								if(result[0].idRol === 1){
 									window.location.href = "perfilUsuarioHincha.html";
 								}else{
-									if(result[0].id ===3){
+									if(result[0].idRol ===3){
 										window.location.href = "perfilUsuario.html";
 									}else{
 										//window.location.href = "perfilUsuarioSocio.html";
-									}
+									}		
 								}
 							}				   		
 						} else {
