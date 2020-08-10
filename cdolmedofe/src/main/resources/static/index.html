@@ -66,14 +66,26 @@
         <div class="barramenu"> <!-- Barra de menú -->
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">INICIO</a>
+                    <a class="nav-link active" href="index.html">INICIO</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">NOTICIAS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SERVICIOS</a>
-                </li>
+                <li class="nav-item dropdown">
+	                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+	                    aria-haspopup="true" aria-expanded="false">
+	                    NOTICIAS
+	                </a>
+                <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+               		<a class="dropdown-item" href="listarPublicacionHincha.html">PUBLICACIONES</a>
+                   	<a class="dropdown-item" href="listarJugadoresHincha.html">JUGADORES</a>
+                </div>
+            </li>
+                <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarServiciosHincha.html">SERVICIOS</a>
+				        </div>
+		   		</li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SOCIO</a>
                  
@@ -218,6 +230,15 @@
 								localStorage.mail = result[0].correo;
 								localStorage.id = result[0].id;
 								localStorage.idRol = result[0].idRol;
+								if(result[0].id === 1){
+									window.location.href = "perfilUsuarioHincha.html";
+								}else{
+									if(result[0].id ===3){
+										window.location.href = "perfilUsuario.html";
+									}else{
+										//window.location.href = "perfilUsuarioSocio.html";
+									}
+								}
 							}				   		
 						} else {
 							alert("Ingresar correo y contraseña valido");

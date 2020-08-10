@@ -30,7 +30,7 @@
 			alert("Acceso no permitido");
 			window.location.href = "index.html";	
 		}else{
-			if(rol !== 3){
+			if(rol === 3){
 				alert("Usuario no permitido");
 				window.location.href = "index.html";	
 			}
@@ -48,6 +48,9 @@
                 
             </div>
             <div class="cabeceraEsponsor">
+				<div class="esponsor">
+					<a>PERFIL</a>
+				</div>
                 <div class="esponsor">
             
                     <a href="index.html" target="_blank" ><img src="img/esponsor1.png" ></a>
@@ -61,7 +64,6 @@
                     
                 </div>
             </div>
-            
             <div class="cabeceraBoton">
                 <button class="botonGeneral"  id="logout">
                     <strong>CERRAR SESIÓN</strong> 
@@ -77,8 +79,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">NOTICIAS</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SERVICIOS</a>
+                <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIOS
+				    </a>
+					<div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarServiciosHincha.html">LISTAR SERVICIOS</a>
+				     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SOCIO</a>
@@ -89,24 +96,15 @@
 				          PUBLICACIÓN
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
-				      <!--    <a class="dropdown-item" href="modificarPublicacion.html">MODIFICAR</a>
-				          <a class="dropdown-item" href="eliminarPublicacion.html">ELIMINAR</a> -->
-				          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
-				          
-				          
+				          <a class="dropdown-item" href="listarPublicacionHincha.html">LISTAR PUBLICACIONES</a>
 				        </div>
-				      </li>
+				  </li>
 				  <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          JUGADOR
 				        </a>
-				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
-				     <!-- <a class="dropdown-item" href="modificarIntegrante.html">MODIFICAR</a>
-				          <a class="dropdown-item" href="eliminarIntegrante.html">ELIMINAR</a>--> 
-				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
-				          
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown"> 
+				          <a class="dropdown-item" href="listarJugadoresHincha.html">LISTAR JUGADORES</a>
 				        </div>
 				      </li>    
             </ul>  

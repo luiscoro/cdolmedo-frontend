@@ -35,12 +35,12 @@
 		if ((typeof localStorage.id === "undefined") ){
 			alert("Acceso no permitido");
 			window.location.href = "index.html";	
+		}else{
+			if(rol !== 3){
+				alert("Usuario no permitido");
+				window.location.href = "index.html";	
+			}
 		}
-		if(rol !== 3){
-			alert("Usuario no permitido");
-			window.location.href = "index.html";	
-		}
-		
 	</script>
 
 	<div class="cabecera"><!-- Cabecera -->
@@ -191,25 +191,16 @@
 				var autor = $('#autor').val();
 				var idTipoPublicacion = $('#idTipoPublicacion').val();
 				//var fecha = $('#fecha').val();
-
-				console.log(nombre);
-				console.log(detalle);
-				console.log(autor);
-				console.log(idTipoPublicacion);
-				//console.log(fecha);
-
+				
 				var img = $('input[name="file"]').get(0).files[0];
-				console.log(img)
 
 				var formData = new FormData();
 				formData.append('img', img);
 				var objArr = [];
 
 				objArr.push({ "nombre": nombre, "detalle": detalle, "autor": autor, "idTipoPublicacion": idTipoPublicacion });
-				console.log(objArr);
 
 				formData.append('publicacion', JSON.stringify(objArr));
-				console.log(formData);
 
 				$.ajax({
 					type: "POST",
@@ -224,6 +215,7 @@
 						window.location.href = "listarPublicacion.html";
 					}
 				});
+				// ajax.....
 			});
 			// borrado de localStorage los valores
 			$('#logout').click(function() {	

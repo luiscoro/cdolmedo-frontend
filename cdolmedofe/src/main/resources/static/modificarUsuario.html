@@ -40,17 +40,9 @@
 		const queryString = window.location.search;
 		console.log(queryString);
 		const urlParams = new URLSearchParams(queryString);
-		//const id = urlParams.get('id')
-		//const id = 1
-		//const correo = urlParams.get('correo')
-		//const contrasenia = urlParams.get('contrasenia')
 		var uuid;
 		//console.log(id);
 	</script>
-
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="/js/main.js"></script>
 	<script>
 	$(document).ready(function() {
 		$.getJSON('http://localhost:8080/api/usuario/'+id, function(json) {
@@ -190,16 +182,13 @@
 				var objArr = [];
 
 				objArr.push({"id":id, "nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, "fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion, "puntajeBeneficio": puntajeBeneficio, "fechaCreacion": fechaCreacion, "idLocalidad": idLocalidad});
-				console.log(objArr);
 
 				formData.append('usuario', JSON.stringify( objArr ));
-				console.log(formData);
+				//console.log(formData);
 
 					$.ajax({
 						type: "PUT",
-						//contentType: "application/json; charset=utf-8",
 						url: "http://localhost:8080/api/usuario",
-						//data: JSON.stringify({'id': id, 'nombre': document.getElementById("nombre").value, 'preparacion': document.getElementById("preparacion").value, 'dificultad': document.getElementById("dificultad").value}),
 						data: formData,
 						cache: false,
 						processData:false,
@@ -220,8 +209,7 @@
 		      window.location.href = "index.html";
 		});
 	});
-	</script>
-          
+	</script>     
         <footer ><!-- Footer -->
             <div class="redesolmedo">
                 <div class="redes">
