@@ -60,13 +60,11 @@
                 <div class="esponsor">
                    <a href="index.html" target="_blank" ><img src="img/esponsor5.jpg" ></a>
                     
-                </div>
-               
-                
-               
-                
+                </div>               
+         
             </div>
-                       
+            
+            </div>
       <div class="cabeceraBoton">
 			<button class="botonGeneral" id="logout">
 				<strong>CERRAR SESIóN</strong>
@@ -85,7 +83,7 @@
              </div>
              
 		</div>
-
+		</div>
         </div> <!-- Fin Cabecera -->
         
                 <div class="barramenu"> <!-- Barra de menú -->
@@ -109,7 +107,6 @@
 				      </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SOCIO</a>
-                    
                 </li>
                 <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -127,12 +124,9 @@
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
 				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
-
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
 				        </div>
 				      </li>    
-
-				      
-				    
             </ul>  
          
         </div> <!-- Fin de barra de menú -->
@@ -195,8 +189,6 @@
 					tr.push('<td>' + data.puntajeBeneficio + '</td>');
 					tr.push('</tr>');
 					tr.push('<tr>');
-					//tr.push('<td><a>Localidad: </a></td>');	s 
-					//tr.push('	<h4 class="text-dark" src="http://localhost:8080/api/localidad/'+data[i].idLocalidad+'">'+data[i].nombre+'</h4>');									
 					tr.push('</tr>');
 				$('#tabla').append($(tr.join('')));
 				}

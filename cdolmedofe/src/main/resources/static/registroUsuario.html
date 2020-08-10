@@ -101,7 +101,7 @@
 	        	
 	        	<br><br>
 	        	<label>Teléfono</label><br>
-	        	<input class="ingresodatos" id="telefono" type="text" pattern="[0-9]" title="Ingresar solo numeros" placeholder="Teléfono.."><br><br>
+	        	<input class="ingresodatos" id="telefono" type="number" pattern="[0-9]" title="Ingresar solo numeros" placeholder="Teléfono.."><br><br>
 	        	<label>Dirección</label><br>
 	        	<textarea class="ingresodatosdos" id="direccion"  rows="3" cols="39	" placeholder="Dirección.."></textarea>
 	        	<br>
@@ -160,14 +160,6 @@
 				var puntajeBeneficio = 0;
 				var idRol = 1; 
 				
-				console.log(nombre);
-				console.log(contrasenia);
-				console.log(correo);
-				console.log(sexo);
-				console.log(fechaNacimiento);
-				console.log(telefono);
-				console.log(direccion);
-				console.log(idLocalidad);
 				
 				var formData = new FormData();
 				var objArr = [];
@@ -175,10 +167,8 @@
 				objArr.push({"nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, 
 				"fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion,
 				"idLocalidad": idLocalidad, "puntajeBeneficio": puntajeBeneficio, "idRol": idRol});
-				console.log(objArr);
 
 				formData.append('usuario', JSON.stringify( objArr ));
-				console.log(formData);
 
 				$.ajax({
 					type: "POST",
@@ -196,7 +186,7 @@
 						});
 						setTimeout(
 							function () {
-								window.location.href = "perfilUsuario.html";
+								window.location.href = "index.html";
 							}, 2000);
 					},
 					error: function (xhr, exception) {
