@@ -3,7 +3,8 @@
 <head>
   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-        <!-- estilos -->
+		<!-- estilos -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
         <!--para el login  -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,7 +14,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
         
         <!--  Jquery -->
-        <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+		<script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
         <!-- Botstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
@@ -110,7 +112,23 @@
 	        	   	<option value="1">Ecuador, Riobamba</option>
 	        	   	<option value="2">Ecuador, Quito</option>
 					<option value="3">Ecuador, Guayaquil</option>
-	        	   	<option value="4">Ecuador, Ibarra</option>   
+					<option value="4">Ecuador, Ibarra</option>
+					<option value="5">Ecuador, Ambato</option>
+					<option value="6">Ecuador, Latacunga</option>
+					<option value="7">Ecuador, Cuenca</option>
+					<option value="8">Ecuador, Sangolquí</option>
+					<option value="9">Ecuador, Guaranda</option>
+					<option value="10">Ecuador, Tena</option>
+					<option value="11">Ecuador, Macas</option>
+					<option value="12">Ecuador, Guano</option>
+					<option value="13">Ecuador, Penipe</option>
+					<option value="14">Ecuador, Alausí</option>
+					<option value="15">Ecuador, Chambo</option> 
+					<option value="16">Ecuador, Azogues</option>
+					<option value="17">Ecuador, Esmeraldas</option>
+					<option value="18">Ecuador, Loja</option>
+					<option value="19">Ecuador, Manta</option>
+					<option value="20">Ecuador, Portoviejo</option>  
 	        	</select>
 	        	<br>
 	        	<br>
@@ -171,9 +189,35 @@
 					cache: false,
 					processData:false,
 					contentType:false,
-					success: function(result) {
-
-						window.location.href = "perfilUsuario.html"; 
+					success: function (result) {
+						$.alert({
+							title: 'OK',
+							content: 'El usuario ha sido registrado!',
+						});
+						setTimeout(
+							function () {
+								window.location.href = "perfilUsuario.html";
+							}, 2000);
+					},
+					error: function (xhr, exception) {
+						if (xhr.status === 0)
+							alert('Error : ' + xhr.status + 'You are not connected.');
+						else if (xhr.status == "409") {
+							$.alert({
+								title: 'Error',
+								content: 'El nombre de usuario o correo ya existe!',
+							});
+						}
+						else if (xhr.status == "404")
+							alert('Error : ' + xhr.status + '\nPage note found');
+						else if (xhr.status == "500")
+							alert('Internal Server Error [500].');
+						else if (exception === 'parsererror')
+							alert('Error : ' + xhr.status + '\nImpossible to parse result.');
+						else if (exception === 'timeout')
+							alert('Error : ' + xhr.status + '\nRequest timeout.');
+						else
+							alert('Error .\n' + xhr.responseText);
 					}
 				});
 		});
