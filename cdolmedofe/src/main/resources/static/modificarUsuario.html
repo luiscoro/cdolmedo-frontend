@@ -16,14 +16,16 @@
         <script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
         
         <!-- Botstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> <!-- JS -->
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+		<script src="js/controller.js"></script>
+		<script src="js/validar.js"></script>
+		<script src="/js/main.js"></script>
 <title>Registro Usuario - CDOLMEDO</title>
 </head>
 <body>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="/js/main.js"></script>
 	<script type="text/javascript">
-		var rol = parseInt(localStorage.getItem("idRol"));
+		//var rol = parseInt(localStorage.getItem("idRol"));
 		if ((typeof localStorage.id === "undefined") ){
 			alert("Acceso no permitido");
 			window.location.href = "index.html";	
@@ -31,31 +33,17 @@
 		
 	</script>
 	<script>
-	var loadFile = function(event) {
-	    var output = document.getElementById('output');
-	    output.src = URL.createObjectURL(event.target.files[0]);
-	  };
-	</script>
-	<script>
-		const queryString = window.location.search;
-		console.log(queryString);
-		const urlParams = new URLSearchParams(queryString);
-		var uuid;
-		//console.log(id);
-	</script>
-	<script>
+	var id_aux = parseInt(localStorage.getItem("id"));
 	$(document).ready(function() {
-		$.getJSON('http://localhost:8080/api/usuario/'+id, function(json) {
-			console.log(json.nombre)
+		$.getJSON('http://localhost:8080/api/usuario/'+id_aux, function(json) {
 			document.getElementById("nombre").value = json.nombre;
 			document.getElementById("contrasenia").value = json.contrasenia;
 			document.getElementById("correo").value = json.correo;
-			document.getElementById("sexo").value = json.autor;
-			document.getElementById("fechaNacimiento").value = json.idTipoPublicacion;
-			document.getElementById("telefono").value = json.autor;
+			document.getElementById("sexo").value = json.sexo;
+			document.getElementById("fechaNacimiento").value = json.fechaNacimiento;
+			document.getElementById("telefono").value = json.telefono;
 			document.getElementById("direccion").value = json.direccion;
 			document.getElementById("idLocalidad").value = json.idLocalidad;
-			
 		});
 	});
 	</script>
@@ -116,7 +104,7 @@
         
         <main class="cuerpo_pagina"><!-- CUERPO DE PAGINA  -->
         	<div class="cuerporegistro">
-       			<form action="" onsubmit="return valida(this)">
+       			<form action="#" method="post" enctype="multipart/form-data">
 		        	<h3>Registrar Usuario</h3>
 		        	<hr style="background: #FFFFFF;">
 		        	
@@ -129,11 +117,11 @@
 					<label>Fecha de Nacimiento</label><br>
 		        	<input type="date" id="fechaNacimiento" name="fechaNacimiento"
 	       				value="2010-07-22"
-	       				min="1920-01-01" max="2004-12-31">        	
+	       				min="1920-01-01" max="2030-12-31">        	
 		        	
 		        	<br><br>
 		        	<label>Teléfono</label><br>
-		        	<input class="ingresodatos" id="telefono" type="text" pattern="[0-9]" title="Ingresar solo numeros" placeholder="Teléfono.."><br><br>
+		        	<input class="ingresodatos" id="telefono" type="number" pattern="[0-9]" title="Ingresar solo numeros" placeholder="Teléfono.."><br><br>
 		        	<label>Dirección</label><br>
 		        	<textarea class="ingresodatosdos" id="direccion"  rows="3" cols="39	" placeholder="Dirección.."></textarea>
 		        	<br>
@@ -155,7 +143,7 @@
 		        	<br>
 		        	<br>
 		        	
-		        	<input class="botonGeneralCentrado" type="submit" id="update" value="REGISTRAR">
+		        	<input class="botonGeneralCentrado" type="submit" id="update" value="GUARDAR">
 		     	</form>
       		</div>
         	
@@ -164,7 +152,8 @@
 	$(document).ready(function() {
 		$(document).delegate('#update', 'click', function() {
 				event.preventDefault();
-
+				var id_aux = parseInt(localStorage.getItem("id"));
+				var id_rol = parseInt(localStorage.getItem("idRol"));
 				var nombre = $('#nombre').val();
 				var contrasenia = $('#contrasenia').val();
 				var correo = $('#correo').val();
@@ -173,18 +162,15 @@
 				var telefono = $('#telefono').val();
 				var direccion = $('#direccion').val();
 				var idLocalidad = $('#idLocalidad').val();
-				//var puntajeBeneficio = $('#puntajeBeneficio').val();
-				var puntajeBeneficio = 0;
+				var puntajeBeneficio = parseInt(localStorage.getItem("point"));
+				
 				var fechaCreacion = new Date()
-				var habilitado = 
-			
 				var formData = new FormData();
 				var objArr = [];
 
-				objArr.push({"id":id, "nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, "fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion, "puntajeBeneficio": puntajeBeneficio, "fechaCreacion": fechaCreacion, "idLocalidad": idLocalidad});
+				objArr.push({"id":id_aux, "nombre": nombre, "contrasenia": contrasenia, "correo": correo, "sexo": sexo, "fechaNacimiento": fechaNacimiento, "telefono": telefono, "direccion": direccion, "puntajeBeneficio": puntajeBeneficio, "fechaCreacion": fechaCreacion, "idLocalidad": idLocalidad, "idRol": id_rol});
 
 				formData.append('usuario', JSON.stringify( objArr ));
-				//console.log(formData);
 
 					$.ajax({
 						type: "PUT",
@@ -199,7 +185,10 @@
 				            }
 				        },
 						success: function() {
-							window.location.href = "listarPublicacion.html";
+							if(id_rol === 3)
+								window.location.href = "perfilUsuario.html";
+							else
+								window.location.href = "perfilUsuarioHincha.html";
 						}
 					});
 		});

@@ -102,6 +102,18 @@ body{
        border: 1px solid #F20530;  
        padding: 3px 10px 3px 10px;
 }
+.botonModificar{
+       float: right;
+       font-family: 'Montserrat', sans-serif;
+       font-size: 14px;
+       background: #F20530;
+       color:#FFFFFF;
+       width: auto;
+       height: 70px;
+       border-radius: 10px;
+       border: 1px solid #F20530;  
+       padding: 3px 10px 3px 10px;
+}
 .botonGeneral:hover{
        background: #2930A6;
        color: #FFFFFF;

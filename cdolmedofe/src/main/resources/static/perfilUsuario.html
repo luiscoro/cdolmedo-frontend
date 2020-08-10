@@ -65,7 +65,7 @@
             <div class="cabeceraBoton">
                 <button class="botonGeneral"  id="logout">
                     <strong>CERRAR SESIÓN</strong> 
-            </button>
+            	</button>
             </div>
         </div> <!-- Fin Cabecera -->
         
@@ -113,9 +113,12 @@
         </div> <!-- Fin de barra de menú -->
         
     <main class="cuerpo_pagina">
-        
+        <button class="botonGeneral"  id="modificar">
+        	<strong>MODIFICAR DATOS</strong> 
+        </button>
         <div class="overlay">
 			<h2>Perfil de usuario</h2>
+			
 			    <div class="container my-2">
 			        <div class="card-transparent">
 			            <div class="card-body rounded"  style="background-color: rgba(0, 0, 0, 0.4); ">
@@ -177,6 +180,10 @@
 			$('#logout').click(function() {	
 			      localStorage.clear();
 			      window.location.href = "index.html";
+			});	
+			
+			$('#modificar').click(function() {	
+			      window.location.href = "modificarUsuario.html";
 			});					
 		});
 	</script>
