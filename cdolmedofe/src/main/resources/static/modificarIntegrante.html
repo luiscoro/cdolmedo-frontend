@@ -30,37 +30,43 @@
 </head>
 
 <body>
-<script>
-var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-</script>
-<script>
-	const queryString = window.location.search;
-	console.log(queryString);
-	const urlParams = new URLSearchParams(queryString);
-	const id = urlParams.get('id')
-	var uuid;
-	//console.log(id);
-</script>
-
-<script>
-$(document).ready(function() {
-	$.getJSON('http://localhost:8080/api/integranteClub/'+id, function(json) {
-		console.log(json.nombre)
-		document.getElementById("nombre").value = json.nombre;
-		document.getElementById("perfil").value = json.perfil;
-		document.getElementById("fechaNacimiento").value = json.fechaNacimiento;
-		document.getElementById("equipoProcedencia").value = json.equipoProcedencia;
-		document.getElementById("paisProcedencia").value = json.paisProcedencia;
-		document.getElementById("estatura").value = json.estatura;
-		document.getElementById("peso").value = json.peso;
-		document.getElementById("funcion").value = json.funcion;
-		document.getElementById("output").src = 'http://localhost:8080/api/pic/'+json.foto;
-		uuid=json.foto;
+	<script type="text/javascript">
+		var rol = parseInt(localStorage.getItem("idRol"));
+		if ((typeof localStorage.id === "undefined") ){
+			alert("Acceso no permitido");
+			window.location.href = "index.html";	
+		}else{
+			if(rol !== 3){
+				alert("Usuario no permitido");
+				window.location.href = "index.html";	
+			}
+		}
+	</script>
+	<script>
+		const queryString = window.location.search;
+		console.log(queryString);
+		const urlParams = new URLSearchParams(queryString);
+		const id = urlParams.get('id')
+		var uuid;
+		//console.log(id);
+	</script>
+	
+	<script>
+	$(document).ready(function() {
+		$.getJSON('http://localhost:8080/api/integranteClub/'+id, function(json) {
+			console.log(json.nombre)
+			document.getElementById("nombre").value = json.nombre;
+			document.getElementById("perfil").value = json.perfil;
+			document.getElementById("fechaNacimiento").value = json.fechaNacimiento;
+			document.getElementById("equipoProcedencia").value = json.equipoProcedencia;
+			document.getElementById("paisProcedencia").value = json.paisProcedencia;
+			document.getElementById("estatura").value = json.estatura;
+			document.getElementById("peso").value = json.peso;
+			document.getElementById("funcion").value = json.funcion;
+			document.getElementById("output").src = 'http://localhost:8080/api/pic/'+json.foto;
+			uuid=json.foto;
+		});
 	});
-});
 </script>
 	<div class="cabecera">
 		<!-- Cabecera -->
@@ -90,7 +96,7 @@ $(document).ready(function() {
 		</div>
 
 		<div class="cabeceraBoton">
-			<button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
+			<button class="botonGeneral" id="logout">
 				<strong>CERRAR SESIÓN</strong>
 			</button>
 		</div>
@@ -274,6 +280,10 @@ $(document).ready(function () {
 			}
 		});
 		
+	});
+	$('#logout').click(function() {
+		      localStorage.clear();
+		      window.location.href = "index.html";
 	});
 });
 

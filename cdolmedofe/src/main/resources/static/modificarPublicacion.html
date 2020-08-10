@@ -32,12 +32,18 @@
 </head>
 
 <body>
-	<!-- get del id enviado por el listar -->
-	<!--<script>
-	if (typeof localStorage.token === "undefined"){
-		window.location.href = "index.html";
-	}
-	</script>-->
+	<script type="text/javascript">
+		var rol = parseInt(localStorage.getItem("idRol"));
+		if ((typeof localStorage.id === "undefined") ){
+			alert("Acceso no permitido");
+			window.location.href = "index.html";	
+		}else{
+			if(rol !== 3){
+				alert("Usuario no permitido");
+				window.location.href = "index.html";	
+			}
+		}
+	</script>
 	<script>
 	var loadFile = function(event) {
 	    var output = document.getElementById('output');
@@ -95,7 +101,7 @@
             </div>
 
             <div class="cabeceraBoton">
-                <button class="botonGeneral" onclick="document.getElementById('login').style.display = 'block'">
+                <button class="botonGeneral" id="logout">
                     <strong>CERRAR SESIÓN</strong>
             </button>
             </div>
