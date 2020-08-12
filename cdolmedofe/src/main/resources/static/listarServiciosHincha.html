@@ -72,10 +72,19 @@
             </button>
 			<div style="margin:0 auto;">
 				<a class="nav-link" id="email" href="perfilUsuarioHincha.html" style="color: #FFFFFF;"></a>
+				<p>Puntos: <a id="puntos" style="color: #FFFFFF;">0</a></p>
 				<script>			
 					$(document).ready(function() {		
 						var email= localStorage.getItem("mail");
 						document.getElementById('email').innerHTML= email;
+						//puntos
+						if ((typeof localStorage.point === "undefined") ){
+							document.getElementById('puntos').innerHTML= "0";	
+						}else{
+							var puntos= localStorage.getItem("point");
+							document.getElementById('puntos').innerHTML= puntos;
+						}
+						
 					});				
 				</script> 
 			</div>
@@ -146,8 +155,10 @@
                                     <th>Estado</th>
                                     <th>Valor</th>
                                     <th>Descuento</th>
-                                     <th>Imagen</th>
-                                    <th>Visualizar</th>
+                                     <th>Visualizar</th>
+                                    <th>Puntos requeridos</th>
+									<th>Canjear</th>
+									<th>Comprar</th>
                                 </tr>
                             </table>
                         </div>
@@ -177,7 +188,7 @@
                             tr.push('<td>' + data[i].estado + '</td>');
                             tr.push('<td>' + data[i].valor + '</td>');
                             tr.push('<td>' + data[i].descuento + '</td>');
-                            tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="80" class="rounded"></td>');
+                            //tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="80" class="rounded"></td>');
                             tr.push('<td>');
                             tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');
                             tr.push('<div class="modal fade" tabindex="-1" id="modalLong' + data[i].id + '" role="dialog">');
@@ -192,6 +203,8 @@
                             tr.push('		<div class="modal-body">');
                             tr.push('			<h4 class="text-dark">' + '<b>Nombre: </b>' + data[i].nombre + '</h4>');
                             tr.push('           <p><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="240" class="rounded"></p>');
+							tr.push('			<h4 class="text-dark">' + '<b>Costo: $</b>' + data[i].valor + '</h4>');
+							tr.push('			<h4 style="color: red">' + '<b style="color: black">Descuento: </b>-' + data[i].descuento + '%</h4>');
                             tr.push('			<p class="text-dark">' + data[i].detalle.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
                             tr.push('		</div>');
                             tr.push('		<div class="modal-footer">');
@@ -201,7 +214,12 @@
                             tr.push('	</div>');
                             tr.push(' </div>');
                             tr.push('</td>');
-                            tr.push('</tr>');
+							tr.push('<td style="color: red">' + data[i].canjeo + ' pts</td>');
+							tr.push('<td> <a href=HacerseSocio.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/canjear.png"></a></td>');
+                            tr.push('</td>');
+							tr.push('<td> <a href=HacerseSocio.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/pagar.png"></a></td>');
+                            tr.push('</td>');
+							tr.push('</tr>');
                         }
                         $('#tabla').append($(tr.join('')));
                     },

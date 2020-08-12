@@ -73,10 +73,19 @@
             </button>
 			<div style="margin:0 auto;">
 				<a class="nav-link" id="email" href="perfilUsuarioHincha.html" style="color: #FFFFFF;"></a>
+				<p>Puntos: <a id="puntos" style="color: #FFFFFF;">0</a></p>
 				<script>			
 					$(document).ready(function() {		
 						var email= localStorage.getItem("mail");
 						document.getElementById('email').innerHTML= email;
+						//puntos
+						if ((typeof localStorage.point === "undefined") ){
+							document.getElementById('puntos').innerHTML= "0";	
+						}else{
+							var puntos= localStorage.getItem("point");
+							document.getElementById('puntos').innerHTML= puntos;
+						}
+						
 					});				
 				</script> 
 			</div>

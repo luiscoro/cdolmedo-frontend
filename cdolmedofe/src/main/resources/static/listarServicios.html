@@ -108,7 +108,12 @@
 				        </div>
 				      </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SOCIO</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SOCIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="aprobarSolicitud.html">APROBAR SOLICITUD</a>
+						</div>
 
             </li>
                  <li class="nav-item dropdown">
@@ -155,6 +160,7 @@
                                     <th>Estado</th>
                                     <th>Valor</th>
                                     <th>Descuento</th>
+									<th>Puntos de canjeo</th>
                                      <th>Imagen</th>
                                     <th>Visualizar</th>
                                     <th>Modificar</th>
@@ -188,6 +194,7 @@
                             tr.push('<td>' + data[i].estado + '</td>');
                             tr.push('<td>' + data[i].valor + '</td>');
                             tr.push('<td>' + data[i].descuento + '</td>');
+							tr.push('<td>' + data[i].canjeo + '</td>');
                             tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="80" class="rounded"></td>');
                             tr.push('<td>');
                             tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');

@@ -58,6 +58,7 @@
 			document.getElementById("estado").value = json.estado;
 			document.getElementById("valor").value = json.valor;
 			document.getElementById("descuento").value = json.descuento;
+			document.getElementById("canjeo").value = json.canjeo;
 			document.getElementById("idTipoServicio").value = json.idTipoServicio;
 			document.getElementById("output").src = 'http://localhost:8080/api/pic/'+json.foto;
 			uuid=json.foto;
@@ -210,7 +211,10 @@
 
 				
 						<label for="descuento" class="col-form-label">Descuento</label>
-						<input type="number" class="ingresodatos" id="descuento" placeholder="Descuento..">
+						<input type="number" class="ingresodatos" id="descuento" placeholder="30	%">
+						
+						<label for="canjeo" class="col-form-label">Puntos a ser canjeados</label>
+						<input type="number" class="ingresodatos" id="canjeo" placeholder="150...">
 					
 						<br>
 						<br>
@@ -236,6 +240,7 @@ $(document).ready(function () {
 		var estado = $('#estado').val();
 		var valor = $('#valor').val();
 		var descuento = $('#descuento').val();
+		var canjeo = $('#canjeo').val();
 		var idTipoServicio = $('#idTipoServicio').val();
 
 		var img = $('input[name="file"]').get(0).files[0];
@@ -245,7 +250,7 @@ $(document).ready(function () {
 		formData.append('img', img);
 		var objArr = [];
 
-		objArr.push({"id": id, "nombre": nombre, "detalle": detalle, "foto": uuid, "estado": estado, "valor": valor, "descuento": descuento, "idTipoServicio": idTipoServicio});
+		objArr.push({"id": id, "nombre": nombre, "detalle": detalle, "foto": uuid, "estado": estado, "valor": valor, "descuento": descuento, "canjeo": canjeo, "idTipoServicio": idTipoServicio});
 		console.log(objArr);
 
 		formData.append('servicio', JSON.stringify(objArr));
