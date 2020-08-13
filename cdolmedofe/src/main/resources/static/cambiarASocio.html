@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!-- estilos -->
+	<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+	<!--para el login  -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Fuente -->
+
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+
+	<!-- Botstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="/js/main.js"></script>
+	<title>Integrante - CDOLMEDO</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var rol = parseInt(localStorage.getItem("idRol"));
+		var ide = parseInt(localStorage.getItem("id"));
+		if ((typeof localStorage.id === "undefined") ){
+			alert("Acceso no permitido");
+			window.location.href = "index.html";	
+		}else{
+			if(rol === 3){
+				alert("Usuario no permitido");
+				window.location.href = "index.html";	
+			}else{
+				if(rol === 2){
+					alert("¡Usted ya es socio!");
+					window.location.href = "index.html";
+				}
+			}
+		}
+	</script>
+	
+	<script>
+	$(document).ready(function() {
+		var ide = parseInt(localStorage.getItem("id"));
+		$.getJSON('http://localhost:8080/api/usuario/'+ide, function(json) {
+			var rol = parseInt(localStorage.getItem("idRol"));
+			var puntos = parseInt(localStorage.getItem("point"));
+			localStorage.nomreServer = json.nombre;
+			localStorage.valorCanjeo = json.canjeo;
+			document.getElementById("nombre").innerHTML = json.nombre;
+			document.getElementById("origen").innerHTML = "$25";
+			document.getElementById("descuento").innerHTML = 0+"%";
+			document.getElementById("canjeo").innerHTML = "50 pts";
+			document.getElementById("valor").innerHTML = "$25";
+			
+		});
+		
+	});
+	</script>
+	<div class="cabecera">
+		<!-- Cabecera -->
+		<div class="cabeceraLogo">
+			<a href="index.html"><img src="img/escudo.png"></a>
+
+		</div>
+		<div class="cabeceraNombre">
+			<a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
+
+
+		</div>
+		<div class="cabeceraEsponsor">
+			<div class="esponsor">
+
+				<a href="index.html" target="_blank"><img src="img/esponsor1.png"></a>
+			</div>
+			<div class="esponsor">
+				<a href="index.html" target="_blank"><img src="img/esponsor4.png"></a>
+
+			</div>
+			<div class="esponsor">
+				<a href="index.html" target="_blank"><img src="img/esponsor5.jpg"></a>
+
+			</div>
+
+		</div>
+
+		<div class="cabeceraBoton">
+            <button class="botonGeneral" id="logout">
+                <strong>CERRAR SESIÓN</strong>
+            </button>
+			<div style="margin:0 auto;">
+				<a class="nav-link" id="email" href="perfilUsuarioHincha.html" style="color: #FFFFFF;"></a>
+				<p>Puntos: <a id="puntos" style="color: #FFFFFF;">0</a></p>
+				<script>			
+					$(document).ready(function() {		
+						var email= localStorage.getItem("mail");
+						document.getElementById('email').innerHTML= email;
+						//puntos
+						if ((typeof localStorage.point === "undefined") ){
+							document.getElementById('puntos').innerHTML= "0";	
+						}else{
+							var puntos= localStorage.getItem("point");
+							document.getElementById('puntos').innerHTML= puntos;
+						}
+						
+					});				
+				</script> 
+			</div>
+        </div>
+    </div> <!-- Fin Cabecera -->
+
+    <div class="barramenu">
+        <!-- Barra de men� -->
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">NOTICIAS</a>
+            </li>
+                 <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SERVICIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarServiciosHincha.html">LISTAR SERVICIOS</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
+				        </div>
+				      </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SOCIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="cambiarASocio.html">Hacerse Socio</a>
+						</div>
+				
+
+            </li>
+                 <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          PUBLICACIÓN
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarPublicacionHincha.html">LISTAR PUBLICACIONES</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
+				        </div>
+				      </li>
+				  <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          JUGADOR
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarJugadoresHincha.html">LISTAR JUGADORES</a>
+				        </div>
+				      </li>  
+        </ul>
+    </div> <!-- Fin de barra de men� -->
+
+
+	<header class="page-header0 header0 container-fluid0">
+		<main class="cuerpo_pagina">
+			<!-- CUERPO DE PAGINA -->
+
+			<div class="cuerporegistro">
+				<form action="#" method="post" enctype="multipart/form-data">
+					<div class="form-group col-md-12">
+						<h3>Socio del Club Deportivo Olmedo</h3>
+						<hr style="background: #FFFFFF;">
+					</div>
+				
+						<b><label for="nombre" class="col-form-label">Nombre del servicio</label></b>
+						<br>
+						<a type="text" class="ingresodatos" id="nombre" placeholder="Nombre"></a>
+						<br>
+						<br>
+						<b><label for="descuento" class="col-form-label">Valor sin descuento: </label></b>
+						<a type="number" class="ingresodatos" id="origen"></a>
+						<br>
+						<b><label for="descuento" class="col-form-label">Descuento aplicado: </label></b>
+						<a type="number" style="color: red" class="ingresodatos" id="descuento"></a>
+						<br>
+						
+						<b><u><label for="canjeo" href="listarServiciosHincha.html" class="col-form-label">Puntaje acreditado: </label></u></b>
+						<a type="number" class="ingresodatos" id="canjeo" placeholder="150..."> </a>
+					
+						<br>
+						<br>
+						
+						<b><label for="valor" class="col-form-label">Valor total a pagar: </label></b>
+						<b><a type="number" style="color: green" class="ingresodatos" id="valor" ></a></b>
+						<br>
+						<br>
+						<div class="form-group col-md-12">
+							<b><label for="foto" class="col-form-label">Subir comprobante de imagen</label></b>
+							<input type="file" name="file" accept="image/*" class="form-control" />
+						</div>
+						<hr style="background: #FFFFFF;">		
+						<!--<input type="submit" class="botonGeneralCentrado" value="Cancelar" href="listarServiciosHincha.html">-->
+						<input type="submit" class="botonGeneralCentrado" value="enviar" id="enviar">
+				</form>
+			</div>
+		</main><!--  FIN CUERPO DE PAGINA -->
+	</header>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(document).delegate('#enviar', 'click', function (event) {
+				event.preventDefault();
+				
+				//registro pago
+				var fecha = new Date();
+				var estado = "Cancelado";
+				var idUS = 1;
+				
+				
+				var img = $('input[name="file"]').get(0).files[0];
+				var formData = new FormData();
+				formData.append('img', img);
+				var objArr = [];
+				
+				objArr.push({ "fecha":fecha, "estado": estado, "idUS": idUS});
+
+				formData.append('pago', JSON.stringify(objArr));
+
+				$.ajax({
+					type: "POST",
+					//contentType: "application/json; charset=utf-8",
+					url: "http://localhost:8080/api/pago",
+					data: formData,
+					cache: false,
+					processData: false,
+					contentType: false,
+					success: function (result) {
+						
+						window.location.href = "perfilUsuarioHincha.html";
+					}
+				});
+				
+				$.getJSON('http://localhost:8080/api/usuario/'+ide, function(json) {
+					//var ide = parseInt(localStorage.getItem("id"));
+					var rol = 2;
+					localStorage.idRol = 2;
+					var puntajeBeneficio = parseInt(localStorage.getItem("point"));					
+					var puntajeBeneficio = 50;
+					localStorage.point = 50;
+
+					var nombreU = json.nombre;
+					var contraU = json.contrasenia;
+					var correoU = json.correo;
+					var sexoU = json.sexo;
+					var fechNU = json.fechaNacimiento;
+					var telfU = json.telefono;
+					var dirrU = json.direccion;
+					var idLU = json.idLocalidad;
+					var fechaCreacion = new Date()
+					
+					// Actualizar usuario
+					var formData1 = new FormData();
+					var objArr1 = [];
+	
+					objArr1.push({"id":ide, "nombre": nombreU, "contrasenia": contraU, "correo": correoU, "sexo": sexoU, "fechaCreacion": fechaCreacion, "fechaNacimiento": fechNU, "telefono": telfU, "direccion": dirrU, "puntajeBeneficio": puntajeBeneficio, "idLocalidad": idLU, "idRol": rol});
+	
+					formData1.append('usuario', JSON.stringify( objArr1 ));
+
+					$.ajax({
+						type: "PUT",
+						url: "http://localhost:8080/api/usuario",
+						data: formData1,
+						cache: false,
+						processData:false,
+						contentType:false,
+						success: function (result) {
+							
+					}
+					});
+				});
+				// ajax.....
+			});
+			// borrado de localStorage los valores
+			$('#logout').click(function() {
+			      localStorage.clear();
+			      window.location.href = "index.html";
+			});
+			
+		});
+	</script>
+	
+
+		<footer ><!-- Footer -->
+            	<div class="redesolmedo">
+                <div class="redes">
+                     <div class="contenedor-redes">
+                   	 <img src="img/facebook.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/instagram.png">
+                    </div>
+                    <div class="contenedor-redes">
+                   	 <img src="img/youtube.png">
+                    </div>
+                	<div class="contenedor-redes">
+                    	<img src="img/twitter.png">
+                    </div>
+                    <div class="contenedor-redes">
+                    	<img src="img/whatsapp.png">
+                    </div>
+                </div>
+            </div>
+
+		<div class="copyright">
+			Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020
+		</div>
+	</footer><!-- FIN footer-->
+
+        <!-- Botstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

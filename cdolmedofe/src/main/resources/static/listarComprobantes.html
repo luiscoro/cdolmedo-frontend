@@ -26,7 +26,7 @@
 </head>
 
 <body>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
 	<script src="/js/main.js"></script>
 	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
 	<script type="text/javascript">
@@ -34,40 +34,41 @@
 		if ((typeof localStorage.id === "undefined") ){
 			alert("Acceso no permitido");
 			window.location.href = "index.html";	
-		}else{ 
+		}else{
 			if(rol !== 3){
 				alert("Usuario no permitido");
-				window.location.href = "perfilUsuarioHincha.html";	
+				window.location.href = "index.html";	
 			}
 		}
 	</script>
 
-	<div class="cabecera"> <!-- Cabecera 1-->
-            <div class="cabeceraLogo">
-                <a href="index.html" ><img src="img/escudo.png" ></a>
+    <div class="cabecera">
+        <!-- Cabecera 1-->
+        <div class="cabeceraLogo">
+            <a href="index.html"><img src="img/escudo.png"></a>
+
+        </div>
+        <div class="cabeceraNombre">
+            <a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
+
+
+        </div>
+        <div class="cabeceraEsponsor">
+            <div class="esponsor">
+
+                <a href="index.html" target="_blank"><img src="img/esponsor1.png"></a>
+            </div>
+            <div class="esponsor">
+                <a href="index.html" ><img src="img/esponsor4.png"></a>
 
             </div>
-            <div class="cabeceraNombre">
-                <a href="index.html">Centro Deportivo<br> <strong>OLMEDO</strong></a>
-
+            <div class="esponsor">
+                <a href="index.html" target="_blank"><img src="img/esponsor5.jpg"></a>
 
             </div>
-            <div class="cabeceraEsponsor">
-                <div class="esponsor">
+        </div>
 
-                    <a href="index.html" target="_blank" ><img src="img/esponsor1.png" ></a>
-                </div>
-                <div class="esponsor">
-                   <a href="index.html" target="_blank" ><img src="img/esponsor4.png" ></a>
-
-                </div>
-                <div class="esponsor">
-                   <a href="index.html" target="_blank" ><img src="img/esponsor5.jpg" ></a>
-
-                </div>
-            </div>
-
-            <div class="cabeceraBoton">
+        <div class="cabeceraBoton">
 			<button class="botonGeneral" id="logout">
 				<strong>CERRAR SESIóN</strong>
 			</button>
@@ -84,17 +85,18 @@
 			</div>
              
 		</div>
-        </div> <!-- Fin Cabecera -->
+    </div> <!-- Fin Cabecera -->
 
-                <div class="barramenu"> <!-- Barra de menú -->
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">INICIO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">NOTICIAS</a>
-                </li>
-                <li class="nav-item dropdown">
+    <div class="barramenu">
+        <!-- Barra de men� -->
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">NOTICIAS</a>
+            </li>
+                 <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          SERVICIO
 				        </a>
@@ -105,65 +107,68 @@
 				          <a class="dropdown-item" href="#">Something else here</a> -->
 				        </div>
 				      </li>
-                <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          SOCIO
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="listarComprobantes.html">APROBAR SOLICITUD</a>
+							<a class="dropdown-item" href="listarSocios.html">LISTADO SOCIOS</a>
 						</div>
 
-                </li>
+            </li>
                  <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          PUBLICACIÓN
-                        </a>
-                        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
-                          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          PUBLICACIÓN
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
+				          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
+				         <!--  <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Something else here</a> -->
+				        </div>
+				      </li>
+				  <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          JUGADOR
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
+				        </div>
+				      </li>  
+        </ul>
+    </div> <!-- Fin de barra de men� -->
+
+    <main class="cuerpo_pagina">
+
+
+        <h2>SERVICIOS POR APROBAR</h2>
+
+        <header class="page-header header container-fluid">
+            <!-- <main class="cuerpo_pagina"> -->
+            <div class="overlay">
+
+                <div class="container my-2">
+                    <div class="card-transparent">
+                        <div class="card-body rounded" style="background-color: rgba(0, 0, 0, 0.4); ">
+                            <table class="table" id="tabla">
+                                <tr>
+                                    <!--<th>Tipo</th>-->
+                                    <th>Estado servicio</th>
+                                    <th>Nombre</th>
+                                    <th>Comprobante</th>
+                                    <th>Visualizar</th>
+                                    <th>Aprobar</th>
+                                </tr>
+                            </table>
                         </div>
-                      </li>
-                  <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          JUGADOR
-                        </a>
-                        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="ingresarIntegrante.html">NUEVO</a>
-                          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
-
-                        </div>
-                      </li>
-            </ul>
-        </div> <!-- Fin de barra de menú -->
-
-<header >
-   <main class="cuerpo_pagina">
-      <div class="overlay">
-
-		    <div class="container my-2">
-		     <h2>LISTA DE LAS PUBLICACIONES</h2>
-		        <div class="card-transparent">
-		        
-		       
-		            <div class="card-body rounded" style="background-color: rgba(0, 0, 0, 0.4); ">
-		                    <table class="table" id="tabla">
-            								<tr>
-            									<!--<th>Tipo</th>-->
-            									<th>Servicio</th>
-            									<th>Estado</th>
-            									<th>Id cliente</th>
-            									<th>Fecha envio</th>
-            									<th>Comprobante</th>
-            									<th>Visualizar</th>
-            									<th>Aprobar</th>
-            								</tr>
-							          </table>
-		            	</div>
-		        	</div>
-		    	</div>
-			</div>
-        </main>
-</header>	
+                    </div>
+                </div>
+            </div>
+            <!--</main>  -->
+        </header>
         <!-- seccion listar en ajax -->
         <script type="text/javascript">
             $(document).ready(function () {
@@ -173,69 +178,70 @@
                     success: function (data) {
 						var tr = [];
                         for (var i = 0; i < data.length; i++) {
-							//obtener nombre usuario
+							if(data[i].id !== 1)
+								tr.push('<tr>');
+	                            tr.push('<td>' + data[i].estadoS + '</td>');
+	                            tr.push('<td>' + data[i].nombrePromocion + '</td>');
+	                            tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].archivoSolicitud + '" width="80" class="rounded"></td>');
+	                            tr.push('<td>');
+	                            tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');
+	                            tr.push('<div class="modal fade" tabindex="-1" id="modalLong' + data[i].id + '" role="dialog">');
+	                            tr.push(' <div class="modal-dialog">');
+	                            tr.push('	<div class="modal-content">');
+	                            tr.push('		<div class="modal-header">');
+	                            tr.push('		  <h5 class="modal-title text-dark">Detalle de la solicitud</h5>');
+	                            tr.push('		  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
+	                            tr.push('		  	<span aria-hidden="true">&times;</span>');
+	                            tr.push('		  </button>');
+	                            tr.push('		</div>');
+	                            tr.push('		<div class="modal-body">');
+	                            tr.push('			<h4 class="text-dark">' + '<b>Nombre: </b>' + data[i].nombrePromocion + '</h4>');
+								tr.push('           <p><img src="http://localhost:8080/api/pic/' + data[i].fecha + '" width="240" class="rounded"></p>');
+	                            tr.push('           <p><img src="http://localhost:8080/api/pic/' + data[i].archivoSolicitud + '" width="240" class="rounded"></p>');
+	                            tr.push('			<p class="text-dark">' + data[i].detallePromocion.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
+	                            tr.push('		</div>');
+	                            tr.push('		<div class="modal-footer">');
+	                            tr.push('		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
+	                            tr.push('    	</div>');
+	                            tr.push('	 </div>');
+	                            tr.push('	</div>');
+	                            tr.push(' </div>');
+	                            tr.push('</td>');
+								tr.push('<td>');
+	                            tr.push('<a data-toggle="modal" data-target="#modalwarning' + data[i].id + '" class="btn btn-primary"><img src="img/empresario.png"></a>');
+	                            tr.push('<div class="modal modal-warning fade in" id="modalwarning' + data[i].id + '">');
+	                            tr.push(' <div class="modal-dialog">');
+	                            tr.push('	<div class="modal-content">');
+	                            tr.push('		<div class="modal-header">');
+	                            tr.push('			<h5 class="modal-title text-dark">¿Cancelar esta solicitud?</h5>');
+	                            tr.push('			<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
+	                            tr.push('			<span aria-hidden="true">&times;</span></button>');
+	                            tr.push('		</div>');
+	                            tr.push('		<div class="modal-body">');
+	                            tr.push('			<h3 class="text-dark">' + data[i].nombrePromocion + '</h3>');
+								tr.push('			<h3 class="text-dark">¿' + data[i].estadoS + '?</h3>');
+	                            tr.push('		</div>');
+	                            tr.push('		<div class="modal-footer">');
+	                            tr.push('			<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Si</button>');
+	                            tr.push('			<a type="button" class="btn btn-outline borrar" href="#" id=' + data[i].id + '><i class="fa fa-check"></i>&nbsp;No</a>');
+	                            tr.push('		</div>');
+	                            tr.push('	</div>');
+	                            tr.push(' </div>');
+	                            tr.push('</div>	');
+	                            tr.push('</td>');
+	
+	                            tr.push('</tr>');
 							
-							tr.push('<tr>');
-                            tr.push('<td>' + data[i].nombrePromocion + '</td>');
-                            tr.push('<td>' + data[i].estadoS + '</td>');
-							tr.push('<td>' + data[i].idU + '</td>');
-                            tr.push('<td>' + data[i].fecha + '</td>');
-                            tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].archivoSolicitud + '" width="80" class="rounded"></td>');
-                            tr.push('<td>');
-                            tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');
-                            tr.push('<div class="modal fade" tabindex="-1" id="modalLong' + data[i].id + '" role="dialog">');
-                            tr.push(' <div class="modal-dialog">');
-                            tr.push('	<div class="modal-content">');
-                            tr.push('		<div class="modal-header">');
-                            tr.push('		  <h5 class="modal-title text-dark">Detalle de la solicitud</h5>');
-                            tr.push('		  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
-                            tr.push('		  	<span aria-hidden="true">&times;</span>');
-                            tr.push('		  </button>');
-                            tr.push('		</div>');
-                            tr.push('		<div class="modal-body">');
-                            tr.push('			<h4 class="text-dark">' + '<b>Nombre: </b>' + data[i].nombrePromocion + '</h4>');
-                            tr.push('           <p><img src="http://localhost:8080/api/pic/' + data[i].archivoSolicitud + '" width="240" class="rounded"></p>');
-                            tr.push('			<p class="text-dark">' + data[i].detallePromocion.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
-                            tr.push('		</div>');
-                            tr.push('		<div class="modal-footer">');
-                            tr.push('		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
-                            tr.push('    	</div>');
-                            tr.push('	 </div>');
-                            tr.push('	</div>');
-                            tr.push(' </div>');
-                            tr.push('</td>');
-							tr.push('<td>');
-                            tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"><img src="img/empresario.png"></a>');
-							tr.push('<div class="modal modal-warning fade in" id="modalwarning'+data[i].id+'">');
-							tr.push(' <div class="modal-dialog">');
-							tr.push('	<div class="modal-content">');
-							tr.push('		<div class="modal-header">');
-							tr.push('			<h5 class="modal-title text-dark">¿Aprobar esta solicitud?</h5>');
-							tr.push('			<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
-							tr.push('			<span aria-hidden="true">&times;</span></button>');
-							tr.push('		</div>');
-							tr.push('		<div class="modal-body">');
-							tr.push('			<h3 class="text-dark">'+data[i].nombrePromocion+'</h3>');
-							tr.push('		</div>');
-							tr.push('		<div class="modal-footer">');
-							tr.push('			<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Si</button>');
-							tr.push('			<a type="button" class="btn btn-outline borrar" href="#" id='+data[i].id+'><i class="fa fa-check"></i>&nbsp;No</a>');
-							tr.push('		</div>');
-							tr.push('	</div>');
-							tr.push(' </div>');
-							tr.push('</div>	');
-							tr.push('</td>');
-                            tr.push('</tr>');
                         }
                         $('#tabla').append($(tr.join('')));
                     },
                 });
-				 $(document).delegate('.borrar', 'click', function () {
+                $(document).delegate('.borrar', 'click', function () {
                     var id = $(this).attr('id');
                     var parent = $(this).parent().parent();
                     $.ajax({
                         type: "DELETE",
-                        url: "http://localhost:8080/api/servicioUsuario/" + id,
+                        url: "http://localhost:8080/api/usuarioServicio/" + id,
                         cache: false,
                         success: function () {
                             parent.fadeOut('slow', function () {
@@ -244,21 +250,19 @@
                             location.reload(true)
                         }
                     });
-                        
-                    });
+                });
+				
 				$('#logout').click(function() {
 			      localStorage.clear();
 			      window.location.href = "index.html";  
 				});
-				
-				
-				
             });
         </script>
 
     </main>
 
-        <footer ><!-- Footer -->
+
+     <footer ><!-- Footer -->
             <div class="redesolmedo">   
                 <div class="redes">
                      <div class="contenedor-redes">
@@ -279,18 +283,17 @@
                 </div>            
             </div>
             
-            
             <div class="copyright">
-           
                
-                Desarrollado por CODETEAM para CDOLMEDO &copy; Riobamba 2020        
+                Desarrollado por CODETEAM para CDOLMEDO &copy Riobamba 2020        
             </div>
 
         </footer><!-- FIN footer-->
-
 		<!-- Botstrap -->      
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
 
+
 </body>
+
 </html>

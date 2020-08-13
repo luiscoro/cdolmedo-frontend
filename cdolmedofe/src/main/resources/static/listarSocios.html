@@ -26,9 +26,10 @@
 </head>
 
 <body>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
 	<script src="/js/main.js"></script>
-	<!--<script type="text/javascript">
+	<!-- validacion con toker, unicamente funciona si esta token en back-end.111111111-->
+	<script type="text/javascript">
 		var rol = parseInt(localStorage.getItem("idRol"));
 		if ((typeof localStorage.id === "undefined") ){
 			alert("Acceso no permitido");
@@ -39,7 +40,8 @@
 				window.location.href = "index.html";	
 			}
 		}
-	</script>-->
+	</script>
+
     <div class="cabecera">
         <!-- Cabecera 1-->
         <div class="cabeceraLogo">
@@ -67,28 +69,22 @@
         </div>
 
         <div class="cabeceraBoton">
-            <button class="botonGeneral" id="logout">
-                <strong>CERRAR SESIÓN</strong>
-            </button>
-			<div style="margin:0 auto;">
-				<a class="nav-link" id="email" href="perfilUsuarioHincha.html" style="color: #FFFFFF;"></a>
-				<p>Puntos: <a id="puntos" style="color: #FFFFFF;">0</a></p>
+			<button class="botonGeneral" id="logout">
+				<strong>CERRAR SESIóN</strong>
+			</button>
+			<br>
+             <br>
+             <div style="margin:0 auto;">
+				<a class="nav-link" id="email" href="perfilUsuario.html" style="color: #FFFFFF; text-transform: capitalize;"></a>
 				<script>			
 					$(document).ready(function() {		
 						var email= localStorage.getItem("mail");
 						document.getElementById('email').innerHTML= email;
-						//puntos
-						if ((typeof localStorage.point === "undefined") ){
-							document.getElementById('puntos').innerHTML= "0";	
-						}else{
-							var puntos= localStorage.getItem("point");
-							document.getElementById('puntos').innerHTML= puntos;
-						}
-						
 					});				
 				</script> 
 			</div>
-        </div>
+             
+		</div>
     </div> <!-- Fin Cabecera -->
 
     <div class="barramenu">
@@ -105,7 +101,8 @@
 				          SERVICIO
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="listarServiciosHincha.html">LISTAR SERVICIOS</a>
+				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
 				         <!--  <div class="dropdown-divider"></div>
 				          <a class="dropdown-item" href="#">Something else here</a> -->
 				        </div>
@@ -115,7 +112,8 @@
 				          SOCIO
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="cambiarASocio.html">Hacerse Socio</a>
+				          <a class="dropdown-item" href="listarComprobantes.html">APROBAR SOLICITUD</a>
+							<a class="dropdown-item" href="listarSocios.html">LISTADO SOCIOS</a>
 						</div>
 
             </li>
@@ -124,7 +122,8 @@
 				          PUBLICACIÓN
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="listarPublicacionHincha.html">LISTAR PUBLICACIONES</a>
+				          <a class="dropdown-item" href="ingresarPublicacion.html">NUEVA</a>
+				          <a class="dropdown-item" href="listarPublicacion.html">LISTAR PUBLICACIONES</a>
 				         <!--  <div class="dropdown-divider"></div>
 				          <a class="dropdown-item" href="#">Something else here</a> -->
 				        </div>
@@ -134,7 +133,9 @@
 				          JUGADOR
 				        </a>
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
-				          <a class="dropdown-item" href="listarJugadoresHincha.html">LISTAR JUGADORES</a>
+				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
+				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
+
 				        </div>
 				      </li>  
         </ul>
@@ -154,16 +155,13 @@
                         <div class="card-body rounded" style="background-color: rgba(0, 0, 0, 0.4); ">
                             <table class="table" id="tabla">
                                 <tr>
-                                    <!--<th>Tipo</th>-->
-                                    <th>Tipo de Servicio</th>
                                     <th>Nombre</th>
-                                    <th>Estado</th>
-                                    <th>Valor</th>
-                                    <th>Descuento</th>
-                                     <th>Visualizar</th>
-                                    <th>Puntos requeridos</th>
-									<th>Canjear</th>
-									<th>Comprar</th>
+                                    <th>Sexo</th>
+                                    <th>telefono</th>
+                                    <th>Fecha de nacimiento</th>
+									<th>Puntos de canjeo</th>
+                                     <th>Fecha inicio socio</th>
+                                    <th>Visualizar</th>
                                 </tr>
                             </table>
                         </div>
@@ -177,55 +175,46 @@
             $(document).ready(function () {
                 $.ajax({
                     type: 'GET',
-                    url: 'http://localhost:8080/api/servicio',
+                    url: 'http://localhost:8080/api/usuario',
                     success: function (data) {
 						var tr = [];
                         for (var i = 0; i < data.length; i++) {
-							var tipos;
-							if(data[i].idTipoServicio === 1) {
-								tipos="Pagado";
-							}else{
-								tipos="Gratuito";
-							}
-							if(data[i].id !== 19){
-								tr.push('<tr>');
-								tr.push('<td>' + tipos + '</td>');
-	                            tr.push('<td>' + data[i].nombre + '</td>');
-	                            tr.push('<td>' + data[i].estado + '</td>');
-	                            tr.push('<td>' + data[i].valor + '</td>');
-	                            tr.push('<td>' + data[i].descuento + '</td>');
-	                            //tr.push('<td><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="80" class="rounded"></td>');
-	                            tr.push('<td>');
-	                            tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');
-	                            tr.push('<div class="modal fade" tabindex="-1" id="modalLong' + data[i].id + '" role="dialog">');
-	                            tr.push(' <div class="modal-dialog">');
-	                            tr.push('	<div class="modal-content">');
-	                            tr.push('		<div class="modal-header">');
-	                            tr.push('		  <h5 class="modal-title text-dark">Detalle del Servicio</h5>');
-	                            tr.push('		  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
-	                            tr.push('		  	<span aria-hidden="true">&times;</span>');
-	                            tr.push('		  </button>');
-	                            tr.push('		</div>');
-	                            tr.push('		<div class="modal-body">');
-	                            tr.push('			<h4 class="text-dark">' + '<b>Nombre: </b>' + data[i].nombre + '</h4>');
-	                            tr.push('           <p><img src="http://localhost:8080/api/pic/' + data[i].foto + '" width="240" class="rounded"></p>');
-								tr.push('			<h4 class="text-dark">' + '<b>Costo: $</b>' + data[i].valor + '</h4>');
-								tr.push('			<h4 style="color: red">' + '<b style="color: black">Descuento: </b>-' + data[i].descuento + '%</h4>');
-	                            tr.push('			<p class="text-dark">' + data[i].detalle.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
-	                            tr.push('		</div>');
-	                            tr.push('		<div class="modal-footer">');
-	                            tr.push('		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
-	                            tr.push('    	</div>');
-	                            tr.push('	 </div>');
-	                            tr.push('	</div>');
-	                            tr.push(' </div>');
-	                            tr.push('</td>');
-								tr.push('<td style="color: red">' + data[i].canjeo + ' pts</td>');
-								tr.push('<td> <a href=canjearConPuntos.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/canjear.png"></a></td>');
-	                            tr.push('</td>');
-								tr.push('<td> <a href=PagarServicio.html?id=' + data[i].id + ' class="btn btn-primary"><img src="img/pagar.png"></a></td>');
-	                            tr.push('</td>');
-								tr.push('</tr>');
+							if(data[i].idRol === 2){
+							tr.push('<tr>');
+                            tr.push('<td>' + data[i].nombre + '</td>');
+                            tr.push('<td>' + data[i].sexo + '</td>');
+                            tr.push('<td>' + data[i].telefono + '</td>');
+                            tr.push('<td>' + data[i].fechaNacimiento + '</td>');
+							tr.push('<td>' + data[i].puntajeBeneficio + '</td>');
+							tr.push('<td>' + data[i].fechaCreacion + '</td>');
+                            tr.push('<td>');
+                            tr.push('<a data-toggle="modal" data-target="#modalLong' + data[i].id + '" class="btn btn-primary"><img src="img/visualizar.png"></a>');
+                            tr.push('<div class="modal fade" tabindex="-1" id="modalLong' + data[i].id + '" role="dialog">');
+                            tr.push(' <div class="modal-dialog">');
+                            tr.push('	<div class="modal-content">');
+                            tr.push('		<div class="modal-header">');
+                            tr.push('		  <h5 class="modal-title text-dark"><b>Detalle del socio</b></h5>');
+                            tr.push('		  <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
+                            tr.push('		  	<span aria-hidden="true">&times;</span>');
+                            tr.push('		  </button>');
+                            tr.push('		</div>');
+                            tr.push('		<div class="modal-body">');
+                            tr.push('			<h4 class="text-dark">' + '<b>Nombre: </b>' + data[i].nombre + '</h4>');
+							tr.push('			<h4 class="text-dark">' + '<b>Fecha de nacimiento: </b>' + data[i].fechaNacimiento + '</h4>');
+							tr.push('			<h4 class="text-dark">' + '<b>Nombre: </b>' + data[i].sexo + '</h4>');
+                            tr.push('			<p class="text-dark">' + data[i].direccion.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
+                            tr.push('		</div>');
+                            tr.push('		<div class="modal-footer">');
+                            tr.push('		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
+                            tr.push('    	</div>');
+                            tr.push('	 </div>');
+                            tr.push('	</div>');
+                            tr.push(' </div>');
+                            tr.push('</td>');
+
+                            tr.push('</td>');
+
+                            tr.push('</tr>');
 							}
                         }
                         $('#tabla').append($(tr.join('')));
