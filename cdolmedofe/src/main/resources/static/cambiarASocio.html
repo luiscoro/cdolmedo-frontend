@@ -235,8 +235,15 @@
 					processData: false,
 					contentType: false,
 					success: function (result) {
-						
-						window.location.href = "perfilUsuarioHincha.html";
+						$.alert({
+						title: 'OK',
+						content: 'La afiliacion ha sido actualizado!',
+						});
+					setTimeout(
+						function () {
+							window.location.href = "perfilUsuarioHincha.html";
+						},2000);
+							
 					}
 				});
 				
