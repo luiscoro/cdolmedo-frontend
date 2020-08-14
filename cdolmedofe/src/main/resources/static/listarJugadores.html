@@ -73,16 +73,15 @@
 			</button>
 			<br>
              <br>
-             <div style="margin:0 auto;"><strong><input class="botonPerfil" type="button" value="Mi Perfil" id="bott"></strong>
-             	<script type="text/javascript">
-						$(document).ready(function() {
-							// borrado de localStorage los valores
-							$('#bott').click(function() {	  
-								      window.location.href = "perfilUsuario.html";
-							});
-						});	
-			   </script>
-             </div>
+             <div style="margin:0 auto;">
+							<a class="nav-link" id="email" href="perfilUsuario.html" style="color: #FFFFFF; text-transform: capitalize;"></a>
+							<script>			
+								$(document).ready(function() {		
+									var email= localStorage.getItem("mail");
+									document.getElementById('email').innerHTML= email;
+								});				
+							</script> 
+			</div>
              
 		</div>
     </div> <!-- Fin Cabecera -->
@@ -106,7 +105,13 @@
 				        </div>
 		   </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SOCIO</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SOCIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarComprobantes.html">APROBAR SOLICITUD</a>
+							<a class="dropdown-item" href="listarSocios.html">LISTADO SOCIOS</a>
+						</div>
 
             </li>
             <li class="nav-item dropdown">

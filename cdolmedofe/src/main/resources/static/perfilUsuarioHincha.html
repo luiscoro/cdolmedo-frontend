@@ -61,6 +61,7 @@
                 </div>
             </div>
             <div class="cabeceraBoton">
+<<<<<<< HEAD
 			<button class="botonGeneral" id="logout">
 				<strong>CERRAR SESIóN</strong>
 			</button>
@@ -78,6 +79,22 @@
              </div>
              
 		</div>
+=======
+                <button class="botonGeneral"  id="logout">
+                    <strong>CERRAR SESIÓN</strong> 
+            	</button>
+				<div style="margin:0 auto;">
+					<a class="nav-link" id="email" href="perfilUsuarioHincha.html" style="color: #FFFFFF;"></a>
+					<script>			
+						$(document).ready(function() {		
+							var email= localStorage.getItem("mail");
+							document.getElementById('email').innerHTML= email;
+						});				
+					</script> 
+				</div>
+            </div>
+			
+>>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
         </div> <!-- Fin Cabecera -->
         
                 <div class="barramenu"> <!-- Barra de menú -->
@@ -93,6 +110,7 @@
 				          <a class="dropdown-item" href="listarServiciosHincha.html">LISTAR SERVICIOS</a>
 				     </div>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          SOCIO
@@ -101,6 +119,16 @@
 				          <a class="dropdown-item" href="hacerseSocio.html">HASTE SOCIO</a>
 				        </div>
 				  </li>
+=======
+                <li class="nav-item">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SOCIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="cambiarASocio.html">Hacerse Socio</a>
+						</div>
+				</li>
+>>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
                  <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          PUBLICACIÓN

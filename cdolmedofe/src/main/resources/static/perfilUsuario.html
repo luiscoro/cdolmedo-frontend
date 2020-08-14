@@ -63,6 +63,7 @@
                 </div>               
          
             </div>
+<<<<<<< HEAD
             
             </div>
       <div class="cabeceraBoton">
@@ -82,11 +83,29 @@
 			   </script>
              </div>
              
+=======
+            	<div class="cabeceraBoton">
+					<button class="botonGeneral" id="logout">
+						<strong>CERRAR SESIóN</strong>
+					</button>
+					<br>
+		             <br>
+		             	<div style="margin:0 auto;">
+							<a class="nav-link" id="email" href="perfilUsuario.html" style="color: #FFFFFF; text-transform: capitalize;"></a>
+							<script>			
+								$(document).ready(function() {		
+									var email= localStorage.getItem("mail");
+									document.getElementById('email').innerHTML= email;
+								});				
+							</script> 
+						</div>
+				</div>
+            </div>     		
+>>>>>>> branch 'master' of https://github.com/luiscoro/cdolmedo-frontend.git
 		</div>
-		</div>
-        </div> <!-- Fin Cabecera -->
-        
-                <div class="barramenu"> <!-- Barra de menú -->
+        </div> <!-- Fin Cabecera  
+		--> 
+          <div class="barramenu"> <!-- Barra de menú -->
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">INICIO</a>
@@ -101,12 +120,16 @@
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ingresarServicio.html">NUEVO</a>
 				          <a class="dropdown-item" href="listarServicios.html">LISTAR SERVICIOS</a>
-				         <!--  <div class="dropdown-divider"></div>
-				          <a class="dropdown-item" href="#">Something else here</a> -->
 				        </div>
 				      </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SOCIO</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          SOCIO
+				        </a>
+				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="listarComprobantes.html">APROBAR SOLICITUD</a>
+							<a class="dropdown-item" href="listarSocios.html">LISTADO SOCIOS</a>
+						</div>
                 </li>
                 <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -124,7 +147,6 @@
 				        <div class="dropdown-menu" style="background: #2930A6;" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ingresarintegrante.html">NUEVO</a>
 				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
-				          <a class="dropdown-item" href="listarJugadores.html">LISTAR JUGADORES</a>
 				        </div>
 				      </li>    
             </ul>  
@@ -137,7 +159,6 @@
         </button>
         <div class="overlay">
 			<h2>PERFIL DE USUARIO</h2>
-			
 			    <div class="container my-2">
 			        <div class="card-transparent">
 			            <div class="card-body rounded"  style="background-color: rgba(0, 0, 0, 0.4); ">

@@ -82,13 +82,9 @@ $(document).ready(function () {
 		var valor = $('#valor').val();
 		var descuento = $('#descuento').val();
 		var estado = $('#estado').val();
+		var canjear = $('#canjear').val();
 
-		console.log(tiposervicio);
-		console.log(nombreservicio);
-		console.log(detalle);
-		console.log(valor);
-		console.log(descuento);
-
+		//console.log(tiposervicio);
 
 		var img = $('input[name="file"]').get(0).files[0];
 		console.log(img)
@@ -98,7 +94,7 @@ $(document).ready(function () {
 		formData.append('img', img);
 		var objArr = [];
 
-		objArr.push({ "nombre": nombreservicio, "detalle": detalle, "valor": valor, "estado": estado, "descuento": descuento, "idTipoServicio": tiposervicio});
+		objArr.push({ "nombre": nombreservicio, "detalle": detalle, "valor": valor, "estado": estado, "descuento": descuento, "canjeo": canjear, "idTipoServicio": tiposervicio});
 		console.log(objArr);
 
 		formData.append('servicio', JSON.stringify(objArr));
